@@ -179,7 +179,7 @@ longest_flight: dict[str, Any] | None = None
 
 
 
-for s in states[:10]:
+for s in states:
     if len(s) < 14:
         continue
     

@@ -1,0 +1,32 @@
+name: Bear Flights Ingest
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"   # Trigger every 5 minutes
+  workflow_dispatch:        # manual trigger
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run OpenSky ingest
+        env:
+          OPENSKY_CLIENT_ID: ${{ secrets.OPENSKY_CLIENT_ID }}
+          OPENSKY_CLIENT_SECRET: ${{ secrets.OPENSKY_CLIENT_SECRET }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          python scripts/ingest_opensky.py
