@@ -2,8 +2,8 @@ name: Bear Flights Ingest
 
 on:
   schedule:
-    - cron: "*/5 * * * *"   # Trigger every 5 minutes
-  workflow_dispatch:        # manual trigger
+    - cron: "*/5 * * * *"   # Github trigger every 5 minutes
+  workflow_dispatch:        # Trigger manually
 
 jobs:
   ingest:
