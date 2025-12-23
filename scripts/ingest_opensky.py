@@ -53,6 +53,12 @@ RADIUS_KM = 50.0
 EARTH_RADIUS_KM = 6371.0
 
 
+FUN_FACTS = {
+    "Germany": "Germany has one of the largest aviation networks in Europe.",
+    "United Kingdom": "London is served by six major airports.",
+    "Norway": "Norway operates one of the world's shortest commercial runways.",
+}
+
 
 State = List[Any]
 
@@ -160,11 +166,18 @@ if not states:
 now = datetime.now(timezone.utc).isoformat()
 today = datetime.now(timezone.utc).date().isoformat()
 
+
 rows: list[dict[str, Any]] = []
 
 
 nearest_distance: float | None = None
 nearest_flight: dict[str, Any] | None = None
+
+
+longest_distance: float | None = None
+longest_flight: dict[str, Any] | None = None
+
+
 
 for s in states[:10]:
     if len(s) < 14:
@@ -193,16 +206,25 @@ for s in states[:10]:
     
     callsign = s[1]
     
-    
+    # Nearest Flight Tracking
     if nearest_distance is None or distance_km < nearest_distance:
         nearest_distance = distance_km
         nearest_flight = {
             "icao24": s[0],
             "callsign": callsign.strip() if isinstance(callsign, str) else None,
             "origin": s[2],
+            "distance_km": round(distance_km, 2),            
+        }
+        
+    # Longest Flight Tracking    
+    if longest_distance is None or distance_km > longest_distance:
+        longest_distance = distance_km
+        longest_flight = {
+            "icao24": s[0],
+            "callsign": callsign.strip() if isinstance(callsign, str) else None,
+            "origin": s[2],
             "distance_km": round(distance_km, 2),
-            "latitude": lat,
-            "longitude": lon,
+            
         }
 
     rows.append({
@@ -214,31 +236,44 @@ for s in states[:10]:
         "last_seen": now,
         "max_altitude": s[13],
         "max_speed": s[9],
-        "distance_over_area": None,
+        "distance_over_area": round(distance_km, 2),
         "observations": 1,
     })
 
-
-
-# CONFIRM NEAREST FLIGHT
-if nearest_flight:
-    print(
-        "The flight nearest today is:",
-        nearest_flight["callsign"],
-        f"({nearest_flight['icao24']})",
-        "-",
-        nearest_flight["distance_km"],
-        "km away",
-    )
-else:
-    print("Every plane escaped the radius today")
     
-    
-# CONFIRM SHIPPING ROWS TO SUPABASE    
+# Writing Data To Supabase    
 if rows:
     supabase.table("flights").upsert(
     rows,
     on_conflict="icao24,date",
     ).execute()
 
+
+
+# Daily Summary Of Flights
+if nearest_flight and longest_flight:
+    country = longest_flight["origin"]
+    fun_fact = FUN_FACTS.get(
+        country,
+        "Air Traffic connects cities all over the world every day, month & year."
+    )
+    
+    supabase.table("daily_flights").upsert(
+        {
+            "date": today,
+            "closest_icao24": nearest_flight["icao24"],
+            "closest_callsign": nearest_flight["callsign"],
+            "closest_distance_km": nearest_flight["distance_km"],
+            "longest_icao24": longest_flight["icao24"],
+            "longest_callsign": longest_flight["callsign"],
+            "longest_distance_km": longest_flight["distance_km"],
+            "origin_country": country,
+            "fun_fact": fun_fact,
+            "total_flights": len(rows),
+        },
+        on_conflict="date",
+    ).execute()
+    
+    
+# CONFIRM SHIPPING ROWS TO SUPABASE    
 print("FINITO 🚀")
