@@ -44,6 +44,9 @@ OAUTH_TOKEN_URL = (
 STATES_URL = "https://opensky-network.org/api/states/all"
 
 
+FLIGHTS_BY_AIRCRAFT_URL = "https://opensky-network.org/api/flights/aircraft"
+
+
 
 # GEO FILTER AROUND SYKKYLVEN
 CENTER_LAT = 62.392497
@@ -91,6 +94,25 @@ def haversine_km(
     
     return EARTH_RADIUS_KM * c
 
+
+# Defined Countries, will add more
+def airport_to_country(icao: str | None) -> str | None:
+    if not icao:
+        return None
+
+    if icao.startswith("EN"):
+        return "Norway"
+    if icao.startswith("ED"):
+        return "Germany"
+    if icao.startswith("LF"):
+        return "France"
+    if icao.startswith("EG"):
+        return "United Kingdom"
+    if icao.startswith("EH"):
+        return "Netherlands"
+    
+    return "Unknown"
+    
 
 
 # AUTH FROM OPENSKY
@@ -148,6 +170,56 @@ def fetch_states(token: str) -> list[State]:
 
     return cast(list[State], raw_states)
 
+
+# Departure airport defined
+def fetch_departure_country(
+    token: str,
+    icao24: str,
+    begin: int,
+    end: int,
+) -> str | None:
+    
+    res = requests.get(
+        FLIGHTS_BY_AIRCRAFT_URL,
+        headers={
+            "Authorization": f"Bearer {token}",
+        },
+        params={
+            "icao24": icao24,
+            "begin": begin,
+            "end": end,   
+        },
+        timeout=20,
+    )
+    
+    
+    if res.status_code != 200:
+        return None
+    
+    
+    raw_any = res.json()
+    
+    if not isinstance(raw_any, list) or not raw_any:
+        return None
+    
+    raw = cast (list[Any], raw_any)
+    
+    flights: list[dict[str, Any]] = [
+        f for f in raw if isinstance(f, dict)
+    ]
+    
+    if not flights:
+        return None
+    
+    last_flight = flights[-1]
+    
+    
+    dep_airport = last_flight.get("estDepartureAirport")
+    
+    if not isinstance(dep_airport, str):
+        return None
+    
+    return airport_to_country(dep_airport)
 
 
 # RUN SCRIPT
@@ -247,6 +319,34 @@ if rows:
     rows,
     on_conflict="icao24,date",
     ).execute()
+    
+    
+    
+print("Enriching departure countries...")
+
+
+end_ts = int(datetime.now(timezone.utc).timestamp())
+begin_ts = end_ts - 12 * 60 * 60
+
+
+unique_icao24s = {row["icao24"] for row in rows}
+
+
+for icao24 in unique_icao24s:
+    dep_country = fetch_departure_country(
+        token,
+        icao24,
+        begin_ts,
+        end_ts,
+    )
+    
+    if not dep_country:
+        continue
+    
+    
+    supabase.table("flights").update(
+        {"departure_country": dep_country}
+    ).eq("icao24", icao24).eq("date", today).execute()
 
 
 
