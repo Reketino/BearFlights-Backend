@@ -95,7 +95,7 @@ def haversine_km(
     return EARTH_RADIUS_KM * c
 
 
-# Defined Countries, will add more
+# DEFINED DEPARTURE COUNTRIES
 def airport_to_country(icao: str | None) -> str | None:
     if not icao:
         return None
@@ -171,7 +171,8 @@ def fetch_states(token: str) -> list[State]:
     return cast(list[State], raw_states)
 
 
-# Departure airport defined
+
+# COLLECTING DEPARTURE COUNTRY FOR TABLE
 def fetch_departure_country(
     token: str,
     icao24: str,
