@@ -84,7 +84,7 @@ def haversine_km(
         math.sin(dlat / 2) ** 2
         + math.cos(lat1_rad)
         * math.cos(lat2_rad)
-        *math.sin(dlon / 2) ** 2
+        * math.sin(dlon / 2) ** 2
     )
     
     c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
