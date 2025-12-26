@@ -241,6 +241,7 @@ today = datetime.now(timezone.utc).date().isoformat()
 
 
 rows: list[dict[str, Any]] = []
+position_rows: list[dict[str, Any]] = []
 
 
 nearest_distance: float | None = None
@@ -296,10 +297,12 @@ for s in states:
             "icao24": s[0],
             "callsign": callsign.strip() if isinstance(callsign, str) else None,
             "origin": s[2],
-            "distance_km": round(distance_km, 2),
-            
+            "distance_km": round(distance_km, 2),   
         }
-
+        
+        
+        
+    # FLIGHT HISTORY
     rows.append({
         "date": today,
         "icao24": s[0],
@@ -312,6 +315,20 @@ for s in states:
         "distance_over_area": round(distance_km, 2),
         "observations": 1,
     })
+    
+    
+    
+    # DATA FOR MAP TABLE
+    position_rows.append({
+        "icao24": s[0],
+        "callsign": callsign.strip() if isinstance(callsign, str) else None,
+        "latitude": float(lat),
+        "longitude": float(lon),
+        "altitude": s[7],
+        "velocity": s[9],
+        "last_seen": now,
+    })
+
 
     
 # Writing Data To Supabase    
@@ -319,6 +336,15 @@ if rows:
     supabase.table("flights").upsert(
     rows,
     on_conflict="icao24,date",
+    ).execute()
+    
+
+    
+# WRITING DATA TO FLIGHT POSITION TABLE    
+if position_rows:
+    supabase.table("flight_positions"). upsert(
+        position_rows,
+        on_conflict="icao24",
     ).execute()
     
     
