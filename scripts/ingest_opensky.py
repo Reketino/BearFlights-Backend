@@ -377,25 +377,34 @@ for icao24 in unique_icao24s:
 
 
 
-# Daily Summary Of Flights
-if nearest_flight and longest_flight:
-    country = longest_flight["origin"]
-    fun_fact = FUN_FACTS.get(
-        country,
-        "Air Traffic connects cities all over the world every day, month & year."
-    )
-    
+# Daily Summary Of Flights    
     supabase.table("daily_flights").upsert(
         {
             "date": today,
-            "closest_icao24": nearest_flight["icao24"],
-            "closest_callsign": nearest_flight["callsign"],
-            "closest_distance_km": nearest_flight["distance_km"],
-            "longest_icao24": longest_flight["icao24"],
-            "longest_callsign": longest_flight["callsign"],
-            "longest_distance_km": longest_flight["distance_km"],
-            "origin_country": country,
-            "fun_fact": fun_fact,
+            
+            
+            "closest_icao24": nearest_flight["icao24"] if nearest_flight else None,
+            "closest_callsign": nearest_flight["callsign"] if nearest_flight else None,
+            "closest_distance_km": nearest_flight["distance_km"] if nearest_flight else None,
+            
+            
+            "longest_icao24": longest_flight["icao24"] if longest_flight else None,
+            "longest_callsign": longest_flight["callsign"] if longest_flight else None,
+            "longest_distance_km": longest_flight["distance_km"] if longest_flight else None,
+            
+            
+            "origin_country": longest_flight["origin"]if longest_flight else None,
+            
+            "fun_fact": ( 
+                FUN_FACTS.get(
+                    longest_flight["origin"],
+                    "No Flights detected in Sykkylven Today."
+                )                
+             
+                if longest_flight 
+                else "No flights detected in Sykkylven Today."
+            ),
+        
             "total_flights": len(rows),
         },
         on_conflict="date",
