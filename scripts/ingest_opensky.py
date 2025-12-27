@@ -393,7 +393,7 @@ for icao24 in unique_icao24s:
             "longest_distance_km": longest_flight["distance_km"] if longest_flight else None,
             
             
-            "origin_country": longest_flight["country"]if longest_flight else None,
+            "origin_country": longest_flight["origin"]if longest_flight else None,
             
             "fun_fact": ( 
                 FUN_FACTS.get(
