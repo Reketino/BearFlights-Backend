@@ -367,6 +367,7 @@ for icao24 in unique_icao24s:
         end_ts,
     )
     
+    
     if not dep_country:
         continue
     
@@ -378,45 +379,45 @@ for icao24 in unique_icao24s:
 
 
 # DEBUGGING FOR DAILY FLIGHTS 
-    print("DAILY DEBUG")
-    print("rows:", len (rows))
-    print("nearest:", nearest_flight)
-    print("longest:", longest_flight)
+print("DAILY DEBUG")
+print("rows:", len (rows))
+print("nearest:", nearest_flight)
+print("longest:", longest_flight)
 
 
 # Daily Summary Of Flights    
-    supabase.table("daily_flights").upsert(
-        {
-            "date": today,
+supabase.table("daily_flights").upsert(
+    {
+        "date": today,
             
             
-            "closest_icao24": nearest_flight["icao24"] if nearest_flight else None,
-            "closest_callsign": nearest_flight["callsign"] if nearest_flight else None,
-            "closest_distance_km": nearest_flight["distance_km"] if nearest_flight else None,
+        "closest_icao24": nearest_flight["icao24"] if nearest_flight else None,
+        "closest_callsign": nearest_flight["callsign"] if nearest_flight else None,
+        "closest_distance_km": nearest_flight["distance_km"] if nearest_flight else None,
             
             
-            "longest_icao24": longest_flight["icao24"] if longest_flight else None,
-            "longest_callsign": longest_flight["callsign"] if longest_flight else None,
-            "longest_distance_km": longest_flight["distance_km"] if longest_flight else None,
+        "longest_icao24": longest_flight["icao24"] if longest_flight else None,
+        "longest_callsign": longest_flight["callsign"] if longest_flight else None,
+        "longest_distance_km": longest_flight["distance_km"] if longest_flight else None,
             
             
-            "origin_country": longest_flight["origin"]if longest_flight else None,
+        "origin_country": longest_flight["origin"] if longest_flight else None,
             
-            "fun_fact": ( 
-                FUN_FACTS.get(
-                    longest_flight["origin"],
-                    "No Flights detected in Sykkylven Today."
-                )                
+        "fun_fact": ( 
+            FUN_FACTS.get(
+                longest_flight["origin"],
+                "No Flights detected in Sykkylven Today."
+            )                
              
-                if longest_flight 
-                else "No flights detected in Sykkylven Today."
-            ),
+            if longest_flight 
+            else "No flights detected in Sykkylven Today."
+        ),
         
-            "total_flights": len(rows),
-        },
-        on_conflict="date",
-    ).execute()
+        "total_flights": len(rows),
+    },
+    on_conflict="date",
+).execute()
     
     
-# CONFIRM SHIPPING ROWS TO SUPABASE    
+# CONFIRM SCRIPT IS WORKING  
 print("FINITO 🚀")
