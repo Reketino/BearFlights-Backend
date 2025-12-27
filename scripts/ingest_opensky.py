@@ -377,6 +377,13 @@ for icao24 in unique_icao24s:
 
 
 
+# DEBUGGING FOR DAILY FLIGHTS 
+    print("DAILY DEBUG")
+    print("rows:", len (rows))
+    print("nearest:", nearest_flight)
+    print("longest:", longest_flight)
+
+
 # Daily Summary Of Flights    
     supabase.table("daily_flights").upsert(
         {
