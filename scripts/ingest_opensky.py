@@ -5,7 +5,7 @@ load_dotenv()
 
 import os
 import math
-from typing import Any, List, cast
+from typing import Any, List, TypedDict, cast
 from datetime import datetime, timezone
 
 import requests
@@ -166,13 +166,20 @@ def fetch_states(token: str) -> list[State]:
 
 
 
-# COLLECTING DEPARTURE COUNTRY FOR TABLE
-def fetch_departure_country(
+
+class OpenSkyFlight(TypedDict, total=False):
+    estDepartureAirport: str | None
+    estArrivalAirport: str | None
+
+
+
+# COLLECTING FLIGHT ROUTE
+def fetch_flight_route(
     token: str,
     icao24: str,
     begin: int,
     end: int,
-) -> str | None:
+) -> tuple[str | None, str | None]:
     
     res = requests.get(
         FLIGHTS_BY_AIRCRAFT_URL,
@@ -189,32 +196,40 @@ def fetch_departure_country(
     
     
     if res.status_code != 200:
-        return None
+        return None, None
     
     
     raw_any = res.json()
     
+    
     if not isinstance(raw_any, list) or not raw_any:
-        return None
+        return None, None
     
-    raw = cast (list[Any], raw_any)
     
-    flights: list[dict[str, Any]] = [
-        f for f in raw if isinstance(f, dict)
+    raw = cast(list[dict[str, Any]], raw_any)
+    
+    
+    raw_flights: list[dict[str, Any]] = raw
+    
+    
+    flights: list[OpenSkyFlight] = [
+        cast(OpenSkyFlight, f) for f in raw_flights
     ]
     
     if not flights:
-        return None
+        return None,None
     
     last_flight = flights[-1]
     
     
-    dep_airport = last_flight.get("estDepartureAirport")
+    dep = last_flight.get("estDepartureAirport")
+    arr = last_flight.get("estArrivalAirport")
     
-    if not isinstance(dep_airport, str):
-        return None
-    
-    return airport_to_country(dep_airport)
+
+    dep_airport = dep if isinstance(dep, str) else None
+    arr_airport = arr if isinstance(arr, str) else None
+   
+    return dep_airport, arr_airport
 
 
 # RUN SCRIPT
@@ -354,27 +369,37 @@ unique_icao24s = {row["icao24"] for row in rows}
 
 
 for icao24 in unique_icao24s:
-    dep_country = fetch_departure_country(
+    dep_airport, arr_airport = fetch_flight_route(
         token,
         icao24,
         begin_ts,
         end_ts,
     )
     
+    dep_country = airport_to_country(dep_airport)
+    arr_country = airport_to_country(arr_airport)
     
-    if not dep_country:
+    
+    update_data: dict[str, Any] = {}
+    
+    
+    if dep_country:
+        update_data["departure_country"] = dep_country
+        
+        
+    if arr_country:
+        update_data["arrival_country"] = arr_country
+        
+    
+    if not update_data:
         continue
     
     
-    supabase.table("flights").update(
-        {"departure_country": dep_country}
-    ).eq("icao24", icao24).eq("date", today).execute()
-
-
-
-
-
-
+    supabase.table("flights").update(update_data) \
+        .eq("icao24", icao24) \
+        .eq("date", today) \
+        .execute()
     
+  
 # CONFIRM SCRIPT IS WORKING  
 print("FINITO 🚀")
