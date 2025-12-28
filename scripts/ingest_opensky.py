@@ -56,12 +56,6 @@ RADIUS_KM = 50.0
 EARTH_RADIUS_KM = 6371.0
 
 
-FUN_FACTS = {
-    "Germany": "Germany has one of the largest aviation networks in Europe.",
-    "United Kingdom": "London is served by six major airports.",
-    "Norway": "Norway operates one of the world's shortest commercial runways.",
-}
-
 
 State = List[Any]
 
@@ -378,46 +372,9 @@ for icao24 in unique_icao24s:
 
 
 
-# DEBUGGING FOR DAILY FLIGHTS 
-print("DAILY DEBUG")
-print("rows:", len (rows))
-print("nearest:", nearest_flight)
-print("longest:", longest_flight)
 
 
-# Daily Summary Of Flights    
-supabase.table("daily_flights").upsert(
-    {
-        "date": today,
-            
-            
-        "closest_icao24": nearest_flight["icao24"] if nearest_flight else None,
-        "closest_callsign": nearest_flight["callsign"] if nearest_flight else None,
-        "closest_distance_km": nearest_flight["distance_km"] if nearest_flight else None,
-            
-            
-        "longest_icao24": longest_flight["icao24"] if longest_flight else None,
-        "longest_callsign": longest_flight["callsign"] if longest_flight else None,
-        "longest_distance_km": longest_flight["distance_km"] if longest_flight else None,
-            
-            
-        "origin_country": longest_flight["origin"] if longest_flight else None,
-            
-        "fun_fact": ( 
-            FUN_FACTS.get(
-                longest_flight["origin"],
-                "No Flights detected in Sykkylven Today."
-            )                
-             
-            if longest_flight 
-            else "No flights detected in Sykkylven Today."
-        ),
-        
-        "total_flights": len(rows),
-    },
-    on_conflict="date",
-).execute()
-    
+
     
 # CONFIRM SCRIPT IS WORKING  
 print("FINITO 🚀")
