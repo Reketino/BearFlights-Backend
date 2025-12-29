@@ -42,9 +42,11 @@ OAUTH_TOKEN_URL = (
 )
 
 STATES_URL = "https://opensky-network.org/api/states/all"
-
-
 FLIGHTS_BY_AIRCRAFT_URL = "https://opensky-network.org/api/flights/aircraft"
+
+AIRCRAFT_META_URL = (
+    "https://opensky-network.org/api/metadata/aircraft/icao"
+)
 
 
 
@@ -217,6 +219,40 @@ def fetch_departure_country(
     return airport_to_country(dep_airport)
 
 
+# COLLECTING AIRCRAFT TYPES
+def fetch_aircraft_type(
+    token: str,
+    icao24: str,
+) -> str | None:
+
+
+    res = requests.get(
+       f"{AIRCRAFT_META_URL}/{icao24}",
+       headers={
+           "Authorization": f"Bearer {token}",
+       },
+       timeout=10,
+    )
+    
+    if res.status_code != 200:
+        return None
+    
+    raw: Any = res.json()
+    
+    if not isinstance(raw, dict):
+        return None
+    
+    data = cast(dict[str, Any], raw)
+    
+    typecode = data.get("typecode")
+    
+    if not isinstance(typecode, str):
+        return None
+    
+    return typecode
+        
+
+
 # RUN SCRIPT
 print("Fetching OpenSky (OAuth2)…")
 
@@ -322,6 +358,8 @@ for s in states:
         "velocity": s[9],
         "last_seen": now,
     })
+    
+print("Rows collected:", len(rows))
 
 
     
@@ -341,18 +379,46 @@ if position_rows:
         on_conflict="icao24",
     ).execute()
     
+
+
+unique_icao24s: set[str] = {
+    row["icao24"]
+    for row in rows
+    if isinstance(row.get("icao24"), str)
+}
+
+print("Unique ICAO24s:", len(unique_icao24s))    
+
+if not unique_icao24s:
+    print("No Aircraft over Sykkylven - skipping enrichment")   
     
     
 print("Enriching departure countries...")
+print("Enriching aircraft types...")
+
+
+# Collecting aircraft type (Modell, Type etc)
+for icao24 in unique_icao24s:
+    aircraft_type = fetch_aircraft_type(
+        token,
+        icao24,
+    )
+    
+    print("Aircraft meta:", icao24, aircraft_type)
+    
+    if not aircraft_type:
+        continue
+    
+    supabase.table("flights").update(
+        {"aircraft_type": aircraft_type}
+    ).eq("icao24", icao24).eq("date", today).execute()
 
 
 end_ts = int(datetime.now(timezone.utc).timestamp())
 begin_ts = end_ts - 12 * 60 * 60
 
 
-unique_icao24s = {row["icao24"] for row in rows}
-
-
+# Collecting departure Conutry
 for icao24 in unique_icao24s:
     dep_country = fetch_departure_country(
         token,
@@ -371,10 +437,5 @@ for icao24 in unique_icao24s:
     ).eq("icao24", icao24).eq("date", today).execute()
 
 
-
-
-
-
-    
 # CONFIRM SCRIPT IS WORKING  
 print("FINITO 🚀")
