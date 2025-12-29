@@ -442,28 +442,17 @@ for icao24 in unique_icao24s:
         end_ts,
     )
     
-    dep_country = airport_to_country(dep_airport)
-    arr_country = airport_to_country(arr_airport)
+    route: str | None = None
+
+    if dep_airport and arr_airport:
+        route = f"{dep_airport}-{arr_airport}"
     
-    
-    update_data: dict[str, Any] = {}
-    
-    
-    if dep_country:
-        update_data["departure_country"] = dep_country
-        
-        
-    if arr_country:
-        update_data["arrival_country"] = arr_country
-        
-    
-    if not update_data:
+    if not route: 
         continue
-    
-    
+
     supabase.table("flights").update(
-        {"departure_country": dep_country}
-    ).eq("icao24", icao24).eq("date", today).execute()
+        {"route": route}
+    ).eq("icao24", icao24).eq("date", today).neq("route", route).execute()
 
 
 # CONFIRM SCRIPT IS WORKING  
