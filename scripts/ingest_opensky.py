@@ -363,6 +363,11 @@ for s in states:
     
     
     
+    heading = s[10] if isinstance(s[10], (int, float)) else None
+    if heading is not None:
+        print("HEADING:", s[0], round(heading))
+    
+    
     # DATA FOR MAP TABLE
     position_rows.append({
         "icao24": s[0],
@@ -371,6 +376,7 @@ for s in states:
         "longitude": float(lon),
         "altitude": s[7],
         "velocity": s[9],
+        "heading": heading,
         "last_seen": now,
     })
     
