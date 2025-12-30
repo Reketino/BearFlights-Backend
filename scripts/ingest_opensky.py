@@ -403,9 +403,9 @@ if position_rows:
 
 
 unique_icao24s: set[str] = {
-    row["icao24"]
-    for row in rows
-    if isinstance(row.get("icao24"), str)
+    s[0]
+    for s in states
+    if isinstance(s[0],str)
 }
 
 print("Unique ICAO24s:", len(unique_icao24s))    
@@ -458,7 +458,7 @@ for icao24 in unique_icao24s:
 
     supabase.table("flights").update(
         {"route": route}
-    ).eq("icao24", icao24).eq("date", today).neq("route", route).execute()
+    ).eq("icao24", icao24).eq("date", today).execute()
 
 
 # CONFIRM SCRIPT IS WORKING  
