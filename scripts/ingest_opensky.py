@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 import os
+import sys
 import math
 from typing import Any, List, TypedDict, cast
 from datetime import datetime, timezone
@@ -271,7 +272,15 @@ def fetch_aircraft_type(
 # RUN SCRIPT
 print("Fetching OpenSky (OAuth2)…")
 
-token = get_opensky_token()
+try:
+    token = get_opensky_token()
+except requests.exceptions.RequestException as e:
+    print("⚠️ Opensky failed gracefully, skipping run:", e)
+    sys.exit(0)
+except RuntimeError as e:
+    print("⚠️ Opensky auth error:", e)
+    sys.exit(0)
+    
 states = fetch_states(token)
 
 print("States:", len(states) if states else "NULL")
