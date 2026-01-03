@@ -125,7 +125,7 @@ def get_opensky_token() -> str:
             "client_id": OPENSKY_CLIENT_ID,
             "client_secret": OPENSKY_CLIENT_SECRET,
         },
-        timeout=10,
+        timeout=20,
     )
 
     if res.status_code != 200:
