@@ -14,6 +14,7 @@ from supabase import create_client
 
 
 
+
 # ENV SETUP 
 def require_env(name: str) -> str:
     value = os.getenv(name)
