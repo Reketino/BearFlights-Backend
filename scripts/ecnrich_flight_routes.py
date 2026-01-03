@@ -1,7 +1,18 @@
 from __future__ import annotations
 
+from dotenv import load_dotenv
+load_dotenv
+
 import requests
 from typing import Any, cast
+
+import os
+from datetime import datetime, timezone
+from supabase import create_client
+
+
+
+
 
 FLIGHTS_BY_AIRCRAFT_URL = "https://opensky-network.org/api/flights/aircraft"
 
