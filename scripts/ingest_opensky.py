@@ -6,7 +6,7 @@ load_dotenv()
 import os
 import sys
 import math
-from typing import Any, List, TypedDict, cast
+from typing import Any, List,  cast
 from datetime import datetime, timezone
 
 import requests
@@ -167,72 +167,6 @@ def fetch_states(token: str) -> list[State]:
 
     return cast(list[State], raw_states)
 
-
-
-
-class OpenSkyFlight(TypedDict, total=False):
-    estDepartureAirport: str | None
-    estArrivalAirport: str | None
-
-
-
-# COLLECTING FLIGHT ROUTE
-def fetch_flight_route(
-    token: str,
-    icao24: str,
-    begin: int,
-    end: int,
-) -> tuple[str | None, str | None]:
-    
-    res = requests.get(
-        FLIGHTS_BY_AIRCRAFT_URL,
-        headers={
-            "Authorization": f"Bearer {token}",
-        },
-        params={
-            "icao24": icao24,
-            "begin": begin,
-            "end": end,   
-        },
-        timeout=20,
-    )
-    
-    
-    if res.status_code != 200:
-        return None, None
-    
-    
-    raw_any = res.json()
-    
-    
-    if not isinstance(raw_any, list) or not raw_any:
-        return None, None
-    
-    
-    raw = cast(list[dict[str, Any]], raw_any)
-    
-    
-    raw_flights: list[dict[str, Any]] = raw
-    
-    
-    flights: list[OpenSkyFlight] = [
-        cast(OpenSkyFlight, f) for f in raw_flights
-    ]
-    
-    if not flights:
-        return None,None
-    
-    last_flight = flights[-1]
-    
-    
-    dep = last_flight.get("estDepartureAirport")
-    arr = last_flight.get("estArrivalAirport")
-    
-
-    dep_airport = dep if isinstance(dep, str) else None
-    arr_airport = arr if isinstance(arr, str) else None
-   
-    return dep_airport, arr_airport
 
 
 # COLLECTING AIRCRAFT TYPES
@@ -448,26 +382,7 @@ end_ts = int(datetime.now(timezone.utc).timestamp())
 begin_ts = end_ts - 12 * 60 * 60
 
 
-# Collecting departure Conutry
-for icao24 in unique_icao24s:
-    dep_airport, arr_airport = fetch_flight_route(
-        token,
-        icao24,
-        begin_ts,
-        end_ts,
-    )
-    
-    route: str | None = None
 
-    if dep_airport and arr_airport:
-        route = f"{dep_airport}-{arr_airport}"
-    
-    if not route: 
-        continue
-
-    supabase.table("flights").update(
-        {"route": route}
-    ).eq("icao24", icao24).eq("date", today).execute()
 
 
 # CONFIRM SCRIPT IS WORKING  
