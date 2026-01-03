@@ -11,10 +11,13 @@ from datetime import datetime, timezone
 from supabase import create_client
 
 
+# FLIGHT FROM OPENSKY
 
 FLIGHTS_BY_AIRCRAFT_URL = "https://opensky-network.org/api/flights/aircraft"
 
 
+
+# SUPABASE 
 
 supabase = create_client(
     os.environ["SUPABASE_URL"],
@@ -22,16 +25,21 @@ supabase = create_client(
 )
 
 
+# OAUTH TOKEN FOR OPENSKY
+
 OAUTH_TOKEN_URL = (
     "https://auth.opensky-network.org/auth/realms/"
     "opensky-network/protocol/openid-connect/token"
 )
 
+# OPENSKY ID 
 
 OPENSKY_CLIENT_ID = os.environ["OPENSKY_CLIENT_ID"]
 OPENSKY_CLIENT_SECRET = os.environ["OPENSKY_CLIENT_SECRET"]
 
 
+
+# ROUTE FETCH
 
 def fetch_flight_route(
     token: str,
@@ -81,7 +89,7 @@ def fetch_flight_route(
     )
     
    
-    
+# ENRICHING FLIGHT SUPABASE   
 
 def enrich_flights(token: str) -> None:
     res = (
@@ -133,6 +141,10 @@ def enrich_flights(token: str) -> None:
       
         
         print(f"💹 {flight['icao24']}: {dep}-{arr}")
+
+
+
+# ACCESSING OPENSKY TOKEN
          
 def get_opensky_token() -> str:
     res = requests.post(
