@@ -100,10 +100,12 @@ def enrich_flights(token: str) -> None:
         print("Zero flights to enrich🛬")
         return
     
-    
+    print(f"♻️ Enriching {len(flights)} flights...")
     
     for flight_any in flights:
         flight = cast(dict[str, Any], flight_any)
+        
+        
         observed_at = int(
             datetime
             .fromisoformat(flight["first_seen"])
@@ -120,6 +122,7 @@ def enrich_flights(token: str) -> None:
         
         
         if not dep or not arr:
+            print(f"🆘 {flight['icao24']}: route not ready yet")
             continue
         
         supabase.table("flights").update(
@@ -128,7 +131,8 @@ def enrich_flights(token: str) -> None:
          .eq("date", flight["date"]) \
          .execute()
       
-      
+        
+        print(f"💹 {flight['icao24']}: {dep}-{arr}")
          
 def get_opensky_token() -> str:
     res = requests.post(
@@ -163,6 +167,7 @@ if __name__ == "__main__":
     token = get_opensky_token()
     enrich_flights(token)   
       
+
 
 
 
