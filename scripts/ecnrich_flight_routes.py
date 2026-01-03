@@ -71,23 +71,34 @@ def fetch_flight_route(
         return None, None
     
     
-    data = res.json()
-    
-    if not isinstance(data, list) or not data:
+    raw = res.json()
+    if not isinstance(raw, list) or not raw:
         return None, None
     
     
-    last_flight: dict[str, Any] = cast(dict[str, Any], data[-1])
+    data = cast(list[dict[str, Any]], raw)
     
-       
-    dep = cast(str | None, last_flight.get("estDepartureAirport", None))
-    arr = cast(str | None, last_flight.get("estArrivalAirport", None))
+    for flight in data: 
+        first_seen = flight.get("firstSeen")
+        last_seen = flight.get("lastSeen")
+        
+        
+        if not isinstance(first_seen, int) or not isinstance(last_seen, int):
+            continue
+        
+        
+        if first_seen <= observed_at <= last_seen:
+            dep = flight.get("estDepartureAirport")
+            arr = flight.get("estArrivalAirport")
+            
+            
+            return (
+                dep if isinstance(dep, str) else None,
+                arr if isinstance(arr, str) else None,
+            )
     
-    return (
-        dep if isinstance(dep, str) else None,
-        arr if isinstance(arr, str) else None,
-    )
-    
+    return None, None
+            
    
 # ENRICHING FLIGHT SUPABASE   
 
