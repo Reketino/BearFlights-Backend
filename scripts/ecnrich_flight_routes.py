@@ -11,8 +11,8 @@ from datetime import datetime, timezone
 from supabase import create_client
 
 
-FLIGHTS_BY_AIRCRAFT_URL = "https://opensky-network.org/api/flights/aircraft"
 
+FLIGHTS_BY_AIRCRAFT_URL = "https://opensky-network.org/api/flights/aircraft"
 
 
 
@@ -21,6 +21,15 @@ supabase = create_client(
     os.environ["SUPABASE_SERVICE_ROLE_KEY"],
 )
 
+
+OAUTH_TOKEN_URL = (
+    "https://auth.opensky-network.org/auth/realms/"
+    "opensky-network/protocol/openid-connect/token"
+)
+
+
+OPENSKY_CLIENT_ID = os.environ["OPENSKY_CLIENT_ID"]
+OPENSKY_CLIENT_SECRET = os.environ["OPENSKY_CLIENT_SECRET"]
 
 
 
@@ -71,7 +80,7 @@ def fetch_flight_route(
         arr if isinstance(arr, str) else None,
     )
     
-    return dep, arr
+   
     
 
 def enrich_flights(token: str) -> None:
@@ -117,15 +126,42 @@ def enrich_flights(token: str) -> None:
             {"route": f"{dep}-{arr}"}
         ).eq("icao24", flight["icao24"]) \
          .eq("date", flight["date"]) \
-         . execute()
+         .execute()
+      
+      
          
-         
+def get_opensky_token() -> str:
+    res = requests.post(
+        OAUTH_TOKEN_URL,
+        headers={
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+        data={
+            "grant_type": "client_credentials",
+            "client_id": OPENSKY_CLIENT_ID,
+            "client_secret": OPENSKY_CLIENT_SECRET,
+        },
+        timeout=20,
+    )
+
+    if res.status_code != 200:
+        raise RuntimeError("OAuth failed")
+
+    data = res.json()
+
+    if "access_token" not in data:
+        raise RuntimeError("Missing access_token in response")
+
+    token = data["access_token"]
+
+    if not isinstance(token, str):
+        raise RuntimeError("access_token is not a string")
+
+    return token         
          
 if __name__ == "__main__":
-    from opensky_auth import get_opensky_token
-    
     token = get_opensky_token()
-    enrich_flights   
+    enrich_flights(token)   
       
 
 
