@@ -201,7 +201,48 @@ def fetch_aircraft_type(
         return None
     
     return typecode
-        
+
+
+# Collecting departure airport data
+def fetch_departure_airport(
+    token: str,
+    icao24: str,
+    begin: int,
+    end: int,
+) -> str | None:
+    res = requests.get(
+        FLIGHTS_BY_AIRCRAFT_URL,
+        headers={
+            "Authorization": f"Bearer {token}",
+        },
+        params={
+            "icao24": icao24,
+            "begin": begin,
+            "end": end,
+        },
+        timeout=15,
+    )
+    
+    if res.status_code != 200:
+        return None
+    
+    
+    flights_raw = res.json()
+    
+    if not isinstance(flights_raw, list) or not flights_raw:
+        return None
+    
+    flights = cast(list[dict[str, Any]], flights_raw)
+    
+    flight = flights[-1]
+    
+    
+    departure = flight.get("estDepartureAirport")
+    
+    if not isinstance(departure, str):
+        return None
+    
+    return departure
 
 
 # RUN SCRIPT
