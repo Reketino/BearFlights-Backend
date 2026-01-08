@@ -201,7 +201,48 @@ def fetch_aircraft_type(
         return None
     
     return typecode
-        
+
+
+# Collecting departure airport data
+def fetch_departure_airport(
+    token: str,
+    icao24: str,
+    begin: int,
+    end: int,
+) -> str | None:
+    res = requests.get(
+        FLIGHTS_BY_AIRCRAFT_URL,
+        headers={
+            "Authorization": f"Bearer {token}",
+        },
+        params={
+            "icao24": icao24,
+            "begin": begin,
+            "end": end,
+        },
+        timeout=15,
+    )
+    
+    if res.status_code != 200:
+        return None
+    
+    
+    flights_raw = res.json()
+    
+    if not isinstance(flights_raw, list) or not flights_raw:
+        return None
+    
+    flights = cast(list[dict[str, Any]], flights_raw)
+    
+    flight = flights[-1]
+    
+    
+    departure = flight.get("estDepartureAirport")
+    
+    if not isinstance(departure, str):
+        return None
+    
+    return departure
 
 
 # RUN SCRIPT
@@ -225,6 +266,11 @@ if not states:
     raise SystemExit("We have received zero data")
 
 
+end_ts = int(datetime.now(timezone.utc).timestamp())
+begin_ts = end_ts - 12 * 60 * 60
+
+
+
 now = datetime.now(timezone.utc).isoformat()
 today = datetime.now(timezone.utc).date().isoformat()
 
@@ -240,7 +286,7 @@ nearest_flight: dict[str, Any] | None = None
 longest_distance: float | None = None
 longest_flight: dict[str, Any] | None = None
 
-
+departure_cache: dict[str, str | None] = {}
 
 for s in states:
     if len(s) < 14:
@@ -378,9 +424,6 @@ for icao24 in unique_icao24s:
         {"aircraft_type": aircraft_type}
     ).eq("icao24", icao24).eq("date", today).execute()
 
-
-end_ts = int(datetime.now(timezone.utc).timestamp())
-begin_ts = end_ts - 12 * 60 * 60
 
 
 
