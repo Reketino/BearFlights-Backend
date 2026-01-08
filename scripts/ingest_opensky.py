@@ -266,6 +266,11 @@ if not states:
     raise SystemExit("We have received zero data")
 
 
+end_ts = int(datetime.now(timezone.utc).timestamp())
+begin_ts = end_ts - 12 * 60 * 60
+
+
+
 now = datetime.now(timezone.utc).isoformat()
 today = datetime.now(timezone.utc).date().isoformat()
 
@@ -281,7 +286,7 @@ nearest_flight: dict[str, Any] | None = None
 longest_distance: float | None = None
 longest_flight: dict[str, Any] | None = None
 
-
+departure_cache: dict[str, str | None] = {}
 
 for s in states:
     if len(s) < 14:
@@ -419,9 +424,6 @@ for icao24 in unique_icao24s:
         {"aircraft_type": aircraft_type}
     ).eq("icao24", icao24).eq("date", today).execute()
 
-
-end_ts = int(datetime.now(timezone.utc).timestamp())
-begin_ts = end_ts - 12 * 60 * 60
 
 
 
