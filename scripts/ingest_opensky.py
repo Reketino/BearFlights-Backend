@@ -326,7 +326,7 @@ for s in states:
         nearest_flight = {
             "icao24": s[0],
             "callsign": callsign.strip() if isinstance(callsign, str) else None,
-            "origin": s[2],
+            "origin_country": s[2],
             "distance_km": round(distance_km, 2),            
         }
         
@@ -336,10 +336,21 @@ for s in states:
         longest_flight = {
             "icao24": s[0],
             "callsign": callsign.strip() if isinstance(callsign, str) else None,
-            "origin": s[2],
+            "origin_country": s[2],
             "distance_km": round(distance_km, 2),   
         }
+       
+       
+    if icao24 not in departure_cache:
+        departure_cache[icao24] = fetch_departure_airport(
+            token,
+            icao24,
+            begin_ts,
+            end_ts,
+        )
         
+    departure_airport = departure_cache[icao24]
+             
         
         
     # FLIGHT HISTORY
@@ -347,7 +358,7 @@ for s in states:
         "date": today,
         "icao24": s[0],
         "callsign": callsign.strip() if isinstance(callsign, str) else None,
-        "origin": s[2],
+        "origin_country": s[2],
         "first_seen": now,
         "last_seen": now,
         "max_altitude": s[13],
@@ -372,6 +383,7 @@ for s in states:
         "altitude": s[7],
         "velocity": s[9],
         "heading": heading,
+        "departure_airport": departure_airport,
         "last_seen": now,
     })
     
@@ -395,7 +407,6 @@ if position_rows:
         on_conflict="icao24",
     ).execute()
     
-
 
 unique_icao24s: set[str] = {
     s[0]
