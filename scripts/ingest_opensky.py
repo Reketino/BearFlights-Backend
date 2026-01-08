@@ -293,6 +293,11 @@ for s in states:
         continue
     
     
+    icao24 = s[0]
+    if not isinstance(icao24, str):
+        continue
+    
+    
     lon = s[5]
     lat = s[6]
     
