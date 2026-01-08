@@ -371,7 +371,7 @@ for s in states:
     
     heading = s[10] if isinstance(s[10], (int, float)) else None
     if heading is not None:
-        print("HEADING:", s[0], round(heading))
+        print("HEADING:", icao24, round(heading))
     
     
     # DATA FOR MAP TABLE
@@ -439,10 +439,6 @@ for icao24 in unique_icao24s:
     supabase.table("flights").update(
         {"aircraft_type": aircraft_type}
     ).eq("icao24", icao24).eq("date", today).execute()
-
-
-
-
 
 
 # CONFIRM SCRIPT IS WORKING  
