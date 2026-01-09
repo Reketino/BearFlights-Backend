@@ -288,6 +288,10 @@ longest_flight: dict[str, Any] | None = None
 
 departure_cache: dict[str, str | None] = {}
 
+departure_hits = 0
+departure_misses = 0
+
+
 for s in states:
     if len(s) < 14:
         continue
@@ -350,7 +354,13 @@ for s in states:
         )
         
     departure_airport = departure_cache[icao24]
-             
+    
+    if departure_airport:
+        departure_hits += 1
+        print(f"[DEP] {icao24}: departure = {departure_airport}")
+    else:
+        departure_misses += 1
+        print(f"[dep] {icao24}: no dep airport")         
         
         
     # FLIGHT HISTORY
@@ -389,6 +399,12 @@ for s in states:
     
 print("Rows collected:", len(rows))
 
+# print(
+#     f"Departure stats →"
+#     f"hits: {departure_hits},"
+#     f"misses: {departure_misses}"
+# )
+
 
     
 # Writing Data To Supabase    
@@ -409,9 +425,9 @@ if position_rows:
     
 
 unique_icao24s: set[str] = {
-    s[0]
-    for s in states
-    if isinstance(s[0],str)
+   r ["icao24"]
+   for r in rows
+   if isinstance(r.get("icao24"), str)
 }
 
 print("Unique ICAO24s:", len(unique_icao24s))    
