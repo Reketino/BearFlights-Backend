@@ -12,7 +12,10 @@ from datetime import datetime, timezone
 import requests
 from supabase import create_client
 
-
+Debug = False
+CENTER_LAT = 62.392497
+CENTER_LON = 6.578392
+RADIUS_KM = float(os.getenv("RADIUS_KM", "50"))
 
 
 # ENV SETUP 
@@ -51,18 +54,9 @@ AIRCRAFT_META_URL = (
 )
 
 
-
-# GEO FILTER AROUND SYKKYLVEN
-CENTER_LAT = 62.392497
-CENTER_LON = 6.578392
-
-RADIUS_KM = 50.0
 EARTH_RADIUS_KM = 6371.0
 
-
-
 State = List[Any]
-
 
 # GEO UTILS FOR SPECIFIC 50 KM
 def haversine_km(
@@ -112,7 +106,6 @@ def airport_to_country(icao: str | None) -> str | None:
     return "Unknown"
     
 
-
 # AUTH FROM OPENSKY
 def get_opensky_token() -> str:
     res = requests.post(
@@ -144,7 +137,6 @@ def get_opensky_token() -> str:
     return token
 
 
-
 # DATA FETCHING FROM OPENSKY
 def fetch_states(token: str) -> list[State]:
     res = requests.get(
@@ -167,7 +159,6 @@ def fetch_states(token: str) -> list[State]:
         return []
 
     return cast(list[State], raw_states)
-
 
 
 # COLLECTING AIRCRAFT TYPES
@@ -296,19 +287,15 @@ for s in states:
     if len(s) < 14:
         continue
     
-    
     icao24 = s[0]
     if not isinstance(icao24, str):
         continue
     
-    
     lon = s[5]
     lat = s[6]
     
-    
     if not isinstance(lat, (int, float)) or not isinstance(lon, (int, float)):
         continue
-    
     
     distance_km = haversine_km(
         CENTER_LAT,
@@ -317,12 +304,11 @@ for s in states:
         float(lon),
     )
     
-    
     if distance_km > RADIUS_KM:
         continue
     
-    
     callsign = s[1]
+    
     
     # Nearest Flight Tracking
     if nearest_distance is None or distance_km < nearest_distance:
@@ -333,6 +319,7 @@ for s in states:
             "origin_country": s[2],
             "distance_km": round(distance_km, 2),            
         }
+    
         
     # Longest Flight Tracking    
     if longest_distance is None or distance_km > longest_distance:
@@ -357,10 +344,12 @@ for s in states:
     
     if departure_airport:
         departure_hits += 1
-        print(f"[DEP] {icao24}: departure = {departure_airport}")
+        if Debug:
+            print(f"[DEP] {icao24}: departure = {departure_airport}")
     else:
         departure_misses += 1
-        print(f"[dep] {icao24}: no dep airport")         
+        if Debug:
+            print(f"[dep] {icao24}: no dep airport")         
         
         
     # FLIGHT HISTORY
@@ -376,8 +365,6 @@ for s in states:
         "distance_over_area": round(distance_km, 2),
         "observations": 1,
     })
-    
-    
     
     heading = s[10] if isinstance(s[10], (int, float)) else None
     if heading is not None:
@@ -399,14 +386,15 @@ for s in states:
     
 print("Rows collected:", len(rows))
 
-# print(
-#     f"Departure stats →"
-#     f"hits: {departure_hits},"
-#     f"misses: {departure_misses}"
-# )
+
+if Debug:
+    print(
+        f"Departure stats →"
+        f"hits: {departure_hits},"
+        f"misses: {departure_misses}"
+    )
 
 
-    
 # Writing Data To Supabase    
 if rows:
     supabase.table("flights").upsert(
@@ -435,9 +423,9 @@ print("Unique ICAO24s:", len(unique_icao24s))
 if not unique_icao24s:
     print("No Aircraft over Sykkylven - skipping enrichment")   
     
-    
-print("Enriching departure countries...")
-print("Enriching aircraft types...")
+if Debug:    
+    print("Enriching departure countries...")
+    print("Enriching aircraft types...")
 
 
 # Collecting aircraft type (Modell, Type etc)
@@ -455,7 +443,6 @@ for icao24 in unique_icao24s:
     supabase.table("flights").update(
         {"aircraft_type": aircraft_type}
     ).eq("icao24", icao24).eq("date", today).execute()
-
 
 # CONFIRM SCRIPT IS WORKING  
 print("FINITO 🚀")
