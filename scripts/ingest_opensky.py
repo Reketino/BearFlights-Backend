@@ -13,7 +13,7 @@ import requests
 from supabase import create_client
 
 # DEBUG
-Debug = False
+DEBUG = False
 
 # CENTER OF SYKKYLVEN
 CENTER_LAT = 62.392497
@@ -88,25 +88,6 @@ def haversine_km(
     
     return EARTH_RADIUS_KM * c
 
-
-# DEFINED DEPARTURE COUNTRIES
-def airport_to_country(icao: str | None) -> str | None:
-    if not icao:
-        return None
-
-    if icao.startswith("EN"):
-        return "Norway"
-    if icao.startswith("ED"):
-        return "Germany"
-    if icao.startswith("LF"):
-        return "France"
-    if icao.startswith("EG"):
-        return "United Kingdom"
-    if icao.startswith("EH"):
-        return "Netherlands"
-    
-    return "Unknown"
-    
 
 # AUTH FROM OPENSKY
 def get_opensky_token() -> str:
@@ -196,7 +177,7 @@ def fetch_aircraft_type(
     return typecode
 
 
-# Collecting departure airport data
+# Collecting Dep airport 
 def fetch_departure_airport(
     token: str,
     icao24: str,
@@ -346,11 +327,11 @@ for s in states:
     
     if departure_airport:
         departure_hits += 1
-        if Debug:
+        if DEBUG:
             print(f"[DEP] {icao24}: departure = {departure_airport}")
     else:
         departure_misses += 1
-        if Debug:
+        if DEBUG:
             print(f"[dep] {icao24}: no dep airport")         
         
         
@@ -369,7 +350,7 @@ for s in states:
     })
     
     heading = s[10] if isinstance(s[10], (int, float)) else None
-    if heading is not None:
+    if heading is not None and DEBUG:
         print("HEADING:", icao24, round(heading))
     
     
@@ -389,7 +370,7 @@ for s in states:
 print("Rows collected:", len(rows))
 
 
-if Debug:
+if DEBUG:
     print(
         f"Departure stats →"
         f"hits: {departure_hits},"
@@ -422,7 +403,7 @@ unique_icao24s: set[str] = {
 print("Unique ICAO24s:", len(unique_icao24s))    
 
 if unique_icao24s:
-    if Debug:
+    if DEBUG:
         print("Enriching aircraft types...")
         
     for icao24 in unique_icao24s:
