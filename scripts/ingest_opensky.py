@@ -420,4 +420,7 @@ else:
     print("No Aircraft over Sykkylven as usual - skipping enrichment")
 
 # CONFIRM SCRIPT IS WORKING  
-print("FINITO 🚀")
+print(
+    f"FINITO 🚀 | rows{len(rows)} | "
+    f"dep_hits={departure_hits} dep_miss={departure_misses}"
+    )
