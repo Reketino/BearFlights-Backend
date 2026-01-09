@@ -12,7 +12,10 @@ from datetime import datetime, timezone
 import requests
 from supabase import create_client
 
+# DEBUG
 Debug = False
+
+# CENTER OF SYKKYLVEN
 CENTER_LAT = 62.392497
 CENTER_LON = 6.578392
 RADIUS_KM = float(os.getenv("RADIUS_KM", "50"))
@@ -30,7 +33,6 @@ OPENSKY_CLIENT_ID = require_env("OPENSKY_CLIENT_ID")
 OPENSKY_CLIENT_SECRET = require_env("OPENSKY_CLIENT_SECRET")
 SUPABASE_URL = require_env("SUPABASE_URL")
 SUPABASE_SERVICE_ROLE_KEY = require_env("SUPABASE_SERVICE_ROLE_KEY")
-
 
 
 # SUPABASE CONNECTION
@@ -53,7 +55,7 @@ AIRCRAFT_META_URL = (
     "https://opensky-network.org/api/metadata/aircraft/icao"
 )
 
-
+# RADIUS OF EARTH
 EARTH_RADIUS_KM = 6371.0
 
 State = List[Any]
@@ -411,7 +413,6 @@ if position_rows:
         on_conflict="icao24",
     ).execute()
     
-
 unique_icao24s: set[str] = {
    r ["icao24"]
    for r in rows
@@ -420,29 +421,22 @@ unique_icao24s: set[str] = {
 
 print("Unique ICAO24s:", len(unique_icao24s))    
 
-if not unique_icao24s:
-    print("No Aircraft over Sykkylven - skipping enrichment")   
+if unique_icao24s:
+    if Debug:
+        print("Enriching aircraft types...")
+        
+    for icao24 in unique_icao24s:
+        aircraft_type = fetch_aircraft_type(token, icao24,)
     
-if Debug:    
-    print("Enriching departure countries...")
-    print("Enriching aircraft types...")
-
-
-# Collecting aircraft type (Modell, Type etc)
-for icao24 in unique_icao24s:
-    aircraft_type = fetch_aircraft_type(
-        token,
-        icao24,
-    )
+        if not aircraft_type:
+            continue
     
-    print("Aircraft meta:", icao24, aircraft_type)
+        supabase.table("flights").update(
+            {"aircraft_type": aircraft_type}
+        ).eq("icao24", icao24).eq("date", today).execute()
     
-    if not aircraft_type:
-        continue
-    
-    supabase.table("flights").update(
-        {"aircraft_type": aircraft_type}
-    ).eq("icao24", icao24).eq("date", today).execute()
+else: 
+    print("No Aircraft over Sykkylven as usual - skipping enrichment")
 
 # CONFIRM SCRIPT IS WORKING  
 print("FINITO 🚀")
