@@ -1,10 +1,14 @@
+import sys
+
+
+print("CWD:", __import__("os").getcwd())
+print("SYSPATH:", sys.path)
+
+
 from opensky.auth import get_opensky_token
 from opensky.api import fetch_states
 from opensky.ingest import process_states
 
-import sys
-print("CWD:", __import__("os").getcwd())
-print("SYSPATH:", sys.path)
 
 
 def main() -> None:
