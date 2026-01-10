@@ -2,8 +2,8 @@ name: Bear Flights Ingest
 
 on:
   schedule:
-    - cron: "*/5 * * * *"   # Github trigger every 5 minutes
-  workflow_dispatch:        # Trigger manually
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
 
 jobs:
   ingest:
@@ -24,6 +24,7 @@ jobs:
 
       - name: Run OpenSky ingest
         env:
+          PYTHONPATH: .
           OPENSKY_CLIENT_ID: ${{ secrets.OPENSKY_CLIENT_ID }}
           OPENSKY_CLIENT_SECRET: ${{ secrets.OPENSKY_CLIENT_SECRET }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
