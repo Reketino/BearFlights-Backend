@@ -6,5 +6,6 @@ build-backend = "setuptools.build_meta"
 name = "bearflights"
 version = "0.1.0"
 
-[tool.setuptools]
-packages = ["opensky", "scripts", "db"]
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["opensky*", "scripts*", "db*"]
