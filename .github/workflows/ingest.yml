@@ -24,7 +24,7 @@ jobs:
 
       - name: Run OpenSky ingest
         env:
-          PYTHONPATH: .
+          PYTHONPATH: ${{ github.workspace }}
           OPENSKY_CLIENT_ID: ${{ secrets.OPENSKY_CLIENT_ID }}
           OPENSKY_CLIENT_SECRET: ${{ secrets.OPENSKY_CLIENT_SECRET }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
