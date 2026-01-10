@@ -381,8 +381,8 @@ if DEBUG:
 # Writing Data To Supabase    
 if rows:
     supabase.table("flights").upsert(
-    rows,
-    on_conflict="icao24,date",
+        rows,
+        on_conflict="icao24,date",
     ).execute()
     
 
