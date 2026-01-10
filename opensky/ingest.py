@@ -2,10 +2,10 @@ from typing import Any
 from datetime import datetime, timezone
 
 # Imports from components
-from skyopen.api import fetch_departure_airport
-from skyopen.geo import haversine_km
-from skyopen.builders import build_flight_row, build_position_row
-from skyopen.config import CENTER_LAT, CENTER_LON, RADIUS_KM, DEBUG
+from opensky.api import fetch_departure_airport
+from opensky.geo import haversine_km
+from opensky.builders import build_flight_row, build_position_row
+from opensky.config import CENTER_LAT, CENTER_LON, RADIUS_KM, DEBUG
 from db.supabase import upsert_flights, upsert_positions
 
 # Defining of states w/timestamp, position & dep

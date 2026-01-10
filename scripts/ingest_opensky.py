@@ -1,7 +1,7 @@
 
-from skyopen.auth import get_opensky_token
-from skyopen.api import fetch_states
-from skyopen.ingest import process_states
+from opensky.auth import get_opensky_token
+from opensky.api import fetch_states
+from opensky.ingest import process_states
 
 
 
