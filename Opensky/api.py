@@ -1,0 +1,58 @@
+import requests
+from typing import Any, List,  cast
+
+
+State = List[Any]
+
+
+STATES_URL = "https://opensky-network.org/api/states/all"
+FLIGHTS_BY_AIRCRAFT_URL = "https://opensky-network.org/api/flights/aircraft"
+AIRCRAFT_META_URL = "https://opensky-network.org/api/metadata/aircraft/icao"
+
+
+# Collecting States
+def fetch_states(token: str) -> list[State]:
+    res = requests.get(
+        STATES_URL,
+        headers={
+            "Authorization": f"Bearer {token}",
+        },
+        timeout=20,
+    )
+    res.raise_for_status()
+    return cast(list[State], res.json().get("states", []))
+
+
+# COLLECTING AIRCRAFT TYPES
+def fetch_aircraft_type(token: str,icao24: str,) -> str | None:
+    res = requests.get(
+       f"{AIRCRAFT_META_URL}/{icao24}",
+       headers={
+           "Authorization": f"Bearer {token}",
+       },
+       timeout=10,
+    )
+    if res.status_code != 200:
+        return None
+    return res.json().get("typecode")
+
+
+# Collecting Dep airport 
+def fetch_departure_airport(token: str, icao24: str, begin: int, end: int,) -> str | None:
+    res = requests.get(
+        FLIGHTS_BY_AIRCRAFT_URL,
+        headers={"Authorization": f"Bearer {token}",},
+        params={"icao24": icao24, "begin": begin, "end": end},
+        timeout=15,
+    )  
+    if res.status_code != 200:
+        return None
+    
+    flights = res.json()
+    if not flights:
+        return None
+    
+    return flights [-1].get("estDepAirport")
+    
+    
+  
