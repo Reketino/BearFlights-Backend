@@ -1,6 +1,6 @@
 from typing import Any
 from supabase import create_client
-from opensky.config import SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
+from skyopen.config import SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
 
 
 supabase = create_client(
