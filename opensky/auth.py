@@ -21,4 +21,14 @@ def get_opensky_token() -> str:
     )
     
     res.raise_for_status()
-    return res.json()["Bears access_token"]
+    data = res.json()
+    
+    if "access_token" not in data:
+        raise RuntimeError(f"Missing access_token in response: {data}")
+    
+    token = data["access_token"]
+    
+    if not isinstance(token, str):
+        raise RuntimeError("access_token is not a string")
+    
+    return token
