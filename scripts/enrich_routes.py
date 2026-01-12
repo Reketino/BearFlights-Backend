@@ -62,6 +62,6 @@ def enrich_routes(limit: int = 50) -> None:
         
         print(f" {callsign}: {route}")
         
-        
+ # Entrypoint       
 if __name__ == "__main__":
     enrich_routes()
