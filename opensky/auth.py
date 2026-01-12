@@ -1,6 +1,7 @@
 import requests
 from .config import OPENSKY_CLIENT_ID, OPENSKY_CLIENT_SECRET
 
+
 OAUTH_TOKEN_URL = (
     "https://auth.opensky-network.org/auth/realms/"
     "opensky-network/protocol/openid-connect/token"

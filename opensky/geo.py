@@ -1,7 +1,7 @@
 import math
 from .config import EARTH_RADIUS_KM
 
-
+# Calculation of distance from Sykkylven
 def haversine_km(
     lat1: float,
     lon1: float,
