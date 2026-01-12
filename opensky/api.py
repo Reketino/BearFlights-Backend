@@ -1,10 +1,10 @@
 import requests
 from typing import Any, List,  cast
 
-
+# States defined as "any"
 State = List[Any]
 
-
+# URL for data collection
 STATES_URL = "https://opensky-network.org/api/states/all"
 FLIGHTS_BY_AIRCRAFT_URL = "https://opensky-network.org/api/flights/aircraft"
 AIRCRAFT_META_URL = "https://opensky-network.org/api/metadata/aircraft/icao"
@@ -52,7 +52,7 @@ def fetch_departure_airport(token: str, icao24: str, begin: int, end: int,) -> s
     if not flights:
         return None
     
-    return flights [-1].get("estDepAirport")
+    return flights [-1].get("estDepartureAirport")
     
     
   
