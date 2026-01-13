@@ -1,3 +1,5 @@
+
+# Callsign of airline companies defined
 ICAO_AIRLINES: dict[str, str] = {
     "SAS": "Scandinavian Airlines",
     "NOZ": "Norwegian Air Shuttle",
