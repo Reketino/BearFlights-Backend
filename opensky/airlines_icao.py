@@ -1,0 +1,15 @@
+ICAO_AIRLINES: dict[str, str] = {
+    "SAS": "Scandinavian Airlines",
+    "NOZ": "Norwegian Air Shuttle",
+    "WIF": "Widerøe",
+    "QTR": "Qatar Airways",
+    "UAE": "Emirates",
+    "THY": "Turkish Airlines",
+    "EZY": "easyJet",
+    "FIN": "Finnair",
+    "BAW": "British Airways",
+    "DLH": "Lufthansa",
+    "KLM": "KLM  Royal Dutch Airlines",
+    "AFR": "Air France",
+    "ICE": "Icelandair",
+}
