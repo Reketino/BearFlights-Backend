@@ -1,4 +1,5 @@
 import requests
+import os
 from typing import Any, List,  cast
 
 # States defined as "any"
@@ -24,17 +25,22 @@ def fetch_states(token: str) -> list[State]:
 
 
 # COLLECTING AIRCRAFT TYPES
-def fetch_aircraft_type(token: str,icao24: str,) -> str | None:
+def fetch_aircraft_type(icao24: str,) -> str | None:
     res = requests.get(
-       f"{AIRCRAFT_META_URL}/{icao24}",
-       headers={
-           "Authorization": f"Bearer {token}",
-       },
-       timeout=10,
+        f"{AIRCRAFT_META_URL}/{icao24}",
+        auth=(
+            os.environ["OPENSKY_USER"],
+            os.environ["OPENSKY_PASS"],
+        ),
+        timeout=10,
     )
-    if res.status_code != 200:
+    
+    if res.status_code!= 200:
         return None
-    return res.json().get("typecode")
+    
+    data = res.json()
+    typecode = data.get("typecode")
+    return typecode if isinstance(typecode, str) else None
 
 
 # Collecting Dep airport 
