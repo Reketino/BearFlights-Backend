@@ -17,4 +17,6 @@ ICAO_AIRLINES: dict[str, str] = {
     "BTI": "airBaltic",
     "ETD": "Ethiad Airways",
     "EIN": "Aer Linugs",
+    "RRR": "UK Royal Air Force",
+    "RYR": "Ryanair",
 }
