@@ -32,7 +32,7 @@ def enrich_aircraft_types(limit: int = 100) -> None:
     cache: dict[str, str | None] = {}
     
     for raw in flights:
-        flights = cast(dict[str, Any], raw)
+        flight = cast(dict[str, Any], raw)
         icao24 = flight.get("icao24")
         
         if not isinstance(icao24, str):
