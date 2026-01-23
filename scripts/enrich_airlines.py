@@ -5,7 +5,7 @@ load_dotenv()
 
 import os
 from supabase import create_client
-from opensky.airline import airline_from_callsign
+from opensky.airline.airline import airline_from_callsign
 
 supabase = create_client(
     os.environ["SUPABASE_URL"],
