@@ -20,7 +20,7 @@ def build_flight_row(
         "max_altitude": state[13],
         "max_speed": state[9],
         "distance_over_area": round(distance_km, 2),
-        "observations": 1,  
+        "observations": 1,
     }   
     
     
