@@ -1,4 +1,4 @@
-from opensky.airlines_icao import ICAO_AIRLINES
+from opensky.airline.airlines_icao import ICAO_AIRLINES
 
 # Airline function w/ input intake 
 def airline_from_callsign(callsign: str) -> tuple [str, str] | None:
