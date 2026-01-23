@@ -1,6 +1,9 @@
 import requests
 import os
+from dotenv import load_dotenv
 from typing import Any, List,  cast
+
+load_dotenv()
 
 # States defined as "any"
 State = List[Any]

@@ -22,6 +22,8 @@ def enrich_aircraft_types(limit: int = 100) -> None:
         .execute()
     )
     
+    print("aircraft_type enrichment is now ready for Take Off🛫")
+    
     flights = res.data or []
     if not flights:
         print("No aircraft types collected (aircraft_type)")
@@ -42,3 +44,22 @@ def enrich_aircraft_types(limit: int = 100) -> None:
             cache[icao24] = fetch_aircraft_type(icao24)
             
         aircraft_type = cache[icao24]
+        if aircraft_type is None:
+            continue
+        
+        (
+            supabase
+            .table("flights")
+            .update({"aircraft_type": aircraft_type})
+            .eq("icao24", icao24)
+            .eq("date", flight["date"])
+            .execute()
+        )
+        
+        print(f"{icao24} -> {aircraft_type}")
+        
+        
+if __name__ == "__main__":
+    enrich_aircraft_types()
+        
+        
