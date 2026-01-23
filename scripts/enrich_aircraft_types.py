@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 from supabase import create_client
 
+from opensky.auth import get_opensky_token
 from opensky.api import fetch_aircraft_type
 
 load_dotenv()
@@ -31,6 +32,8 @@ def enrich_aircraft_types(limit: int = 100) -> None:
     
     print(f"enriching {len(flights)}")
     
+    token = get_opensky_token()
+    
     cache: dict[str, str | None] = {}
     
     for raw in flights:
@@ -41,7 +44,7 @@ def enrich_aircraft_types(limit: int = 100) -> None:
             continue
         
         if icao24 not in cache:
-            cache[icao24] = fetch_aircraft_type(icao24)
+            cache[icao24] = fetch_aircraft_type(icao24, token)
             
         aircraft_type = cache[icao24]
         if aircraft_type is None:
@@ -50,9 +53,9 @@ def enrich_aircraft_types(limit: int = 100) -> None:
         (
             supabase
             .table("flights")
-            .update({"aircraft_type": aircraft_type})
-            .eq("icao24", icao24)
-            .eq("date", flight["date"])
+            .select("icao24, date")
+            .is_("aircraft_type", None)
+            .limit(limit)
             .execute()
         )
         
