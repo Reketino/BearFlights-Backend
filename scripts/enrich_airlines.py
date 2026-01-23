@@ -38,7 +38,7 @@ def enrich_airlines(limit: int = 100) -> None: # Wanna enrich more or less fligh
         
         # Return nothing if there is no callsign
         if not isinstance(callsign, str):
-            return None
+            continue
         
         
         result = airline_from_callsign(callsign)
