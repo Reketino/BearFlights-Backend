@@ -1,4 +1,4 @@
-name: Enrich Airlines
+name: Enrich All
 
 on:
   schedule:
@@ -18,9 +18,11 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - name: Run airline enrichment
+      - name: Run enrich all
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
-          python -m scripts.enrich_airlines
+          python -m scripts.enrich.enrich_all
+
+          
