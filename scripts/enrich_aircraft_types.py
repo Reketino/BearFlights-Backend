@@ -5,6 +5,7 @@ from supabase import create_client
 
 from opensky.auth import get_opensky_token
 from opensky.api import fetch_aircraft_type
+from opensky.aircraft.aircraft import aircraft_from_typecode
 
 load_dotenv()
 
@@ -50,16 +51,25 @@ def enrich_aircraft_types(limit: int = 100) -> None:
         if aircraft_type is None:
             continue
         
+        aircraft_name = aircraft_from_typecode(aircraft_type)
+        
+        update_data = {
+            "aircraft_type":  aircraft_type,
+        }
+        
+        
+        if aircraft_name:
+            update_data["aircraft_name"] = aircraft_name 
+        
         (
             supabase
             .table("flights")
-            .select("icao24, date")
-            .is_("aircraft_type", None)
-            .limit(limit)
+            .update(update_data)
+            .eq("icao24", icao24)
             .execute()
         )
         
-        print(f"{icao24} -> {aircraft_type}")
+        print(f"{icao24} -> {aircraft_type} ({aircraft_name})")
         
         
 if __name__ == "__main__":
