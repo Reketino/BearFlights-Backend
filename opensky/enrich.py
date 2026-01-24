@@ -1,7 +1,14 @@
 from typing import Any, TypedDict, cast
-from pyopensky.rest import REST  # type: ignore
 
-rest = REST()  # type: ignore
+try:
+    from pyopensky.rest import REST 
+except ImportError as e:
+    raise RuntimeError(
+        "Did you know pyopensky is required for route enrichment?."
+        "Don't forget to add it to req.txt!!"
+    ) from e
+
+rest = REST()  
 
 # RouteResponse classified as Typedict
 class RouteResponse(TypedDict, total=False):
