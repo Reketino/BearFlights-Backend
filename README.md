@@ -95,7 +95,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Getting a understanding on collecting Arrival Airport
+- Getting a understanding on collecting Arrival Airport data.
 
 ---
 
