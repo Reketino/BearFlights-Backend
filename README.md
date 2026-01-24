@@ -95,13 +95,13 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Collecting aircraft type.
-- Script for converting Aircraft type into manufacturer & model. 
+- Universal Github Cron for enrich airlines & aircraft_types
 
 ---
 
 ## 🚀 Future Ideas
 
+- Collecting Arrival Airport
 - Collecting full flight route w/vizualising frontend. 
 - Intergrate a AI to either further explain about the flights or the company.
 
