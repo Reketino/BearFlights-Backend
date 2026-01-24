@@ -6,7 +6,7 @@ The project collects live flight data from the OpenSky Network, processes and en
 
 ---
 
-## 🎯 Purpose of the Project
+## 🎯 Purpose of the Project:
 
 The goal of BearFlights was not just to “make something work”, but to deeply understand:
 
@@ -23,7 +23,7 @@ works in practice.
 
 ---
 
-## ✈️ Personal Motivation
+## ✈️ Personal Motivation:
 
 I have always found it fun to watch aircraft and wonder where they are going.  
 Over time, that curiosity turned into an interest in tracking flights and understanding the data behind them.
@@ -34,7 +34,7 @@ This made the project both technically educational and genuinely enjoyable to bu
 
 ---
 
-## 🧠 What the Project Does
+## 🧠 What the Project Does:
 
 ### Backend (Python)
 - Authenticates with the OpenSky Network using OAuth2
@@ -80,7 +80,7 @@ This significantly improved my understanding of Python, especially around:
 
 ---
 
-## 🧩 Key Learnings
+## 🧩 Key Learnings:
 
 Through this project I gained:
 
@@ -95,11 +95,11 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Universal Github Cron for enrich airlines & aircraft_types
+- Getting a understanding on collecting Arrival Airport
 
 ---
 
-## 🚀 Future Ideas
+## 🚀 Future Ideas:
 
 - Collecting Arrival Airport
 - Collecting full flight route w/vizualising frontend. 
