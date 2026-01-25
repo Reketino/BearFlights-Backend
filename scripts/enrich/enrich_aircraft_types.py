@@ -39,9 +39,11 @@ def enrich_aircraft_types(limit: int = 100) -> None:
     
     for raw in flights:
         flight = cast(dict[str, Any], raw)
-        icao24 = flight.get("icao24")
         
-        if not isinstance(icao24, str):
+        icao24 = flight.get("icao24")
+        date = flight.get("date")
+        
+        if not isinstance(icao24, str) or not date:
             continue
         
         if icao24 not in cache:
@@ -66,6 +68,7 @@ def enrich_aircraft_types(limit: int = 100) -> None:
             .table("flights")
             .update(update_data)
             .eq("icao24", icao24)
+            .eq("date", date)
             .execute()
         )
         
