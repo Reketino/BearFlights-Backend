@@ -95,7 +95,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Collecting Aircraft Types
+- Updating aircraft list
 
 ---
 
