@@ -27,6 +27,7 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
     
     "Cessna": { 
     "C25A": "Cessna 525A CJ2",
+    "C56X": "Cessna Citation Excel",
     },
     
     "De Havilland Canada": {
