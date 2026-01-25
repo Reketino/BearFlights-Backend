@@ -17,4 +17,8 @@ AIRCRAFT_TYPES: dict[str, str] = {
     
     #Embraer
     "E290": "Embraer E190-E2",
+    
+    
+    #De Havilland Canada
+    "DH8D": " De Havilland Canada",
 }
