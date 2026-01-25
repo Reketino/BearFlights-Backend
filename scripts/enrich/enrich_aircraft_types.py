@@ -18,7 +18,7 @@ def enrich_aircraft_types(limit: int = 100) -> None:
     res = (
         supabase
         .table("flights")
-        .select("icao24")
+        .select("icao24, date")
         .is_("aircraft_type", None)
         .limit(limit)
         .execute()
