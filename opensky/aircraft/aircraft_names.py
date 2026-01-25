@@ -23,6 +23,7 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
     "B39M": "Boeing 737 MAX 9",
     "B38M": "Boeing 737 MAX 8",
     "B738": "Boeing 737-800",
+    "C17": "Boeing C-17 Globemaster"
     },
     
     "Cessna": { 
