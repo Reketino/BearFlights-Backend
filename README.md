@@ -95,7 +95,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Updating aircraft list
+- Script for sorting aircrafts & airlines
 
 ---
 
