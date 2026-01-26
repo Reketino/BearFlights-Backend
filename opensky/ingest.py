@@ -30,14 +30,18 @@ def process_states(states: list[list[Any]], token: str) -> None:
             continue
     
         icao24 = s[0]
-        if not isinstance(icao24, str):
-            continue
-    
         lon = s[5]
         lat = s[6]
-        if not isinstance(lat, (int, float)) or not isinstance(lon, (int, float)):
+        
+        if (
+            not isinstance(icao24, str)        
+            or not isinstance(lat, (int, float)) 
+            or not isinstance(lon, (int, float))
+            
+        ): 
             continue
-    
+        
+        
         # Distance from set radius
         distance_km = haversine_km(
             CENTER_LAT,
@@ -51,12 +55,13 @@ def process_states(states: list[list[Any]], token: str) -> None:
     
         # Collect flight even if no icao24
         if icao24 not in departure_cache:
-            departure_cache[icao24] = fetch_departure_airport(
-                token,
-                icao24,
-                begin_ts,
-                end_ts,
-            )
+            if token:
+                    departure_cache[icao24] = (
+                    fetch_departure_airport(token, icao24, begin_ts, end_ts)
+                    )
+            else:
+                departure_cache[icao24] = None
+        
         
         # Collecting dep_airport
         departure_airport = departure_cache[icao24]
@@ -76,6 +81,7 @@ def process_states(states: list[list[Any]], token: str) -> None:
                 now=now,
                 state=s,
                 distance_km=distance_km,
+                departure_airport=departure_airport,
             )
         )
         
@@ -105,6 +111,6 @@ def process_states(states: list[list[Any]], token: str) -> None:
     # Console check        
     if DEBUG:
         print(
-            f"Finito 🚀 rows={len(rows)}"
+            f"Finito 🚀 rows={len(rows)} | "
             f"dep_hits={departure_hits} dep_miss={departure_misses}"
         )
