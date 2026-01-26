@@ -19,11 +19,13 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
     "THY": "Turkish Airlines",
     "BTI": "airBaltic",
     "EZY": "easyJet",
+    "TOM": "TUI Airways",
     },
     "Middle East": {
     "UAE": "Emirates",
     "ETD": "Etihad Airways",
-    "QTR": "Qatar Airways", 
+    "QTR": "Qatar Airways",
+    "AIC": "Air India", 
     },
     "Military / State": {
     "RRR": "UK Royal Air Force",    
