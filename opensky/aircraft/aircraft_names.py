@@ -7,6 +7,7 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
     "A332": "Airbus A330-200",
     "A321": "Airbus A321",
     "A340": "Airbus A340-200",
+    "A342": "Airbus A340-200",
     "A400": "Airbus A400",
     "A21N": "Airbus A321neo",
     "A20N": "Airbus A320neo",
@@ -28,6 +29,14 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
     "C17": "Boeing C-17 Globemaster"
     },
     
+    "Bombardier": {
+    "GL7T": "Bombardier Global 7500",
+    },
+    
+    "Beechcraft": {
+     "BE20": "Beechcraft Super King Air",   
+    },
+    
     "Cessna": { 
     "C25A": "Cessna 525A CJ2",
     "C56X": "Cessna Citation Excel",
@@ -35,6 +44,7 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
     
     "De Havilland Canada": {
     "DH8D": "De Havilland Canada DHC-8-400",
+    "DH8A": "De Havilland Canada Dash 8", 
     },
     
     "Embraer": {
