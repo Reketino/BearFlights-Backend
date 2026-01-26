@@ -113,6 +113,7 @@ Built to understand how data survives the journey from Python to pixels.
 
 ## Run Locally:
 
+- Get your API keys from https://opensky-network.org/
 - Make sure to have installed .venv 
 - Run .venv\Scripts\Activate.ps1 in Terminal
 
