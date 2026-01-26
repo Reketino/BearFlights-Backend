@@ -19,6 +19,7 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
     "Boeing": {
     "B789": "Boeing 787",
     "B77L": "Boeing 777",
+    "B77W": "Boeing 777-300ER",
     "B748": "Boeing 747-8",
     "B39M": "Boeing 737 MAX 9",
     "B38M": "Boeing 737 MAX 8",
