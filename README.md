@@ -95,7 +95,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Optimalizing script  sorting aircrafts & airlines
+- Collecting departure airport for flights table
 
 ---
 
