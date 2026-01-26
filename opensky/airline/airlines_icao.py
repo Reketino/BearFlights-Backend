@@ -9,6 +9,7 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
     "SAS": "Scandinavian Airlines",
     "WIF": "Widerøe",
     },
+    
     "Europe": {
     "EIN": "Aer Lingus",
     "AFR": "Air France",
@@ -20,14 +21,19 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
     "BTI": "airBaltic",
     "EZY": "easyJet",
     "TOM": "TUI Airways",
+    "ENT": "Enter Air",
+    "EJU": "Easyjet Europe",
     },
+    
     "Middle East": {
     "UAE": "Emirates",
     "ETD": "Etihad Airways",
     "QTR": "Qatar Airways",
     "AIC": "Air India",
     "RJA": "Royal Jordanian",
+    "HZ": "Alpha Star",
     },
+    
     "Military / State": {
     "RRR": "UK Royal Air Force",    
     } 
