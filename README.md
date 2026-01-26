@@ -109,6 +109,7 @@ Through this project I gained:
 
 Built to understand how data survives the journey from Python to pixels.
 
+---
 
 ## Run Locally:
 
