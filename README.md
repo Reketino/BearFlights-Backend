@@ -95,7 +95,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Script for sorting aircrafts & airlines
+- Optimalizing script  sorting aircrafts & airlines
 
 ---
 
@@ -125,6 +125,8 @@ Built to understand how data survives the journey from Python to pixels.
 - python -m scripts.build_daily_fligts
 ---
 - python -m scripts.enrich.enrich_all
+
+
 
 
 
