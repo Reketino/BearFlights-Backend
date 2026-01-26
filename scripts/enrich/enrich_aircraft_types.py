@@ -18,13 +18,14 @@ def enrich_aircraft_types(limit: int = 100) -> None:
     res = (
         supabase
         .table("flights")
-        .select("icao24, date")
-        .is_("aircraft_type", None)
+        .select("icao24, date, aircraft_type, aircraft_name")
+        .or_("aircraft_name.is.null,aircraft_name.eq.")
+        .order("first_seen", desc=True)
         .limit(limit)
         .execute()
     )
     
-    print("aircraft_type enrichment is now ready for Take Off🛫")
+    print(f"Found {len(res.data or [])} Flight has gone missing, can't seem to find him")
     
     flights = res.data or []
     if not flights:

@@ -119,9 +119,12 @@ Built to understand how data survives the journey from Python to pixels.
 
 ### Run Scripts:
 - python -m scripts.ingest_opensky
+---
 - python -m scripts.enrich_routes
-- python python -m scripts.build_daily_fligts
-- python -m scripts.enrich.enrich all
+---
+- python -m scripts.build_daily_fligts
+---
+- python -m scripts.enrich.enrich_all
 
 
 
