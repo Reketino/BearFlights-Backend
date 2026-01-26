@@ -110,3 +110,16 @@ Through this project I gained:
 Built to understand how data survives the journey from Python to pixels.
 
 
+## Run Locally:
+
+- Make sure to have installed .venv 
+- Run .venv\Scripts\Activate.ps1 in Terminal
+
+### Run Scripts:
+- python -m scripts.ingest_opensky
+- python -m scripts.enrich_routes
+- python python -m scripts.build_daily_fligts
+- python -m scripts.enrich.enrich all
+
+
+
