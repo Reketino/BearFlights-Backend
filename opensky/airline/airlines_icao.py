@@ -1,44 +1,45 @@
-
-# Callsign of airline companies defined
+#Callsign of airline companies defined
 AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
-    
-    "Nordic": {
-    "FIN": "Finnair",
-    "ICE": "Icelandair",
-    "NOZ": "Norwegian Air Shuttle",
-    "SAS": "Scandinavian Airlines",
-    "WIF": "Widerøe",
+
+     "Nordic": {
+        "FIN": "Finnair",
+        "ICE": "Icelandair",
+        "NOZ": "Norwegian Air Shuttle",
+        "SAS": "Scandinavian Airlines",
+        "WIF": "Widerøe",
     },
-    
-    "Europe": {
-    "EIN": "Aer Lingus",
-    "AFR": "Air France",
-    "BAW": "British Airways",
-    "KLM": "KLM Royal Dutch Airlines",
-    "DLH": "Lufthansa",
-    "RYR": "Ryanair",
-    "THY": "Turkish Airlines",
-    "BTI": "airBaltic",
-    "EZY": "easyJet",
-    "TOM": "TUI Airways",
-    "ENT": "Enter Air",
-    "EJU": "Easyjet Europe",
-    "SRN": "Sprint Air",
+
+     "Europe": {
+        "EIN": "Aer Lingus",
+        "AFR": "Air France",
+        "BAW": "British Airways",
+        "EJU": "Easyjet Europe",
+        "ENT": "Enter Air",
+        "KLM": "KLM Royal Dutch Airlines",
+        "DLH": "Lufthansa",
+        "RYR": "Ryanair",
+        "SRN": "Sprint Air",
+        "TOM": "TUI Airways",
+        "THY": "Turkish Airlines",
+        "BTI": "airBaltic",
+        "EZY": "easyJet",
     },
-    
-    "Middle East": {
-    "UAE": "Emirates",
-    "ETD": "Etihad Airways",
-    "QTR": "Qatar Airways",
-    "AIC": "Air India",
-    "RJA": "Royal Jordanian",
-    "HZ": "Alpha Star",
+
+     "Middle East": {
+        "AIC": "Air India",
+        "HZ": "Alpha Star",
+        "UAE": "Emirates",
+        "ETD": "Etihad Airways",
+        "QTR": "Qatar Airways",
+        "RJA": "Royal Jordanian",
     },
-    
-    "Military / State": {
-    "RRR": "UK Royal Air Force",    
-    } 
+
+     "Military / State": {
+        "RRR": "UK Royal Air Force",
+    },
+
 }
+
 
 ICAO_AIRLINES: dict[str, str] = {
     code: name
