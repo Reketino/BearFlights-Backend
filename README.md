@@ -95,7 +95,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Adding new aircraft to script
+- Adding new airline to script
 
 ---
 
