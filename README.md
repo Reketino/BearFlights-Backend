@@ -95,7 +95,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Collecting departure airport for flights table
+- Script for rewriting aircraft section alfabetical
 
 ---
 
