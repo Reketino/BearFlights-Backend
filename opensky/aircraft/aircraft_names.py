@@ -53,6 +53,10 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
         "E55P": "Embraer Phenom 300",
     },
 
+    "SAAB": {
+        "SF34": "Saab 340A",
+    },
+
 }
 
 AIRCRAFT_TYPES: dict[str, str] = {
