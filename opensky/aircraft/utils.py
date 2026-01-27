@@ -1,8 +1,10 @@
+from pathlib import Path
 from opensky.aircraft.aircraft_names import AIRCRAFT_TYPES
 
 def sorted_aircraft_types() -> None:
-    for key, value in sorted(AIRCRAFT_TYPES.items()):
-        print(f'"{key}": "{value}",')
+    path = Path(__file__).parent / "aircraft_names.py"
+    
+    
         
         
 if __name__ == "__main__":
