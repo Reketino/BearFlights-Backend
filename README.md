@@ -95,7 +95,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Script for rewriting airline section alfabetical
+- Adding new aircraft to script
 
 ---
 
