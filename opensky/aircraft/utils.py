@@ -12,6 +12,21 @@ def sorted_aircraft_types() -> None:
         
         for code, name in sorted(aircrafts.items(), key=lambda x: x[0]):
             lines.append(f'        "{code}": "{name}",\n')
+            
+            
+        lines.append("    },\n\n")
+        
+    lines.append("\n\n\n")
+    
+    lines.append(
+        "AIRCRAFT_TYPES: dict[str, str] = {\n"
+        "    code: name\n"
+        "    for group in AIRCRAFT_TYPES_BY_MANUFACTURER.values()\n"
+        "    for code, name in group.items()\n"
+        "}\n"
+    )
+    
+    path.write_text("".join(lines), encoding="utf-8")
         
         
 if __name__ == "__main__":
