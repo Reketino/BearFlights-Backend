@@ -23,6 +23,7 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
     "TOM": "TUI Airways",
     "ENT": "Enter Air",
     "EJU": "Easyjet Europe",
+    "SRN": "Sprint Air",
     },
     
     "Middle East": {
