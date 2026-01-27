@@ -5,7 +5,7 @@ def sorted_aircraft_types() -> None:
     path = Path(__file__).parent / "aircraft_names.py"
     
     lines: list[str] = []
-    lines.append("AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {\n}")
+    lines.append("AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {\n")
     
     for manufacturer, aircrafts in AIRCRAFT_TYPES_BY_MANUFACTURER.items():
         lines.append(f'    "{manufacturer}": {{\n')
