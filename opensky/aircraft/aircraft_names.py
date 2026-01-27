@@ -1,6 +1,5 @@
 
 AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
-    
     "Airbus": {
     "A388": "Airbus A380-800",
     "A320": "Airbus A320",

@@ -16,7 +16,7 @@ def sorted_aircraft_types() -> None:
             
         lines.append("    },\n\n")
         
-    lines.append("\n\n\n")
+    lines.append("}\n\n")
     
     lines.append(
         "AIRCRAFT_TYPES: dict[str, str] = {\n"
