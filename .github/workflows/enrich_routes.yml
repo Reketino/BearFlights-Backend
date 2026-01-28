@@ -1,8 +1,6 @@
 name: Bear Flights – Route Enrichment
 
-on:
-  schedule:
-    - cron: "0 3 * * *"   # once a day every day
+on:   # once a day every day
   workflow_dispatch: # Run manually
 
 jobs:
