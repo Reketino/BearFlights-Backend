@@ -3,7 +3,7 @@ import os
 from dotenv  import load_dotenv
 from supabase import create_client
 
-from opensky.airports.airport import resvolve_airport_name
+from opensky.airports.airport import resolve_airport_name
 
 load_dotenv()
 
@@ -27,7 +27,7 @@ def enrich_airports(limit: int = 100) -> None:
         .execute()
     )
     
-    flight = res.data or []
+    flights = res.data or []
     if not flights:
         print("Huston we can't find any flights to enrich")
         
@@ -39,8 +39,8 @@ def enrich_airports(limit: int = 100) -> None:
         dep_icao = flight.get("departure_airport")
         arr_icao = flight.get("arrival_airport")
         
-        dep_name = resvolve_airport_name(dep_icao)
-        arr_name = resvolve_airport_name(arr_icao)
+        dep_name = resolve_airport_name(dep_icao)
+        arr_name = resolve_airport_name(arr_icao)
         
         if not dep_name and not arr_name:
             continue
