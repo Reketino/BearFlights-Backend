@@ -59,7 +59,8 @@ def fetch_departure_airport(token: str, icao24: str, begin: int, end: int,) -> s
     if not flights:
         return None
     
-    return flights [-1].get("estDepartureAirport")
+    departure = flights [-1].get("estDepartureAirport")
+    return departure if isinstance(departure, str) else None
     
   #Collecting Arr airport  
 def fetch_arrival_airport(token: str,icao24: str, begin: int,end: int,) -> str | None:
@@ -75,7 +76,7 @@ def fetch_arrival_airport(token: str,icao24: str, begin: int,end: int,) -> str |
     if not flights:
         return None
     
-    return flights [-1].get("estArrivalAirport")
+    arrival = flights [-1].get("estArrivalAirport")
     return arrival if isinstance(arrival, str) else None
 
   
