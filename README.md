@@ -95,7 +95,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Script for converting airport icao to name 
+- Adding script for airport enriching
 
 ---
 
