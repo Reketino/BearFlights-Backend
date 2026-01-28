@@ -8,6 +8,7 @@ def build_flight_row(
     state: list[Any],
     distance_km: float,
     departure_airport: str | None,
+    arrival_airport: str | None,
 ) -> dict[str, Any]:
     callsign = state[1]
     
@@ -23,6 +24,7 @@ def build_flight_row(
         "distance_over_area": round(distance_km, 2),
         "observations": 1,
         "departure_airport": departure_airport,
+        "arrival_airport": arrival_airport,
     }   
     
     
@@ -34,6 +36,7 @@ def build_position_row(
     lon: float,
     heading: float | None,
     departure_airport: str | None,
+    arrival_airport: str | None,
 ) -> dict[str, Any]:
     callsign = state[1]
     
@@ -46,5 +49,6 @@ def build_position_row(
         "velocity": state[9],
         "heading": heading,
         "departure_airport": departure_airport,
+        "arrival_airport": arrival_airport,
         "last_seen": now,
     }
