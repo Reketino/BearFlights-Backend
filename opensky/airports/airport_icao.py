@@ -1,0 +1,1 @@
+AIRPORTS_BY_ICAO: dict[str, dict[]]
