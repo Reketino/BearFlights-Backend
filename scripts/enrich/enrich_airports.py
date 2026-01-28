@@ -15,7 +15,7 @@ supabase = create_client(
 def enrich_airports(limit: int = 100) -> None:
     res = (
         supabase
-        .table("flight")
+        .table("flights")
         .select(
             "icao24, date, departure_airport, arrival_airport"
         )
