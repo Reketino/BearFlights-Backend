@@ -95,7 +95,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Adding new airline to script
+- Script for collecting Arrival airport
 
 ---
 

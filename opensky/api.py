@@ -48,7 +48,7 @@ def fetch_aircraft_type(icao24: str, token: str) -> str | None:
 def fetch_departure_airport(token: str, icao24: str, begin: int, end: int,) -> str | None:
     res = requests.get(
         FLIGHTS_BY_AIRCRAFT_URL,
-        headers={"Authorization": f"Bearer {token}",},
+        headers={"Authorization": f"Bearer {token}"},
         params={"icao24": icao24, "begin": begin, "end": end},
         timeout=15,
     )  
@@ -62,4 +62,11 @@ def fetch_departure_airport(token: str, icao24: str, begin: int, end: int,) -> s
     return flights [-1].get("estDepartureAirport")
     
     
+def fetch_arrival_airport(
+    token: str,
+    icao24: str,
+    begin: int,
+    end: int,
+) -> str | None
+
   
