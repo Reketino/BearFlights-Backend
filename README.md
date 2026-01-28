@@ -95,7 +95,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Adding script for airport enriching
+- Adding airports to enrich_all action for github actions🛒
 
 ---
 
