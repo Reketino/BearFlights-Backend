@@ -1,6 +1,6 @@
 from opensky.airports.airport_icao import AIRPORTS_BY_ICAO
 
-def resvolve_airport_name(icao: str | None) -> str | None:
+def resolve_airport_name(icao: str | None) -> str | None:
     if not icao:
         return None
     
