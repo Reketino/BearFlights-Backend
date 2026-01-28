@@ -95,13 +95,12 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Script for collecting Arrival airport
+- Script for converting airport icao to name 
 
 ---
 
 ## 🚀 Future Ideas:
 
-- Collecting Arrival Airport
 - Build my own API w/ FastAPI, containing flight data collected in Bearflights. 
 - Collecting full flight route w/vizualising frontend. 
 - Intergrate a AI to either further explain about the flights or the company.
