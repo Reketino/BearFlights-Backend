@@ -17,12 +17,14 @@ def enrich_airports(limit: int = 100) -> None:
         supabase
         .table("flights")
         .select(
-            "icao24, date, departure_airport, arrival_airport"
+            "icao24, date, departure_airport, arrival_airport, "
+            "departure_airport_name, arrival_airport_name"
         )
         .or_(
-            "departure_airport_name.is.null,"
-            "arrival_airport_name.is.null"
+            "and(departure_airport.not.is.null,departure_airport_name.is.null),"
+            "and(arrival_airport.not.is.null,arrival_airport_name.is.null)"
         )
+        .order("id", desc=True)
         .limit(limit)
         .execute()
     )
@@ -41,6 +43,8 @@ def enrich_airports(limit: int = 100) -> None:
         
         dep_name = resolve_airport_name(dep_icao)
         arr_name = resolve_airport_name(arr_icao)
+        
+        print(f"[DEBUG] {dep_icao=} {arr_icao =} -> {dep_name} {arr_name}")
         
         if not dep_name and not arr_name:
             continue
