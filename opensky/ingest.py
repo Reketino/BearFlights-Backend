@@ -2,7 +2,7 @@ from typing import Any
 from datetime import datetime, timezone
 
 # Imports from components
-from opensky.api import fetch_departure_airport # fetch_arrival_airport
+from opensky.api import fetch_flight_airport
 from opensky.geo import haversine_km
 from opensky.builders import build_flight_row, build_position_row
 from opensky.config import CENTER_LAT, CENTER_LON, RADIUS_KM, DEBUG
@@ -19,13 +19,14 @@ def process_states(states: list[list[Any]], token: str) -> None:
     rows: list[dict[str, Any]] = []
     position_rows: list[dict[str, Any]] = []
     
-    departure_cache: dict[str, str | None] = {}
+    airport_cache: dict[str, tuple[str | None, str | None]] = {}
     departure_hits = 0
     departure_misses = 0
+    arrival_hits = 0
+    arrival_misses = 0
     
-    # arrival_cache: dict[str, str | None] = {}
-    # arrival_hits = 0
-    # arrival_misses = 0
+    
+    inside_radius: int = 0
 
     # States defined
     for s in states:
@@ -55,42 +56,30 @@ def process_states(states: list[list[Any]], token: str) -> None:
     
         if distance_km > RADIUS_KM:
             continue
+        
+        inside_radius += 1
     
         # Cache check for dep airport
-        if icao24 not in departure_cache:
+        if icao24 not in airport_cache:
             if token:
-                    departure_cache[icao24] = fetch_departure_airport(
+                    airport_cache[icao24] = fetch_flight_airport(
                         token, icao24, begin_ts, end_ts
                         )
                     
             else:
-                departure_cache[icao24] = None
+                airport_cache[icao24] = (None, None)
         
-        departure_airport = departure_cache[icao24]
+        departure_airport, arrival_airport = airport_cache[icao24]
         
         if departure_airport:
-            departure_hits += 1
-           
+            departure_hits += 1   
         else:
             departure_misses += 1
-        
-        # Cache check for arr airport
-        # if icao24 not in arrival_cache:
-        #     if token:
-        #         arrival_cache[icao24] = fetch_arrival_airport(
-        #                 token, icao24, begin_ts, end_ts
-        #             )
-                
-        #     else:
-        #         arrival_cache[icao24] = None
             
-        # arrival_airport = arrival_cache[icao24]
-        
-        # if arrival_airport:
-        #     arrival_hits += 1
-            
-        # else:
-        #     arrival_misses += 1
+        if arrival_airport:
+            arrival_hits += 1
+        else:
+            arrival_misses += 1
         
         #  Flight row builder
         rows.append(
@@ -100,7 +89,7 @@ def process_states(states: list[list[Any]], token: str) -> None:
                 state=s,
                 distance_km=distance_km,
                 departure_airport=departure_airport,
-                # arrival_airport=arrival_airport,
+                arrival_airport=arrival_airport,
             )
         )
         
@@ -116,7 +105,7 @@ def process_states(states: list[list[Any]], token: str) -> None:
                 lon=float(lon),
                 heading=heading,
                 departure_airport=departure_airport,
-                # arrival_airport= arrival_airport,
+                arrival_airport= arrival_airport,
             )
         )
         
@@ -132,6 +121,7 @@ def process_states(states: list[list[Any]], token: str) -> None:
     if DEBUG:
         print(
             f"Finito 🚀 rows={len(rows)} | "
+            f"inside_radius={inside_radius} | "
             f"dep_hits={departure_hits} dep_miss={departure_misses}"
-            # f"arr_hits={arrival_hits} arr_miss={arrival_misses}"
+            f"arr_hits={arrival_hits} arr_miss={arrival_misses}"
         )

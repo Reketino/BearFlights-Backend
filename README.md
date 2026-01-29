@@ -95,7 +95,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Fixing bug in daily flights
+- Working on debugging main ingest logic
 
 ---
 
@@ -126,6 +126,9 @@ Built to understand how data survives the journey from Python to pixels.
 ---
 - python -m scripts.enrich.enrich_all
 
+
+## License
+MIT
 
 
 

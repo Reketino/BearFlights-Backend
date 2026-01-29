@@ -45,7 +45,12 @@ def fetch_aircraft_type(icao24: str, token: str) -> str | None:
 
 
 # Collecting Dep airport 
-def fetch_departure_airport(token: str, icao24: str, begin: int, end: int,) -> str | None:
+def fetch_flight_airport(
+    token: str, 
+    icao24: str, 
+    begin: int, 
+    end: int,
+    ) -> tuple[str | None, str | None]:
     res = requests.get(
         FLIGHTS_BY_AIRCRAFT_URL,
         headers={"Authorization": f"Bearer {token}"},
@@ -53,30 +58,21 @@ def fetch_departure_airport(token: str, icao24: str, begin: int, end: int,) -> s
         timeout=15,
     )  
     if res.status_code != 200:
-        return None
+        return None, None
     
     flights = res.json()
     if not flights:
-        return None
+        return None, None
     
-    departure = flights [-1].get("estDepartureAirport")
-    return departure if isinstance(departure, str) else None
+    last = flights [-1]
     
-  #Collecting Arr airport  
-# def fetch_arrival_airport(token: str,icao24: str, begin: int,end: int,) -> str | None:
-#     res = requests.get(
-#         FLIGHTS_BY_AIRCRAFT_URL,
-#         headers={"Authorization": f"Bearer {token}"},
-#         params={"icao24": icao24, "begin": begin, "end": end},
-#         timeout=15
-#     )
-#     if res.status_code != 200:
-#         return None
-#     flights = res.json()
-#     if not flights:
-#         return None
+    dep = last.get("estDepartureAirport")
+    arr = last.get("estArrivalAirport")
+    return( 
+        dep if isinstance(dep, str) else None,
+        arr if isinstance(arr, str) else None,
+        )
     
-#     arrival = flights [-1].get("estArrivalAirport")
-#     return arrival if isinstance(arrival, str) else None
+  
 
   
