@@ -16,6 +16,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Denmark",
         "iata": "CPH",
     },
+      "BIKF": {
+        "name": "Keflavík International Airport",
+        "country": "Iceland",
+        "iata": "KEF",
+    },
     
     # Europe
     "EGCC": {

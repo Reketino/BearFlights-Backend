@@ -95,7 +95,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Cleaning up code structure
+- Adding airport to script
 
 ---
 
