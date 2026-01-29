@@ -13,7 +13,6 @@ def process_states(states: list[list[Any]], token: str) -> None:
     end_ts = int(datetime.now(timezone.utc).timestamp())
     begin_ts = end_ts - 12 * 60 * 60
     
-    
     now = datetime.now(timezone.utc).isoformat()
     today = datetime.now(timezone.utc).date().isoformat()
     
@@ -25,6 +24,8 @@ def process_states(states: list[list[Any]], token: str) -> None:
     departure_misses = 0
     
     arrival_cache: dict[str, str | None] = {}
+    arrival_hits = 0
+    arrival_misses = 0
 
     # States defined
     for s in states:
@@ -55,7 +56,7 @@ def process_states(states: list[list[Any]], token: str) -> None:
         if distance_km > RADIUS_KM:
             continue
     
-        # Collect flight even if no icao24
+        # Cache check for dep airport
         if icao24 not in departure_cache:
             if token:
                     departure_cache[icao24] = (
@@ -64,19 +65,15 @@ def process_states(states: list[list[Any]], token: str) -> None:
             else:
                 departure_cache[icao24] = None
         
-        
-        # Collecting dep_airport
         departure_airport = departure_cache[icao24]
         
-        # If dep_airport collected
         if departure_airport:
             departure_hits += 1
-        
-        # If not collected    
+           
         else:
             departure_misses += 1
-            
-            
+        
+        # Cache check for arr airport
         if icao24 not in arrival_cache:
             if token:
                 arrival_cache[icao24] = (
@@ -86,6 +83,12 @@ def process_states(states: list[list[Any]], token: str) -> None:
                 arrival_cache[icao24] = None
             
         arrival_airport = arrival_cache[icao24]
+        
+        if arrival_airport:
+            arrival_hits += 1
+            
+        else:
+            arrival_misses += 1
         
         #  Flight row builder
         rows.append(
@@ -128,4 +131,5 @@ def process_states(states: list[list[Any]], token: str) -> None:
         print(
             f"Finito 🚀 rows={len(rows)} | "
             f"dep_hits={departure_hits} dep_miss={departure_misses}"
+            f"arr_hits{arrival_hits} arr_miss={arrival_misses}"
         )
