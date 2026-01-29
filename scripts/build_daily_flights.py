@@ -9,8 +9,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-
-
 class FlightRow(TypedDict):
     icao24: str
     callsign: str | None
@@ -30,25 +28,29 @@ class DailyFlightPayLoad(TypedDict):
     observations: int
     fun_fact: str
 
-
-
 supabase = create_client(
     os.environ["SUPABASE_URL"],
     os.environ["SUPABASE_SERVICE_ROLE_KEY"],
 )
 
-
 today = date.today().isoformat()
 
+existing = supabase.table("daily_flights") \
+    .select("date") \
+    .eq("date", today) \
+    .limit(1) \
+    .execute()
+
+if existing.data:
+    print("Daily summary already up to date, skip🦘")
+    raise SystemExit()
 
 res = supabase.table("flights") \
     .select("icao24, callsign, distance_over_area, observations") \
     .eq("date", today) \
     .execute()
     
-
 raw_rows = res.data or []
-
 
 rows: list[FlightRow] = [
     cast(FlightRow, r)
@@ -64,10 +66,8 @@ if not rows:
 
 total_flights = len({r["icao24"] for r in rows})
 
-
 closest = min(rows, key=lambda r: r["distance_over_area"])
 longest = max(rows, key=lambda r: r["distance_over_area"])
-
 
 payload: DailyFlightPayLoad = {
     "date": today,
