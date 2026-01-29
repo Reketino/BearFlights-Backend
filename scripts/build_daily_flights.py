@@ -62,8 +62,6 @@ if not rows:
     raise SystemExit()
 
 
-
-
 total_flights = len({r["icao24"] for r in rows})
 
 
