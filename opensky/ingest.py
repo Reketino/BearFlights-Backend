@@ -2,7 +2,7 @@ from typing import Any
 from datetime import datetime, timezone
 
 # Imports from components
-from opensky.api import fetch_departure_airport
+from opensky.api import fetch_departure_airport, fetch_arrival_airport
 from opensky.geo import haversine_km
 from opensky.builders import build_flight_row, build_position_row
 from opensky.config import CENTER_LAT, CENTER_LON, RADIUS_KM, DEBUG
@@ -23,6 +23,8 @@ def process_states(states: list[list[Any]], token: str) -> None:
     departure_cache: dict[str, str | None] = {}
     departure_hits = 0
     departure_misses = 0
+    
+    arrival_cache: dict[str, str | None] = {}
 
     # States defined
     for s in states:
@@ -73,6 +75,17 @@ def process_states(states: list[list[Any]], token: str) -> None:
         # If not collected    
         else:
             departure_misses += 1
+            
+            
+        if icao24 not in arrival_cache:
+            if token:
+                arrival_cache[icao24] = (
+                    fetch_arrival_airport(token, icao24, begin_ts, end_ts)
+                )
+            else:
+                arrival_cache[icao24] = None
+            
+        arrival_airport = arrival_cache[icao24]
         
         #  Flight row builder
         rows.append(
@@ -82,6 +95,7 @@ def process_states(states: list[list[Any]], token: str) -> None:
                 state=s,
                 distance_km=distance_km,
                 departure_airport=departure_airport,
+                arrival_airport=arrival_airport,
             )
         )
         
@@ -97,6 +111,7 @@ def process_states(states: list[list[Any]], token: str) -> None:
                 lon=float(lon),
                 heading=heading,
                 departure_airport=departure_airport,
+                arrival_airport= arrival_airport,
             )
         )
         
