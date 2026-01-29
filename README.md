@@ -95,7 +95,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Debugging not collecting data
+- Cleaning up code structure
 
 ---
 

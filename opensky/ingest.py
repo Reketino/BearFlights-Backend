@@ -59,9 +59,10 @@ def process_states(states: list[list[Any]], token: str) -> None:
         # Cache check for dep airport
         if icao24 not in departure_cache:
             if token:
-                    departure_cache[icao24] = (
-                    fetch_departure_airport(token, icao24, begin_ts, end_ts)
-                    )
+                    departure_cache[icao24] = fetch_departure_airport(
+                        token, icao24, begin_ts, end_ts
+                        )
+                    
             else:
                 departure_cache[icao24] = None
         
@@ -76,9 +77,10 @@ def process_states(states: list[list[Any]], token: str) -> None:
         # Cache check for arr airport
         if icao24 not in arrival_cache:
             if token:
-                arrival_cache[icao24] = (
-                    fetch_arrival_airport(token, icao24, begin_ts, end_ts)
-                )
+                arrival_cache[icao24] = fetch_arrival_airport(
+                        token, icao24, begin_ts, end_ts
+                    )
+                
             else:
                 arrival_cache[icao24] = None
             
@@ -131,5 +133,5 @@ def process_states(states: list[list[Any]], token: str) -> None:
         print(
             f"Finito 🚀 rows={len(rows)} | "
             f"dep_hits={departure_hits} dep_miss={departure_misses}"
-            f"arr_hits{arrival_hits} arr_miss={arrival_misses}"
+            f"arr_hits={arrival_hits} arr_miss={arrival_misses}"
         )
