@@ -63,20 +63,20 @@ def fetch_departure_airport(token: str, icao24: str, begin: int, end: int,) -> s
     return departure if isinstance(departure, str) else None
     
   #Collecting Arr airport  
-def fetch_arrival_airport(token: str,icao24: str, begin: int,end: int,) -> str | None:
-    res = requests.get(
-        FLIGHTS_BY_AIRCRAFT_URL,
-        headers={"Authorization": f"Bearer {token}"},
-        params={"icao24": icao24, "begin": begin, "end": end},
-        timeout=15
-    )
-    if res.status_code != 200:
-        return None
-    flights = res.json()
-    if not flights:
-        return None
+# def fetch_arrival_airport(token: str,icao24: str, begin: int,end: int,) -> str | None:
+#     res = requests.get(
+#         FLIGHTS_BY_AIRCRAFT_URL,
+#         headers={"Authorization": f"Bearer {token}"},
+#         params={"icao24": icao24, "begin": begin, "end": end},
+#         timeout=15
+#     )
+#     if res.status_code != 200:
+#         return None
+#     flights = res.json()
+#     if not flights:
+#         return None
     
-    arrival = flights [-1].get("estArrivalAirport")
-    return arrival if isinstance(arrival, str) else None
+#     arrival = flights [-1].get("estArrivalAirport")
+#     return arrival if isinstance(arrival, str) else None
 
   

@@ -95,7 +95,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Working on API system
+- Fixing bug in daily flights
 
 ---
 
