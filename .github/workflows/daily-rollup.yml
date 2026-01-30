@@ -2,7 +2,7 @@ name: Bear Flights Daily Rollup
 
 on:
   schedule:
-    - cron: "0 */3 * * *"   # hver 3. time
+    - cron: "0 18 * * *" 
   workflow_dispatch:
 
 jobs:
