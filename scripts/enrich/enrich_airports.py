@@ -17,7 +17,7 @@ def enrich_airports(limit: int = 100) -> None:
         supabase
         .table("flights")
         .select(
-            "icao24, date, departure_airport, arrival_airport, "
+            "icao24, date, departure_airport, arrival_airport,"
             "departure_airport_name, arrival_airport_name"
         )
         .or_(
