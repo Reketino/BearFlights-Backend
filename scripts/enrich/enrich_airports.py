@@ -13,6 +13,8 @@ supabase = create_client(
 )
 
 def enrich_airports(limit: int = 100) -> None:
+    print("Enrich Airports running- should not overlap ingest")
+    
     res = (
         supabase
         .table("flights")

@@ -95,7 +95,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- API logic in render
+- Debugging
 
 ---
 
