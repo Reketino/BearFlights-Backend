@@ -16,6 +16,13 @@ def process_states(states: list[list[Any]], token: str) -> None:
     now = datetime.now(timezone.utc).isoformat()
     today = datetime.now(timezone.utc).date().isoformat()
     
+    if DEBUG:
+        valid_states = sum(
+            1 for s in states 
+            if len(s) >= 7
+        )
+        print(f"[CHECK] valid state rows: {valid_states}/{len(states)}")
+    
     rows: list[dict[str, Any]] = []
     position_rows: list[dict[str, Any]] = []
     
