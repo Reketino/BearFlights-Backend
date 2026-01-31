@@ -1,23 +1,23 @@
-# flyctl launch added from .gitignore
-# Python
-**\__pycache__
-**\*.py[cod]
-**\*.pyo
-**\*.pyd
+# Environment variables
+.env
+.env.local
 
 # Virtual environments
-**\.venv
-**\venv
-**\env
+.venv
+venv
+env
 
-# Environment variables
-**\.env
-**\.env.local
+# Python cache
+__pycache__/
+*.pyc
 
-# OS
-**\.DS_Store
+# Git
+.git
+.gitignore
 
-# Logs
-**\*.log
+# OS / misc
+.DS_Store
+*.log
 
-fly.toml
+# Frontend 
+node_modules
