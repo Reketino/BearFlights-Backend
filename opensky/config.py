@@ -5,7 +5,7 @@ load_dotenv()
 # Center of Radius Aka "Sykkylven"
 CENTER_LAT = 62.392497
 CENTER_LON = 6.578392
-RADIUS_KM = float(os.getenv("RADIUS_KM", "50"))
+RADIUS_KM = 50
 EARTH_RADIUS_KM = 6371.0
 DEBUG = True
 
