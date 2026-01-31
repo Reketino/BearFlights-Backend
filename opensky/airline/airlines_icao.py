@@ -21,9 +21,10 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
         "SRN": "Sprint Air",
         "TOM": "TUI Airways",
         "THY": "Turkish Airlines",
+        "QGA": "Windrose Air Jetcharter",
+        "WUK": "Wizz Air UK",
         "BTI": "airBaltic",
         "EZY": "easyJet",
-        "QGA": "Windrose Air Jetcharter",
     },
 
      "Middle East": {
