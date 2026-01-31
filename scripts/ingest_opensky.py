@@ -3,7 +3,7 @@ from opensky.api import fetch_states
 from opensky.ingest import process_states
 
 # If debug -> True
-DEBUG = True
+DEBUG = False
 
 def main() -> None:
     print("Fetching OpenSky (OAuth2)…")
