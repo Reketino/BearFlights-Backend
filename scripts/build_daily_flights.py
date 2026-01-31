@@ -41,9 +41,7 @@ existing = supabase.table("daily_flights") \
     .limit(1) \
     .execute()
 
-if existing.data:
-    print("Daily summary already up to date, skip🦘")
-    raise SystemExit()
+
 
 res = supabase.table("flights") \
     .select("icao24, callsign, distance_over_area, observations") \
