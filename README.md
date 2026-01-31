@@ -95,7 +95,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Rate Limiting api
+- Adding rate limit to endpoint
 
 ---
 
