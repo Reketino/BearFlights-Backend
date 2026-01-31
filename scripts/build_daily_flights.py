@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import date
+from datetime import datetime, timezone
 from supabase import create_client
 from typing import Any, TypedDict, cast
 import os
@@ -33,7 +33,7 @@ supabase = create_client(
     os.environ["SUPABASE_SERVICE_ROLE_KEY"],
 )
 
-today = date.today().isoformat()
+today = datetime.now(timezone.utc).date().isoformat()
 
 existing = supabase.table("daily_flights") \
     .select("date") \
