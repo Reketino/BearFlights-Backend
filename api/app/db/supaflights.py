@@ -34,6 +34,7 @@ def fetch_paginated_flights(
         .select("id", count=cast(Any, "exact"),)
         .execute()
     )
+    
     total = total_res.count or 0
     
     res = (
