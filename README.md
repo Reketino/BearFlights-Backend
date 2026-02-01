@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- GHUB ACTIONS
+- Response model for API 
 
 ---
 
