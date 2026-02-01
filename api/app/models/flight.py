@@ -14,7 +14,7 @@ class FlightResponse(BaseModel):
     
     distance_over_area: float
     
-class PaginatedFllights(BaseModel):
+class PaginatedFlights(BaseModel):
     total: int
     limit: int
     offset: int
