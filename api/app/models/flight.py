@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional
 
-class FlighResponse(BaseModel):
+class FlightResponse(BaseModel):
     icao24: str
     callsign: Optional[str]
     aircraft_name: Optional[str]
