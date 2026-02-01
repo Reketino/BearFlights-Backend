@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from api.routes import flights
+from api.app.routes import flights
 
 app = FastAPI(title="BearFlights API")
 
@@ -11,4 +11,4 @@ app.include_router(
 
 @app.get("/health")
 def health():
-    return{"status": "ok"}
+    return{"status": "ok, we are healthy"}
