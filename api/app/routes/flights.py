@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends
-from typing import Any
 from api.app.auth import verify_api_key
 from api.app.rate_limit import rate_limit
 from api.app.models.flight import FlightResponse
+from api.app.db.supaflights import fetch_flights
 
 
 router = APIRouter(
@@ -14,4 +14,5 @@ router = APIRouter(
 
 @router.get("/", response_model=list[FlightResponse]) 
 def list_flights():
-    return flights_from_db
+    flights_from_supabase = fetch_flights(limit=50)
+    return flights_from_supabase
