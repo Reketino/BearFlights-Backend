@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Response model for API 
+- Connecting Supabase to API
 
 ---
 
