@@ -1,7 +1,7 @@
 import time
 from fastapi import Request, HTTPException, status
 
-Request_PER_WINDOW = 100
+REQUESTS_PER_WINDOW = 100
 WINDOW_SECONDS = 60
 
 
@@ -24,8 +24,10 @@ def rate_limit(requests: Request):
     count += 1
     _rate_limit_store[api_key] = (count, window_start)
     
-    if count > Request_PER_WINDOW:
+    if count > REQUESTS_PER_WINDOW:
         raise HTTPException(
             status_code=status.HTTP_429_TOO_MANY_REQUESTS,
             detail="Rate limit exceeded",
         )
+        
+    return None
