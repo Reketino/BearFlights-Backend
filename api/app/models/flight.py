@@ -1,18 +1,16 @@
 from pydantic import BaseModel
-from typing import Optional, List
+from typing import List
 
 class FlightResponse(BaseModel):
     icao24: str
-    callsign: Optional[str]
-    aircraft_name: Optional[str]
+    callsign: str | None
+    aircraft_name: str | None
+    departure_airport: str | None
+    departure_airport_name: str | None
+    arrival_airport: str | None
+    arrival_airport_name: str | None
+    distance_over_area: float | None
     
-    departure_airport: Optional[str]
-    departure_airport_name: Optional[str]
-    
-    arrival_airport: Optional[str]
-    arrival_airport_name: Optional[str]
-    
-    distance_over_area: float
     
 class PaginatedFlights(BaseModel):
     total: int
