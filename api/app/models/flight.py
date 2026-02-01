@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 
 class FlightResponse(BaseModel):
     icao24: str
@@ -13,3 +13,9 @@ class FlightResponse(BaseModel):
     arrival_airport_name: Optional[str]
     
     distance_over_area: float
+    
+class PaginatedFllights(BaseModel):
+    total: int
+    limit: int
+    offset: int
+    items: List[FlightResponse]
