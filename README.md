@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Connecting Supabase to API
+- Set up Paginated Flight Response
 
 ---
 
