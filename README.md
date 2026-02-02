@@ -200,7 +200,6 @@ Built to understand how data survives the journey from Python to pixels.
 ---
 - python -m scripts.enrich.enrich_all
 
-
 ## License
 MIT📜
 
