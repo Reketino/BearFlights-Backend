@@ -9,7 +9,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
     "ENGM": {
         "name": "Oslo Gardermoen Airport",
         "country": "Norway",
-        "iata": "OSL",
+        "iata": "OSL",  
+    },
+     "ENHD": {
+        "name": "Haugesund Airport",
+        "country": "Norway",
+        "iata": "HAU",
+        
     },
      "EKCH": {
         "name": "Copenhagen Airport",
