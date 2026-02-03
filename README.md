@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- AI description when clicking on Aircraft Type
+- Checking for options regarding AI
 
 ---
 
