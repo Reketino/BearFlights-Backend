@@ -3,7 +3,6 @@ from opensky.aircraft_ai.generate import aircraft_generated_description
 from api.app.ai_rate_limiter import ai_rate_limiter
 
 router = APIRouter(
-    prefix="/aircraft",
     tags=["Aircraft"],
 )
 
@@ -27,8 +26,9 @@ def ai_aircraft_description(
             "description": description,
         }
         
-    except Exception:
+    except Exception as e:
+        print("AI ERROR:", e)
         raise HTTPException(
             status_code=500,
-            detail="We have failed to generate aircraft description",
+            detail=str(e),
         )
