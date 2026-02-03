@@ -25,6 +25,12 @@ def ai_rate_limiter(
                 if isinstance(arg, Request):
                     request = arg
                     break
+                
+            if request is None: 
+                for value in kwargs.values():
+                    if isinstance(value, Request):
+                        request = value
+                        break
             
             if request is None:
                 raise HTTPException(

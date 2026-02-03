@@ -9,7 +9,6 @@ app = FastAPI(title="BearFlights AI")
 app.include_router(
     aircraft_router,
     prefix="/aircraft",
-    tags=["Aircratf"],
 )
 
 @app.get("/health")
