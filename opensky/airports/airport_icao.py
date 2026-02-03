@@ -49,4 +49,9 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Spain",
         "iata": "FUE",
     },
+     "EVRA": {
+        "name": "Riga International Airport",
+        "country": "Latvia",
+        "iata": "RIX",  
+    },
 }
