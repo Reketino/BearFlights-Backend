@@ -1,3 +1,4 @@
+
 def aircraft_prompt(icao:str) -> str:
     return f"""
 Explain the aircraft type {icao} in a friendly, 
