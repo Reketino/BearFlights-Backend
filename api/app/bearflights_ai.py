@@ -4,7 +4,7 @@ load_dotenv()
 from fastapi import FastAPI
 from api.app.routes.aircraft import router as aircraft_router
 
-app = FastAPI("BearFlights AI")
+app = FastAPI(title="BearFlights AI")
 
 app.include_router(
     aircraft_router,
@@ -12,6 +12,6 @@ app.include_router(
     tags=["Aircratf"],
 )
 
-app.get("/health")
+@app.get("/health")
 def health():
     return {"status": "BearAI is operating"}
