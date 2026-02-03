@@ -11,22 +11,31 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Norway",
         "iata": "OSL",  
     },
+    
      "ENHD": {
         "name": "Haugesund Airport",
         "country": "Norway",
         "iata": "HAU",
-        
     },
+     
+         "ENOV": {
+        "name": "Orsta Volda Airport",
+        "country": "Norway",
+        "iata": "HOV",
+    },
+         
      "EKCH": {
         "name": "Copenhagen Airport",
         "country": "Denmark",
         "iata": "CPH",
     },
+     
       "BIKF": {
         "name": "Keflavík International Airport",
         "country": "Iceland",
         "iata": "KEF",
     },
+      
        "EFHK": {
         "name": "Helsinik Airport",
         "country": "Finland",
@@ -39,19 +48,23 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "United Kingdom",
         "iata": "MAN",
     },
+    
      "EGGW": {
         "name": "London Luton Airport",
         "country": "United Kingdom",
         "iata": "LTN",
     },
-       "GCFV": {
-        "name": "Fuerteventura Airport",
-        "country": "Spain",
-        "iata": "FUE",
-    },
-     "EVRA": {
+     
+    "EVRA": {
         "name": "Riga International Airport",
         "country": "Latvia",
         "iata": "RIX",  
     },
+    
+    "GCFV": {
+        "name": "Fuerteventura Airport",
+        "country": "Spain",
+        "iata": "FUE",
+    },
+    
 }
