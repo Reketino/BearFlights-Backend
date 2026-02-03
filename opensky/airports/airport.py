@@ -5,7 +5,4 @@ def resolve_airport_name(icao: str | None) -> str | None:
         return None
     
     airport = AIRPORTS_BY_ICAO.get(icao.upper())
-    if not airport:
-        return None
-    
-    return airport["name"]
+    return airport["name"] if airport else None
