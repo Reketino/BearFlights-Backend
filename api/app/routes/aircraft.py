@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Request
 from opensky.aircraft_ai.generate import aircraft_generated_description
-from app.ai_rate_limiter import ai_rate_limiter
+from api.app.ai_rate_limiter import ai_rate_limiter
 
 router = APIRouter(
     prefix="/aircraft",
