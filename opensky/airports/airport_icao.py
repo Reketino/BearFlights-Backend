@@ -17,6 +17,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Norway",
         "iata": "HAU",
     },
+     "ENSD": {
+        "name": "Sandane, Anda Airport",
+        "country": "Norway",
+        "iata": "SDN",
+    },
      
          "ENOV": {
         "name": "Orsta Volda Airport",
@@ -65,6 +70,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "name": "Fuerteventura Airport",
         "country": "Spain",
         "iata": "FUE",
+    },
+    
+    #United States of America
+      "KJFK": {
+        "name": "John F. Kennedy International Airport",
+        "country": "United States of America",
+        "iata": "JFK",
     },
     
 }
