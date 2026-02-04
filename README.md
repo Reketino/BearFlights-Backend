@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Checking for options regarding AI
+- Adding more aircraft locations
 
 ---
 
