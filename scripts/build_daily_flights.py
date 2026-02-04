@@ -1,5 +1,4 @@
 from __future__ import annotations
-
 from datetime import datetime, timezone
 from supabase import create_client
 from typing import Any, TypedDict, cast
@@ -40,7 +39,6 @@ existing = supabase.table("daily_flights") \
     .eq("date", today) \
     .limit(1) \
     .execute()
-
 
 
 res = supabase.table("flights") \

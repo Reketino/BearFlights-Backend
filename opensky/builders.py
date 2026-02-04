@@ -26,8 +26,7 @@ def build_flight_row(
         "departure_airport": departure_airport,
         "arrival_airport": arrival_airport,
     }   
-    
-    
+      
 def build_position_row(
     *,
     now: str,
