@@ -67,4 +67,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "FUE",
     },
     
+    #United States of America
+      "KJFK": {
+        "name": "John F. Kennedy International Airport",
+        "country": "United States of America",
+        "iata": "JFK",
+    },
+    
 }
