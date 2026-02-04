@@ -17,6 +17,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Norway",
         "iata": "HAU",
     },
+     "ENSD": {
+        "name": "Sandane, Anda Airport",
+        "country": "Norway",
+        "iata": "SDN",
+    },
      
          "ENOV": {
         "name": "Orsta Volda Airport",
