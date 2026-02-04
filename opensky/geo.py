@@ -14,7 +14,6 @@ def haversine_km(
     lat2_rad = math.radians(lat2)
     lon2_rad = math.radians(lon2)
     
-    
     dlat = lat2_rad - lat1_rad
     dlon = lon2_rad - lon1_rad
     
@@ -24,6 +23,5 @@ def haversine_km(
         * math.cos(lat2_rad)
         * math.sin(dlon / 2) ** 2
     )
-    
     
     return EARTH_RADIUS_KM * 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))

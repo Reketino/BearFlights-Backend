@@ -60,6 +60,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "LTN",
     },
      
+       "EGKK": {
+        "name": "London Gatwick Airport",
+        "country": "United Kingdom",
+        "iata": "LGW",
+    },
+     
+     
     "EVRA": {
         "name": "Riga International Airport",
         "country": "Latvia",
