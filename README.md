@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Adding more aircraft locations
+- Adjusting & testing ingest timer in actions
 
 ---
 
