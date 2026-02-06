@@ -79,7 +79,7 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "FUE",
     },
     
-       "LBLS": {
+    "LBLS": {
         "name": "Lesnovo Airfield",
         "country": "Bulgaria",
         "iata": "",
