@@ -1,6 +1,6 @@
 AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
     # Scandinavia
-      "ENAL": {
+    "ENAL": {
       "name": "Aalesund Airport",
       "country": "Norway",
       "iata": "AES",  
@@ -72,7 +72,6 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "LGW",
     },
      
-     
     "EVRA": {
         "name": "Riga International Airport",
         "country": "Latvia",
@@ -97,5 +96,4 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "United States of America",
         "iata": "JFK",
     },
-    
 }
