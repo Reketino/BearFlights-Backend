@@ -1,5 +1,11 @@
 AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
     # Scandinavia
+      "ENAL": {
+      "name": "Aalesund Airport",
+      "country": "Norway",
+      "iata": "AES",  
+    },
+      
     "ENBR": {
       "name": "Bergen Flesland Airport",
       "country": "Norway",
