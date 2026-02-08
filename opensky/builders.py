@@ -1,6 +1,5 @@
 from typing import Any
 
-
 def build_flight_row(
     *,
     today: str,
