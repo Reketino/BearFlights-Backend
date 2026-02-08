@@ -12,7 +12,6 @@ STATES_URL = "https://opensky-network.org/api/states/all"
 FLIGHTS_BY_AIRCRAFT_URL = "https://opensky-network.org/api/flights/aircraft"
 AIRCRAFT_META_URL = "https://opensky-network.org/api/metadata/aircraft/icao"
 
-
 # Collecting States
 def fetch_states(token: str) -> list[State]:
     res = requests.get(
@@ -24,7 +23,6 @@ def fetch_states(token: str) -> list[State]:
     )
     res.raise_for_status()
     return cast(list[State], res.json().get("states", []))
-
 
 # COLLECTING AIRCRAFT TYPES
 def fetch_aircraft_type(icao24: str, token: str) -> str | None:
@@ -42,7 +40,6 @@ def fetch_aircraft_type(icao24: str, token: str) -> str | None:
     data = res.json()
     typecode = data.get("typecode")
     return typecode if isinstance(typecode, str) else None
-
 
 # Collecting Dep airport 
 def fetch_flight_airport(

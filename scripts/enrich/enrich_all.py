@@ -18,6 +18,5 @@ def main():
     except Exception as e:
         print("[WARN] enrichment of airports failed, skip:", e)
     
-
 if __name__ == "__main__":
     main()

@@ -60,7 +60,6 @@ def enrich_aircraft_types(limit: int = 100) -> None:
             "aircraft_type":  aircraft_type,
         }
         
-        
         if aircraft_name:
             update_data["aircraft_name"] = aircraft_name 
         
@@ -74,7 +73,6 @@ def enrich_aircraft_types(limit: int = 100) -> None:
         )
         
         print(f"{icao24} -> {aircraft_type} ({aircraft_name})")
-        
         
 if __name__ == "__main__":
     enrich_aircraft_types()
