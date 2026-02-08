@@ -1,3 +1,3 @@
-from openai import OpenAI
+from google import genai
 
-client = OpenAI()
+client = genai.Client()
