@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Adjusting & testing ingest timer in actions
+- corsmiddleware for api generating text
 
 ---
 
