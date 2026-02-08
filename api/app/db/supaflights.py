@@ -21,7 +21,6 @@ def fetch_flights(limit: int = 50) -> list[dict[str, Any]]:
     
     return cast(list[dict[str, Any]], res.data or [])
 
-
 def fetch_paginated_flights(
     *,
     limit: int,

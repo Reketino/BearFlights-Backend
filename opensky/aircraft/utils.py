@@ -12,8 +12,7 @@ def sorted_aircraft_types() -> None:
         
         for code, name in sorted(aircrafts.items(), key=lambda x: x[0]):
             lines.append(f'        "{code}": "{name}",\n')
-            
-            
+               
         lines.append("    },\n\n")
         
     lines.append("}\n\n")
