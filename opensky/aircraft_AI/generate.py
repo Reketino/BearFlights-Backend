@@ -5,7 +5,7 @@ from .prompt import aircraft_prompt
 
 def aircraft_generated_description(icao: str) -> str:
     response: types.GenerateContentResponse = client.models.generate_content( # type: ignore
-        model="gemini-1.5-flash",
+        model="gemini-2.5-flash-lite-preview-09-2025",
         contents=aircraft_prompt(icao)   
     )
     if not response.text: 
