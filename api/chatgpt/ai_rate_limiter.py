@@ -44,8 +44,7 @@ def ai_rate_limiter(
                     status_code=500,
                     detail="Client for IP rate limiting can't be determined"
                 )
-            
-                
+                  
             client_ip = client.host
             now = time.time()
             

@@ -32,7 +32,6 @@ def process_states(states: list[list[Any]], token: str) -> None:
     arrival_hits = 0
     arrival_misses = 0
     
-    
     inside_radius: int = 0
 
     # States defined

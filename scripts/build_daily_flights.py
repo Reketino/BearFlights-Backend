@@ -59,7 +59,6 @@ if not rows:
     print("No Flights Today Aye")
     raise SystemExit()
 
-
 total_flights = len({r["icao24"] for r in rows})
 
 closest = min(rows, key=lambda r: r["distance_over_area"])
