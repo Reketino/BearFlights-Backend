@@ -1,6 +1,7 @@
 from db import supabase
 from generate import aircraft_generated_description
-from typing import TypedDict, Optional, cast, Any
+from typing import TypedDict, Optional, cast 
+from postgrest import ApiResponse # type: ignore
 
 class AircraftAICacheRow(TypedDict):
     description: str
@@ -8,18 +9,18 @@ class AircraftAICacheRow(TypedDict):
 def get_aircraft_description_cached(icao: str) -> str:
     icao = icao.upper()
     
-    cached: Any = (
+    response: ApiResponse = ( # type: ignore[]
         supabase
         .table("aircraft_ai_descriptions") # type: ignore[]
         .select("description") 
         .eq("icao", icao)
-        .single()
+        .maybe_single()
         .execute()
     )
     
-    data = cast(Optional[AircraftAICacheRow], cached.data)
+    data = cast(Optional[AircraftAICacheRow], response.data) # type: ignore
     
-    if data is not None: 
+    if data: 
         return data["description"]
     
     description = aircraft_generated_description(icao)
