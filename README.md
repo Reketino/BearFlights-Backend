@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Removing Ai from the project since it's moved to frontend
+- Refactoring code
 
 ---
 
