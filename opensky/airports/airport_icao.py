@@ -6,16 +6,22 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
       "iata": "AES",  
     },
       
-    "ENBR": {
-      "name": "Bergen Flesland Airport",
+    "ENVA": {
+      "name": "Trondheim, Vaernes Airport",
       "country": "Norway",
-      "iata": "BGO",  
+      "iata": "TRD",  
     },
     
     "ENGM": {
         "name": "Oslo Gardermoen Airport",
         "country": "Norway",
         "iata": "OSL",  
+    },
+    
+      "ENBR": {
+      "name": "Bergen Flesland Airport",
+      "country": "Norway",
+      "iata": "BGO",  
     },
     
      "ENHD": {
@@ -35,6 +41,12 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Norway",
         "iata": "SDN",
     },
+     
+       "ENBL": {
+        "name": "Førde Airport",
+        "country": "Norway",
+        "iata": "FDE",
+    }, 
      
          "ENOV": {
         "name": "Orsta Volda Airport",
