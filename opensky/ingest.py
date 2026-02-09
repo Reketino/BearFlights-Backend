@@ -75,7 +75,7 @@ def process_states(states: list[list[Any]], token: str) -> None:
     
         icao24 = state[0]
         lon = float(state[5])
-        lat = float (state[6])
+        lat = float(state[6])
         
         inside, distance_km = is_inside_radius(lat, lon)
         if not inside:
@@ -113,8 +113,8 @@ def process_states(states: list[list[Any]], token: str) -> None:
             build_position_row(
                 now=now,
                 state=state,
-                lat=float(lat),
-                lon=float(lon),
+                lat=lat,
+                lon=lon,
                 heading=state[10] if isinstance(state[10], (int, float)) else None,
                 departure_airport=departure_airport,
                 arrival_airport= arrival_airport,
