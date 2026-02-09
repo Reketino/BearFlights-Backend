@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Refactoring code
+- Refactoring codebase to be more modular and maintainable
 
 ---
 
