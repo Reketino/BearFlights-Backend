@@ -16,6 +16,7 @@ def is_valid_state(state: list[Any]) -> bool:
         and isinstance(state[5], (int, float))
         and isinstance(state[6], (int, float))   
     )
+
     
 def is_inside_radius(lat: float, lon: float) -> tuple[bool, float]:
     distance_km = haversine_km(
@@ -25,7 +26,25 @@ def is_inside_radius(lat: float, lon: float) -> tuple[bool, float]:
         lon,
     )
     return distance_km <= RADIUS_KM, distance_km
-        
+
+
+def get_airports(
+    icao24: str,
+    cache: dict[str, tuple[str | None, str | None]],
+    token: str,
+    begin_ts: int,
+    end_ts: int
+) -> tuple[str | None, str | None]:
+    
+    if icao24 not in cache:
+        cache[icao24] = (
+            fetch_flight_airport(token, icao24, begin_ts, end_ts)
+            if token
+            else (None, None)
+        )
+            
+    return cache[icao24]
+            
 
 def process_states(states: list[list[Any]], token: str) -> None: 
     end_ts = int(datetime.now(timezone.utc).timestamp())
@@ -34,100 +53,69 @@ def process_states(states: list[list[Any]], token: str) -> None:
     now = datetime.now(timezone.utc).isoformat()
     today = datetime.now(timezone.utc).date().isoformat()
     
-    if DEBUG:
-        valid_states = sum(
-            1 for s in states 
-            if len(s) >= 7
-        )
-        print(f"[CHECK] valid state rows: {valid_states}/{len(states)}")
-    
     rows: list[dict[str, Any]] = []
     position_rows: list[dict[str, Any]] = []
     
     airport_cache: dict[str, tuple[str | None, str | None]] = {}
+    
     departure_hits = 0
     departure_misses = 0
     arrival_hits = 0
     arrival_misses = 0
+    inside_radius = 0
     
-    inside_radius: int = 0
+    if DEBUG:
+        valid_states = sum(1 for s in states if is_valid_state(s))
+        print(f"[CHECK] valid state rows: {valid_states}/{len(states)}")
 
     # States defined
-    for s in states:
-        if len(s) < 14:
+    for state in states:
+        if not is_valid_state(state):
             continue
     
-        icao24 = s[0]
-        lon = s[5]
-        lat = s[6]
+        icao24 = state[0]
+        lon = float(state[5])
+        lat = float (state[6])
         
-        if (
-            not isinstance(icao24, str)        
-            or not isinstance(lat, (int, float)) 
-            or not isinstance(lon, (int, float))
-            
-        ): 
-            continue
-        
-        
-        # Distance from set radius
-        distance_km = haversine_km(
-            CENTER_LAT,
-            CENTER_LON,
-            float(lat),
-            float(lon),
-        )
-    
-        if distance_km > RADIUS_KM:
+        inside, distance_km = is_inside_radius(lat, lon)
+        if not inside:
             continue
         
         inside_radius += 1
-    
-        # Cache check for dep airport
-        if icao24 not in airport_cache:
-            if token:
-                    airport_cache[icao24] = fetch_flight_airport(
-                        token, icao24, begin_ts, end_ts
-                        )
-                    
-            else:
-                airport_cache[icao24] = (None, None)
         
-        departure_airport, arrival_airport = airport_cache[icao24]
+        departure_airport, arrival_airport = get_airports(
+            icao24=icao24,
+            cache=airport_cache,
+            token=token,
+            begin_ts=begin_ts,
+            end_ts=end_ts,
+        )
         
-        if departure_airport:
-            departure_hits += 1   
-        else:
-            departure_misses += 1
-            
-        if arrival_airport:
-            arrival_hits += 1
-        else:
-            arrival_misses += 1
+        departure_hits += bool(departure_airport)   
+        departure_misses += not bool(departure_airport)
+        arrival_hits += bool(arrival_airport)
+        arrival_misses += not bool(arrival_airport)
         
         #  Flight row builder
         rows.append(
             build_flight_row(
                 today=today,
                 now=now,
-                state=s,
+                state=state,
                 distance_km=distance_km,
                 departure_airport=departure_airport,
                 arrival_airport=arrival_airport,
             )
         )
         
-        # Heading showing as null, if no data 
-        heading = s[10] if isinstance(s[10], (int, float)) else None
-        
         # Position row builder
         position_rows.append(
             build_position_row(
                 now=now,
-                state=s,
+                state=state,
                 lat=float(lat),
                 lon=float(lon),
-                heading=heading,
+                heading=state[10] if isinstance(state[10], (int, float)) else None,
                 departure_airport=departure_airport,
                 arrival_airport= arrival_airport,
             )
