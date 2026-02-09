@@ -6,10 +6,10 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
       "iata": "AES",  
     },
       
-    "ENBR": {
-      "name": "Bergen Flesland Airport",
+    "ENVA": {
+      "name": "Trondheim, Vaernes Airport",
       "country": "Norway",
-      "iata": "BGO",  
+      "iata": "TRD",  
     },
     
     "ENGM": {
@@ -18,43 +18,55 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "OSL",  
     },
     
-     "ENHD": {
+    "ENBR": {
+      "name": "Bergen Flesland Airport",
+      "country": "Norway",
+      "iata": "BGO",  
+    },
+    
+    "ENHD": {
         "name": "Haugesund Airport",
         "country": "Norway",
         "iata": "HAU",
     },
      
-     "ENSR": {
+    "ENSR": {
         "name": "Sørkjosen Airport ",
         "country": "Norway",
         "iata": "SOJ",
     },
      
-     "ENSD": {
+    "ENSD": {
         "name": "Sandane, Anda Airport",
         "country": "Norway",
         "iata": "SDN",
     },
      
-         "ENOV": {
+    "ENBL": {
+        "name": "Førde Airport",
+        "country": "Norway",
+        "iata": "FDE",
+    }, 
+     
+    "ENOV": {
         "name": "Orsta Volda Airport",
         "country": "Norway",
         "iata": "HOV",
     },
          
-     "EKCH": {
+    "EKCH": {
         "name": "Copenhagen Airport",
         "country": "Denmark",
         "iata": "CPH",
     },
      
-      "BIKF": {
+    "BIKF": {
         "name": "Keflavík International Airport",
         "country": "Iceland",
         "iata": "KEF",
     },
       
-       "EFHK": {
+    "EFHK": {
         "name": "Helsinik Airport",
         "country": "Finland",
         "iata": "HEL",
@@ -67,13 +79,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "MAN",
     },
     
-     "EGGW": {
+    "EGGW": {
         "name": "London Luton Airport",
         "country": "United Kingdom",
         "iata": "LTN",
     },
      
-       "EGKK": {
+    "EGKK": {
         "name": "London Gatwick Airport",
         "country": "United Kingdom",
         "iata": "LGW",
@@ -98,7 +110,7 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
     },
     
     #United States of America
-      "KJFK": {
+    "KJFK": {
         "name": "John F. Kennedy International Airport",
         "country": "United States of America",
         "iata": "JFK",
