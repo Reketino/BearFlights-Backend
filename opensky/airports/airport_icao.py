@@ -24,7 +24,7 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
       "iata": "BGO",  
     },
     
-     "ENHD": {
+    "ENHD": {
         "name": "Haugesund Airport",
         "country": "Norway",
         "iata": "HAU",
