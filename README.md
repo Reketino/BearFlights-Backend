@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- corsmiddleware for api generating text
+- Removing Ai from the project since it's moved to frontend
 
 ---
 
