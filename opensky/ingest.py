@@ -9,6 +9,24 @@ from opensky.config import CENTER_LAT, CENTER_LON, RADIUS_KM, DEBUG
 from db.supabase import upsert_flights, upsert_positions
 
 # Defining of states w/timestamp, position & dep
+def is_valid_state(state: list[Any]) -> bool:
+    return (
+        len(state) >= 14
+        and isinstance(state[0], str)
+        and isinstance(state[5], (int, float))
+        and isinstance(state[6], (int, float))   
+    )
+    
+def is_inside_radius(lat: float, lon: float) -> tuple[bool, float]:
+    distance_km = haversine_km(
+        CENTER_LAT,
+        CENTER_LON,
+        lat,
+        lon,
+    )
+    return distance_km <= RADIUS_KM, distance_km
+        
+
 def process_states(states: list[list[Any]], token: str) -> None: 
     end_ts = int(datetime.now(timezone.utc).timestamp())
     begin_ts = end_ts - 12 * 60 * 60
