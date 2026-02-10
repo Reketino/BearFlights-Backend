@@ -115,4 +115,10 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "United States of America",
         "iata": "JFK",
     },
+    
+        "KMIA": {
+        "name": "Miami International Airport",
+        "country": "United States of America",
+        "iata": "MIA",
+    },
 }
