@@ -24,7 +24,7 @@ def sorted_airports() -> None:
             
         lines.append(
             f'    "{icao}": {{\n'
-            f'        "name": {airport["name"]}",\n'
+            f'        "name": "{airport["name"]}",\n'
             f'        "country": "{airport["country"]}",\n'
             f'        "iata": "{airport["iata"]}",\n'
         )
