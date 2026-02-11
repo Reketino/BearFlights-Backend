@@ -6,7 +6,7 @@ def sorted_airports() -> None:
     
     lines: list[str] = []
     lines.append("# Airports sorted by country & name\n")
-    lines.append("AIRPORTS_BY_ICAO: dict[str, dict [str, str]] = {\n")
+    lines.append("AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {\n")
     
     sorted_airports = sorted(
         AIRPORTS_BY_ICAO.items(),
