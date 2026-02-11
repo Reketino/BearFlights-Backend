@@ -90,6 +90,12 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "United Kingdom",
         "iata": "LGW",
     },
+    
+    "EGVN": {
+        "name": "RAF Brize Norton",
+        "country": "United Kingdom",
+        "iata": "BZZ",
+    },
      
     "EVRA": {
         "name": "Riga International Airport",
