@@ -13,6 +13,11 @@ def sorted_airports() -> None:
         key=lambda item: (item[1]["country"], item[1]["name"]),
     )
     
+    assert all(
+        isinstance(v, dict) and all(isinstance(x, str) for x in v.values())
+        for  _, v in sorted_airports
+    ), "AIRPORTS_BY_ICAO contains non-str values"
+    
     current_country: str | None = None
     
     for icao, airport in sorted_airports:
