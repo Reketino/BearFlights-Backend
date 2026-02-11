@@ -27,6 +27,7 @@ def sorted_airports() -> None:
             f'        "name": "{airport["name"]}",\n'
             f'        "country": "{airport["country"]}",\n'
             f'        "iata": "{airport["iata"]}",\n'
+            f"   }},\n"
         )
         
     lines.append("}\n")
