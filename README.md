@@ -176,8 +176,8 @@ Through this project I gained:
 ## 🚀 Future Ideas:
 
 - Build my own API w/ FastAPI, containing flight data collected in Bearflights. 
-- Collecting full flight route w/visualizing frontend. 
-- Integrate a AI to either further explain about the flights or the company.
+- Better route collecting and enrichment, to get more accurate departure and arrival airports.
+
 
 ---
 
