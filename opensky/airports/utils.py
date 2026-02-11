@@ -1,5 +1,5 @@
 from pathlib import Path
-from opensky.airports.airport_icao import AIRPORTS_BY_REGION
+from opensky.airports.airport_icao import AIRPORTS_BY_ICAO
 
 def sorted_airports() -> None:
     path = Path(__file__).parent / "airports_icao.py"
