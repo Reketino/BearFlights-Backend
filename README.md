@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- script for soting airports by name in the database
+- Adding airport to airporticao mapping to improve route enrichment.
 
 ---
 
