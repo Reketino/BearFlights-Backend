@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Adding airport to airporticao mapping to improve route enrichment.
+- Fix utils sscript in airport-icao.py
 
 ---
 
