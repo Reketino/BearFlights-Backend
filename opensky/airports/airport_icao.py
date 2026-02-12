@@ -72,6 +72,12 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "HEL",
     },
     
+    "EFPJ": {
+        "name": "Jäkäläpää Airfield",
+        "country": "Finland",
+        "iata": "",
+    },
+    
     # Europe
     "EGCC": {
         "name": "Manchester Airport",
