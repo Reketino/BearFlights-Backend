@@ -17,7 +17,7 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
 
     # Finland
     "EFHK": {
-        "name": "Helsinik Airport",
+        "name": "Helsinki Airport",
         "country": "Finland",
         "iata": "HEL",
    },
