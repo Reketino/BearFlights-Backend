@@ -21,7 +21,7 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Finland",
         "iata": "HEL",
    },
-    "EFPJ": {
+    "EFJP": {
         "name": "Jäkäläpää Airfield",
         "country": "Finland",
         "iata": "",
