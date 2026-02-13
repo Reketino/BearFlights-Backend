@@ -4,6 +4,16 @@ from opensky.airports.airport_icao import AIRPORTS_BY_ICAO
 def sorted_airports() -> None:
     path = Path(__file__).parent / "airports_icao.py"
     
+    content = path.read_text(encoding="utf-8")
+    
+    namespace: dict[str, object] = {}
+    exec(content,namespace)
+    
+    airports = namespace["AIRPORTS_BY_ICAO"]
+    
+    if not isinstance(airports, dict):
+        raise ValueError("AIRPORTS_BY_ICAO is not a dict in the source file.")
+    
     lines: list[str] = []
     lines.append("# Airports sorted by country & name\n")
     lines.append("AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {\n")
