@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Fix utils script in airport-icao.py
+- Script for deleting old flight data from Supabase, to keep the dataset manageable and relevant.
 
 ---
 
