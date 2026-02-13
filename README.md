@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Adding debug mode to positions reset script
+- Adding new airport & aircraft to database.
 
 ---
 
