@@ -41,6 +41,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "RIX",
    },
 
+    # Netherlands
+    "EHAM": {
+        "name": "Amsterdam Airport Schiphol",
+        "country": "Netherlands",
+        "iata": "AMS",
+   },
+
     # Norway
     "ENAL": {
         "name": "Aalesund Airport",
@@ -127,11 +134,5 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "name": "Miami International Airport",
         "country": "United States of America",
         "iata": "MIA",
-   },
-    
-      "EHAM": {
-        "name": "Amsterdam Airport Schiphol",
-        "country": "Netherlands",
-        "iata": "AMS",
    },
 }
