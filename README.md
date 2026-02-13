@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Fix utils sscript in airport-icao.py
+- Fix utils script in airport-icao.py
 
 ---
 
