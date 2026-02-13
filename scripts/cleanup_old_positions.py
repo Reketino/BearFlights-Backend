@@ -13,7 +13,8 @@ supbase = create_client(
 DEBUG = True
 
 def cleanup_old_positions() -> None:
-    print("Cleanup old positions process initiated...")
+    if DEBUG:
+        print("Cleanup old positions process initiated...")
     
     cutoff = datetime.now(timezone.utc) - timedelta(days=7)
     
@@ -26,7 +27,8 @@ def cleanup_old_positions() -> None:
     )
     
     print("Cleanup process completed.")
-    print("Rows Removed:", len(res.data)or [])
+    if DEBUG:
+        print("Rows Removed:", len(res.data)or [])
     
     
 if __name__ == "__main__":
