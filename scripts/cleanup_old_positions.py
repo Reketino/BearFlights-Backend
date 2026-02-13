@@ -10,6 +10,8 @@ supbase = create_client(
     os.environ["SUPABASE_SERVICE_ROLE_KEY"],
 )
 
+DEBUG = True
+
 def cleanup_old_positions() -> None:
     print("Cleanup old positions process initiated...")
     
