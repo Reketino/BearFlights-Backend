@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Script for deleting old flight data from Supabase, to keep the dataset manageable and relevant.
+- Adding debug mode to positions reset script
 
 ---
 
