@@ -29,8 +29,7 @@ def cleanup_old_positions() -> None:
     print("Cleanup process completed.")
     if DEBUG:
         print("Rows Removed:", len(res.data)or [])
-    
-    
+      
 if __name__ == "__main__":
     cleanup_old_positions()
     
