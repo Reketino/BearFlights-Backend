@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta, timezone
 from supabase import create_client
 import os
 from dotenv import load_dotenv
@@ -12,11 +13,13 @@ supbase = create_client(
 def cleanup_old_positions() -> None:
     print("Cleanup old positions process initiated...")
     
+    cutoff = datetime.now(timezone.utc) - timedelta(days=7)
+    
     res = (
         supbase
         .table("flight_positions")
         .delete()
-        .lt("last_seen", "now() - interval '7 days'")
+        .lt("last_seen", cutoff.isoformat())
         .execute()
     )
     
