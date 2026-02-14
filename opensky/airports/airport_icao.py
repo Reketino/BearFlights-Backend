@@ -140,4 +140,12 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "United States of America",
         "iata": "MIA",
    },
+    
+     "RJTT": {
+        "name": "Tokyo Int'l (Haneda) Airport",
+        "country": "Japan",
+        "iata": "HND",
+   },
+    
+    
 }
