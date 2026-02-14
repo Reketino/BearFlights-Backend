@@ -34,6 +34,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "KEF",
    },
 
+    # Japan
+    "RJTT": {
+        "name": "Tokyo Int'l (Haneda) Airport",
+        "country": "Japan",
+        "iata": "HND",
+   },
+
     # Latvia
     "EVRA": {
         "name": "Riga International Airport",
@@ -94,13 +101,18 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Norway",
         "iata": "TRD",
    },
-      "ENTC": {
+    "ENTC": {
         "name": "Trondheim, Vaernes Airport",
         "country": "Norway",
         "iata": "TRD",
    },
 
     # Spain
+    "LEBB": {
+        "name": "Bilbao Airport",
+        "country": "Spain",
+        "iata": "BIO",
+   },
     "GCFV": {
         "name": "Fuerteventura Airport",
         "country": "Spain",
@@ -140,17 +152,4 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "United States of America",
         "iata": "MIA",
    },
-    
-     "RJTT": {
-        "name": "Tokyo Int'l (Haneda) Airport",
-        "country": "Japan",
-        "iata": "HND",
-   },
-    
-         "LEBB": {
-        "name": "Bilbao Airport",
-        "country": "Spain",
-        "iata": "BIO",
-   },
-    
 }
