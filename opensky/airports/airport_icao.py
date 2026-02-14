@@ -147,5 +147,10 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "HND",
    },
     
+         "LEBB": {
+        "name": "Bilbao Airport",
+        "country": "Spain",
+        "iata": "BIO",
+   },
     
 }
