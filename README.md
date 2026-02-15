@@ -178,7 +178,6 @@ Through this project I gained:
 - Build my own API w/ FastAPI, containing flight data collected in Bearflights. 
 - Better route collecting and enrichment, to get more accurate departure and arrival airports.
 
-
 ---
 
 Built to understand how data survives the journey from Python to pixels.
