@@ -1,4 +1,8 @@
 AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
+    "Aeroprakt": {
+        "AP32": "Aeroprakt A-32",
+    },
+
     "Airbus": {
         "A20N": "Airbus A320neo",
         "A21N": "Airbus A321neo",
@@ -16,8 +20,8 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
         "BCS3": "Airbus A220-300",
     },
 
-    "Aeroprakt": {
-        "AP32": "Aeroprakt A-32",
+    "Beechcraft": {
+        "BE20": "Beechcraft Super King Air",
     },
 
     "Boeing": {
@@ -34,10 +38,6 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
 
     "Bombardier": {
         "GL7T": "Bombardier Global 7500",
-    },
-
-    "Beechcraft": {
-        "BE20": "Beechcraft Super King Air",
     },
 
     "Cessna": {
