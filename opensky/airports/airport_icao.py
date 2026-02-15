@@ -91,6 +91,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Norway",
         "iata": "SDN",
    },
+    "ENSG": {
+        "name": "Sogndal Airport",
+        "country": "Norway",
+        "iata": "SOG",
+   },
     "ENSR": {
         "name": "Sørkjosen Airport ",
         "country": "Norway",
