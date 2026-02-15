@@ -57,6 +57,11 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
     "SAAB": {
         "SF34": "Saab 340A",
     },
+    
+    
+    "Aeroprakt": {
+        "AP32": "Aeroprakt A-32",
+    },
 
 }
 
