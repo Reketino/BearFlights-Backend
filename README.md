@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Adding new airport & aircraft to database.
+- Adding new aircraft to database.
 
 ---
 
@@ -177,7 +177,6 @@ Through this project I gained:
 
 - Build my own API w/ FastAPI, containing flight data collected in Bearflights. 
 - Better route collecting and enrichment, to get more accurate departure and arrival airports.
-
 
 ---
 
