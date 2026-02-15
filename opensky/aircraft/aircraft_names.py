@@ -15,7 +15,7 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
         "A400": "Airbus A400",
         "BCS3": "Airbus A220-300",
     },
-    
+
     "Aeroprakt": {
         "AP32": "Aeroprakt A-32",
     },
@@ -62,8 +62,8 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
         "SF34": "Saab 340A",
     },
 
-    "Aeroprakt": {
-        "AP32": "Aeroprakt A-32",
+    "Van's Aircraft": {
+        "RV14": "Van's Aircraft RV-14",
     },
 
 }
