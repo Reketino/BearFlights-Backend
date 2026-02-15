@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Adding new aircraft to database.
+- refactor sorting script for airlines, to sort by manufacterer
 
 ---
 
