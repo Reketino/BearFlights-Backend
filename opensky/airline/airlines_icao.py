@@ -31,6 +31,7 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
      "Middle East": {
         "AIC": "Air India",
         "HZ": "Alpha Star",
+        "ELY": "El Al Israel Airlines",
         "UAE": "Emirates",
         "ETD": "Etihad Airways",
         "QTR": "Qatar Airways",
