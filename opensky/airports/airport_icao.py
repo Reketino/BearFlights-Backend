@@ -157,4 +157,10 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "United States of America",
         "iata": "MIA",
    },
+    
+     "LLBG": {
+        "name": "Ben Gurion Airport",
+        "country": "Israel",
+        "iata": "TLV",
+   },
 }
