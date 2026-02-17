@@ -34,6 +34,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "KEF",
    },
 
+    # Israel
+    "LLBG": {
+        "name": "Ben Gurion Airport",
+        "country": "Israel",
+        "iata": "TLV",
+   },
+
     # Japan
     "RJTT": {
         "name": "Tokyo Int'l (Haneda) Airport",
@@ -156,11 +163,5 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "name": "Miami International Airport",
         "country": "United States of America",
         "iata": "MIA",
-   },
-    
-     "LLBG": {
-        "name": "Ben Gurion Airport",
-        "country": "Israel",
-        "iata": "TLV",
    },
 }
