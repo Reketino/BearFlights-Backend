@@ -164,4 +164,10 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "United States of America",
         "iata": "MIA",
    },
+    
+     "ESSA": {
+        "name": "Stockholm Arlanda Airport",
+        "country": "Sweden",
+        "iata": "ARN",
+   },
 }
