@@ -83,6 +83,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Norway",
         "iata": "HAU",
    },
+    "ENML": {
+        "name": "Molde Airport",
+        "country": "Norway",
+        "iata": "MOL",
+   },
     "ENOV": {
         "name": "Orsta Volda Airport",
         "country": "Norway",
@@ -129,6 +134,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "name": "Fuerteventura Airport",
         "country": "Spain",
         "iata": "FUE",
+   },
+
+    # Sweden
+    "ESSA": {
+        "name": "Stockholm Arlanda Airport",
+        "country": "Sweden",
+        "iata": "ARN",
    },
 
     # United Kingdom
