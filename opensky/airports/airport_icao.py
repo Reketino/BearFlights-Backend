@@ -131,6 +131,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "FUE",
    },
 
+    # Sweden
+    "ESSA": {
+        "name": "Stockholm Arlanda Airport",
+        "country": "Sweden",
+        "iata": "ARN",
+   },
+
     # United Kingdom
     "EGKK": {
         "name": "London Gatwick Airport",
@@ -163,11 +170,5 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "name": "Miami International Airport",
         "country": "United States of America",
         "iata": "MIA",
-   },
-    
-     "ESSA": {
-        "name": "Stockholm Arlanda Airport",
-        "country": "Sweden",
-        "iata": "ARN",
    },
 }
