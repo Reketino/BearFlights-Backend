@@ -171,4 +171,10 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "United States of America",
         "iata": "MIA",
    },
+    
+      "ENML": {
+        "name": "Molde Airport",
+        "country": "Norway",
+        "iata": "MOL",
+   },
 }
