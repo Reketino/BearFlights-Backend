@@ -176,4 +176,10 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "United States of America",
         "iata": "MIA",
    },
+        "KDFW": {
+        "name": "Dallas Fort Worth International Airport",
+        "country": "United States of America",
+        "iata": "DFW",
+   },
+    
 }
