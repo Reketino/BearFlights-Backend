@@ -181,4 +181,10 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "United States of America",
         "iata": "MIA",
    },
+    
+       "ENSU": {
+        "name": "Sunndalsora, Vinnu Airport",
+        "country": "Norway",
+        "iata": "",
+   },
 }
