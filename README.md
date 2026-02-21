@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- adding new aircrafts to database
+- 
 
 ---
 
