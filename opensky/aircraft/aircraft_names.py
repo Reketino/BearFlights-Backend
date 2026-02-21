@@ -65,6 +65,11 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
     "Van's Aircraft": {
         "RV14": "Van's Aircraft RV-14",
     },
+    
+    "Lockheed Martin": {
+        "C30J": "Lockheed Martin C-130J Super Hercules",
+    },
+
 
 }
 
