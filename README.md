@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- 
+- Testing commit template on new computer
 
 ---
 
