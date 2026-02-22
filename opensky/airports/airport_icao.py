@@ -149,6 +149,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
    },
 
     # United Kingdom
+    "EGGD": {
+        "name": "Bristol Airport",
+        "country": "United Kingdom",
+        "iata": "BRS",
+   },
     "EGKK": {
         "name": "London Gatwick Airport",
         "country": "United Kingdom",
