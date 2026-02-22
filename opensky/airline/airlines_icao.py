@@ -13,6 +13,7 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
         "EIN": "Aer Lingus",
         "AFR": "Air France",
         "BAW": "British Airways",
+        "BNO": "Babcock Scandinavian Airambulance",
         "EJU": "Easyjet Europe",
         "ENT": "Enter Air",
         "KLM": "KLM Royal Dutch Airlines",
