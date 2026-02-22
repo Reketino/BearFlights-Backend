@@ -169,6 +169,12 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "United Kingdom",
         "iata": "BZZ",
    },
+    
+    "EGGD": {
+        "name": "Bristol Airport",
+        "country": "United Kingdom",
+        "iata": "BRS",
+   },
 
     # United States of America
     "KDFW": {
