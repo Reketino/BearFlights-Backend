@@ -34,6 +34,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "KEF",
    },
 
+    # Ireland
+    "EINN": {
+        "name": "Shannon Airport",
+        "country": "Ireland",
+        "iata": "SNN",
+   },
+
     # Israel
     "LLBG": {
         "name": "Ben Gurion Airport",
@@ -197,11 +204,5 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "name": "Miami International Airport",
         "country": "United States of America",
         "iata": "MIA",
-   },
-    
-     "EINN": {
-        "name": "Shannon Airport",
-        "country": "Ireland",
-        "iata": "SNN",
    },
 }
