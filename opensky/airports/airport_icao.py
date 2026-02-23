@@ -148,6 +148,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "ARN",
    },
 
+    # Turkey
+    "LTFM": {
+        "name": "Istanbul Airport",
+        "country": "Turkey",
+        "iata": "IST",
+   },
+
     # United Kingdom
     "EGGD": {
         "name": "Bristol Airport",
@@ -190,11 +197,5 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "name": "Miami International Airport",
         "country": "United States of America",
         "iata": "MIA",
-   },
-    
-     "LTFM": {
-        "name": "Istanbul Airport",
-        "country": "Turkey",
-        "iata": "IST",
    },
 }
