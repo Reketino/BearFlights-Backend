@@ -198,4 +198,10 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "United States of America",
         "iata": "MIA",
    },
+    
+     "EINN": {
+        "name": "Shannon Airport",
+        "country": "Ireland",
+        "iata": "SNN",
+   },
 }
