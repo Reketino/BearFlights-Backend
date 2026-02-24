@@ -210,4 +210,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "United States of America",
         "iata": "RIC",
    },
+    
+     "KCLT": {
+        "name": "Charlotte Douglas International Airport",
+        "country": "United States of America",
+        "iata": "CLT",
+   },
+    
 }
