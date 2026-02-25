@@ -55,6 +55,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "HND",
    },
 
+    # Kosovo
+    " BKPR": {
+        "name": "Pristina International Airport",
+        "country": "Kosovo",
+        "iata": "PRN",
+   },
+
     # Latvia
     "EVRA": {
         "name": "Riga International Airport",
