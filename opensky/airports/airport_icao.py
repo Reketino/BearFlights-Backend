@@ -27,6 +27,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "",
    },
 
+    # Honduras
+    "MHLP": {
+        "name": " Mapulaca Airport",
+        "country": "Honduras",
+        "iata": "",
+   },
+
     # Iceland
     "BIKF": {
         "name": "Keflavík International Airport",
