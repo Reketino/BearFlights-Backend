@@ -44,5 +44,7 @@ def sorted_airports() -> None:
     
     path.write_text("".join(lines), encoding="utf-8")
     
+      # Run script w/: python -m opensky.airports.utils
+    
 if __name__ == "__main__":
     sorted_airports()
