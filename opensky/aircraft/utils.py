@@ -31,7 +31,8 @@ def sorted_aircraft_types() -> None:
     )
     
     path.write_text("".join(lines), encoding="utf-8")
-        
+    
+    # Run script w/: python -m opensky.aircraft.utils
         
 if __name__ == "__main__":
     sorted_aircraft_types()
