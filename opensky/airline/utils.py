@@ -27,6 +27,8 @@ def sorted_airlines() -> None:
     )
     
     path.write_text("".join(lines), encoding="utf-8")
+    
+    # Run script w/: python -m opensky.airline.utils
         
 if __name__ == "__main__":
     sorted_airlines()
