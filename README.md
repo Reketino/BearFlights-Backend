@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Refactor aircraft utils
+- Cleaning up commit template for python logic
 
 ---
 
