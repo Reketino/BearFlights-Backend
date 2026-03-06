@@ -4,7 +4,7 @@
 # Feat: new feature
 # Fix: bug fix
 # Refactor: code change that improves structure
-# Style: formatting, UI, no logic change
+# Style: utils sorting on:
 # Chore: tooling, deps, cleanup
 # Docs: documentation only
 # Test: tests
