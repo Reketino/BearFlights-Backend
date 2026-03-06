@@ -4,20 +4,20 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
     },
 
     "Airbus": {
-        "A20N": "Airbus A320neo",
-        "A21N": "Airbus A321neo",
+        "BCS3": "Airbus A220-300",
         "A319": "Airbus A319",
         "A320": "Airbus A320",
+        "A20N": "Airbus A320neo",
         "A321": "Airbus A321",
-        "A332": "Airbus A330-200",
+        "A21N": "Airbus A321neo",
         "A333": "Airbus A330",
-        "A340": "Airbus A340-300",
+        "A332": "Airbus A330-200",
         "A342": "Airbus A340-200",
-        "A359": "Airbus A350-900",
+        "A340": "Airbus A340-300",
         "A35K": "Airbus A350-1000",
+        "A359": "Airbus A350-900",
         "A388": "Airbus A380-800",
         "A400": "Airbus A400",
-        "BCS3": "Airbus A220-300",
     },
 
     "Beechcraft": {
@@ -34,8 +34,8 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
         "B763": "Boeing 767-300",
         "B77L": "Boeing 777",
         "B77W": "Boeing 777-300ER",
-        "B788": "Boeing 787-8 Dreamliner",
         "B789": "Boeing 787",
+        "B788": "Boeing 787-8 Dreamliner",
         "C17": "Boeing C-17 Globemaster",
     },
 
@@ -49,16 +49,16 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
     },
 
     "De Havilland Canada": {
-        "DH8A": "De Havilland Canada Dash 8",
         "DH8D": "De Havilland Canada DHC-8-400",
+        "DH8A": "De Havilland Canada Dash 8",
     },
 
     "Embraer": {
         "E190": "Embraer 190",
         "E195": "Embraer 195",
+        "E75L": "Embraer E175",
         "E290": "Embraer E190-E2",
         "E55P": "Embraer Phenom 300",
-        "E75L": "Embraer E175",
     },
 
     "Lockheed Martin": {
