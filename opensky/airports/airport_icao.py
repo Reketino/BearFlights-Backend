@@ -7,6 +7,12 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Bulgaria",
         "iata": "",
    },
+    
+        "EFTP": {
+        "name": "Tampere-Pirkkala Airport",
+        "country": "Finland",
+        "iata": "TMP",
+   },
 
     # Denmark
     "EKBI": {
