@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Adding new aircraft
+- Fixing aircraft returning only upper bug
 
 ---
 
