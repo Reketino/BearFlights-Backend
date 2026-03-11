@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Fixing aircraft returning only upper bug
+- Refactor aircraft.py return
 
 ---
 
