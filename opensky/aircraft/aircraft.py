@@ -11,4 +11,4 @@ def aircraft_from_typecode(typecode: str | None) -> str | None:
     if not aircraft:
         print(f"Unknown aircraft type: {code}")
     
-    return aircraft or code
+    return aircraft if aircraft else code
