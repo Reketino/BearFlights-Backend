@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Refactor aircraft.py return
+- Collecting flight model from icao database
 
 ---
 
