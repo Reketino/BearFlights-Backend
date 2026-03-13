@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Collecting flight model from icao database
+- Adding new enrchiment method for aircraft w/ opensky database
 
 ---
 
