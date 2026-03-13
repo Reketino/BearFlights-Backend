@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Adding new enrchiment method for aircraft w/ opensky
+- Adding new enrchiment method for aircraft w/ opensky database
 
 ---
 
