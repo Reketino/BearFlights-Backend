@@ -14,6 +14,16 @@ supabase = create_client(
     os.environ["SUPABASE_SERVICE_ROLE_KEY"],
 )
 
+def enrich_aircraft(icao24: str, typecode: str | None) -> str | None:
+    aircraft = (
+        supabase
+        .table("aircraft_registry")
+        .select("model")
+        .eq("icao24", icao24)
+        .limit(1)
+        .execute()
+    )
+
 def enrich_aircraft_types(limit: int = 100) -> None:
     res = (
         supabase
