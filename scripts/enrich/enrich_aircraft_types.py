@@ -23,6 +23,12 @@ def enrich_aircraft(icao24: str, typecode: str | None) -> str | None:
         .limit(1)
         .execute()
     )
+    
+    if aircraft.data:
+        row = cast(dict[str, str], aircraft.data[0])
+        return row["model"]
+    
+    return aircraft_from_typecode(typecode)
 
 def enrich_aircraft_types(limit: int = 100) -> None:
     res = (
