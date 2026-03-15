@@ -7,6 +7,12 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Bulgaria",
         "iata": "",
    },
+    
+        "EIDW": {
+        "name": "Dublin Airport",
+        "country": "Bulgaria",
+        "iata": "DUB",
+   },
 
     # Denmark
     "EKBI": {
