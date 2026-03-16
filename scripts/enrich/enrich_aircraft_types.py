@@ -70,7 +70,7 @@ def enrich_aircraft_types(limit: int = 100) -> None:
         if aircraft_type is None:
             continue
         
-        aircraft_name = aircraft_from_typecode(aircraft_type)
+        aircraft_name = enrich_aircraft(icao24, aircraft_type)
         
         update_data = {
             "aircraft_type":  aircraft_type,

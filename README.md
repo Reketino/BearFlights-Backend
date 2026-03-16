@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Adding new airport
+- Upgrade aircraft_name loop to collect data from opensky
 
 ---
 
