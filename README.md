@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Upgrade aircraft_name loop to collect data from opensky
+- Refactor icao24 caching
 
 ---
 
