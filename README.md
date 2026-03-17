@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Automatically save new plane in airplane_registry
+- Refactor enrich_aircraft_types.py 
 
 ---
 
