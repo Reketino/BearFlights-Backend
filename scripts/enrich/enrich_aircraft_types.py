@@ -67,17 +67,19 @@ def enrich_aircraft_types(limit: int = 100) -> None:
             registry = (
                 supabase
                 .table("aircraft_registry")
-                .select("typecode")
+                .select("typecode, model")
                 .eq("icao24", icao24)
                 .limit(1)
                 .execute()
             )
             
             typecode = None
+            model = None
             
             if registry.data:
                 row = cast(dict[str, Any], registry.data[0])
                 typecode = row.get("typecode")
+                model = row.get("model")
                 
             if not typecode:
                 typecode = fetch_aircraft_type(icao24, token)
