@@ -64,7 +64,14 @@ def enrich_aircraft_types(limit: int = 100) -> None:
             continue
         
         if icao24 not in cache:
-            cache[icao24] = fetch_aircraft_type(icao24, token)
+            registry = (
+                supabase
+                .table("aircraft_registry")
+                .select("typecode")
+                .eq("icao24", icao24)
+                .limit(1)
+                .execute()
+            )
             
         aircraft_type = cache[icao24]
         if aircraft_type is None:
