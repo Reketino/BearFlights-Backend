@@ -89,7 +89,7 @@ def enrich_aircraft_types(limit: int = 100) -> None:
             supabase.table("aircraft_registry"). insert({
                 "icao24": icao24,
                 "typecode": aircraft_type,
-            }). execute
+            }, upsert=True).execute()
         
         aircraft_name = enrich_aircraft(icao24, aircraft_type)
         
