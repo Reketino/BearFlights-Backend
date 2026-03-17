@@ -91,13 +91,11 @@ def enrich_aircraft_types(limit: int = 100) -> None:
                     }).execute()
                     
             cache[icao24] = typecode
-        
-            
+              
         aircraft_type = cache[icao24]
         if aircraft_type is None:
             continue
         
-
         aircraft_name = enrich_aircraft(icao24, aircraft_type)
         
         update_data = {
