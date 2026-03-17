@@ -63,6 +63,8 @@ def enrich_aircraft_types(limit: int = 100) -> None:
         if not isinstance(icao24, str) or not date:
             continue
         
+        found_in_registry = False
+        
         if icao24 not in cache:
             registry = (
                 supabase
