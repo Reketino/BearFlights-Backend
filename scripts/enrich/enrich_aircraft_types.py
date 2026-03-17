@@ -78,6 +78,7 @@ def enrich_aircraft_types(limit: int = 100) -> None:
             if registry.data:
                 row = cast(dict[str, Any], registry.data[0])
                 cache[icao24] = row.get("typecode")
+                found_in_registry = True
             else:
                 cache[icao24] = fetch_aircraft_type(icao24, token)
             
