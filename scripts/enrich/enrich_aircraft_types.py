@@ -83,6 +83,12 @@ def enrich_aircraft_types(limit: int = 100) -> None:
         if aircraft_type is None:
             continue
         
+        if not found_in_registry:
+            supabase.table("aircraft_registry"). insert({
+                "icao24": icao24,
+                "typecode": aircraft_type,
+            }). execute
+        
         aircraft_name = enrich_aircraft(icao24, aircraft_type)
         
         update_data = {
