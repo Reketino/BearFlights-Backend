@@ -52,7 +52,7 @@ def enrich_aircraft_types(limit: int = 100) -> None:
     
     token = get_opensky_token()
     
-    cache: dict[str, str | None] = {}
+    cache: dict[str, tuple[str | None, str | None]] = {}
     
     for raw in flights:
         flight = cast(dict[str, Any], raw)
@@ -67,17 +67,19 @@ def enrich_aircraft_types(limit: int = 100) -> None:
             registry = (
                 supabase
                 .table("aircraft_registry")
-                .select("typecode")
+                .select("typecode, model")
                 .eq("icao24", icao24)
                 .limit(1)
                 .execute()
             )
             
             typecode = None
-            
+            model = None
+  
             if registry.data:
                 row = cast(dict[str, Any], registry.data[0])
                 typecode = row.get("typecode")
+                model = row.get("model")
                 
             if not typecode:
                 typecode = fetch_aircraft_type(icao24, token)
@@ -88,20 +90,16 @@ def enrich_aircraft_types(limit: int = 100) -> None:
                         "typecode": typecode,
                     }).execute()
                     
-            cache[icao24] = typecode
+            cache[icao24] = (typecode, model)
+              
+        aircraft_type, model = cache[icao24]
         
-            
-        aircraft_type = cache[icao24]
         if aircraft_type is None:
             continue
         
-
-        aircraft_name = enrich_aircraft(icao24, aircraft_type)
+        aircraft_name = model or aircraft_from_typecode(aircraft_type)
         
-        update_data = {
-            "aircraft_type":  aircraft_type,
-        }
-        
+        update_data = {"aircraft_type": aircraft_type}
         if aircraft_name:
             update_data["aircraft_name"] = aircraft_name 
         
