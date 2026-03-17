@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Refactor icao24 caching
+- Automatically save new plane in airplane_registry
 
 ---
 
