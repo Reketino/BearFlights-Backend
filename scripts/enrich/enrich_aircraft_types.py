@@ -52,7 +52,7 @@ def enrich_aircraft_types(limit: int = 100) -> None:
     
     token = get_opensky_token()
     
-    cache: dict[str, str | None] = {}
+    cache: dict[str, tuple[str | None, str | None]] = {}
     
     for raw in flights:
         flight = cast(dict[str, Any], raw)
@@ -62,6 +62,8 @@ def enrich_aircraft_types(limit: int = 100) -> None:
         
         if not isinstance(icao24, str) or not date:
             continue
+        
+       
         
         if icao24 not in cache:
             registry = (
@@ -75,7 +77,7 @@ def enrich_aircraft_types(limit: int = 100) -> None:
             
             typecode = None
             model = None
-            
+  
             if registry.data:
                 row = cast(dict[str, Any], registry.data[0])
                 typecode = row.get("typecode")
@@ -90,9 +92,10 @@ def enrich_aircraft_types(limit: int = 100) -> None:
                         "typecode": typecode,
                     }).execute()
                     
-            cache[icao24] = typecode
+            cache[icao24] = (typecode, model)
               
-        aircraft_type = cache[icao24]
+        aircraft_type, model = cache[icao24]
+        
         if aircraft_type is None:
             continue
         
