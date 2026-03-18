@@ -31,3 +31,6 @@ class AircraftService:
             row = cast(dict[str, Any], registry.data[0])
             typecode = row.get("typecode")
             model = row.get("model")
+            
+        if not typecode:
+            typecode = fetch_aircraft_type(icao24, self.token)
