@@ -34,3 +34,9 @@ class AircraftService:
             
         if not typecode:
             typecode = fetch_aircraft_type(icao24, self.token)
+            
+        if typecode:
+            self.supbase.table("aircraft_registry").upsert({
+                "icao24": icao24,
+                "typecode": typecode,
+            }).execute()
