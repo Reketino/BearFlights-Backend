@@ -14,3 +14,12 @@ class AircraftService:
     def get_or_fetch_aircraft(self, icao24: str) -> tuple[str | None, str | None]:
         if icao24 in self.cache:
             return self.cache[icao24]
+        
+        registry = (
+            self.supabase
+            .table("aircraft_registry")
+            .select("typecode, model")
+            .eq("icao24", icao24)
+            .limit(1)
+            .execute()
+        )
