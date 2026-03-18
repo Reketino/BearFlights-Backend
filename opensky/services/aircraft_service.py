@@ -40,3 +40,8 @@ class AircraftService:
                 "icao24": icao24,
                 "typecode": typecode,
             }).execute()
+            
+        self.cache[icao24] = (typecode, model)
+        return self.cache[icao24]
+    
+    
