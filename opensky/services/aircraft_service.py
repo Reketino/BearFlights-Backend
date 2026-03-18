@@ -44,4 +44,7 @@ class AircraftService:
         self.cache[icao24] = (typecode, model)
         return self.cache[icao24]
     
-    
+    def get_aircraft_name(self, typecode: str | None, model: str | None) -> None:
+        if model:
+            return model
+        return aircraft_from_typecode(typecode)
