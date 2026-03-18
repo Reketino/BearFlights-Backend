@@ -9,6 +9,7 @@ class AircraftService:
         self.supabase = supabase
         self.token = token
         self.cache: dict[str, tuple[str | None, str | None]] = {}
+    
         
     def get_or_fetch_aircraft(self, icao24: str) -> tuple[str | None, str | None]:
         if icao24 in self.cache:
