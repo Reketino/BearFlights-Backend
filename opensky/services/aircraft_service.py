@@ -36,7 +36,7 @@ class AircraftService:
             typecode = fetch_aircraft_type(icao24, self.token)
             
         if typecode:
-            self.supbase.table("aircraft_registry").upsert({
+            self.supabase.table("aircraft_registry").upsert({
                 "icao24": icao24,
                 "typecode": typecode,
             }).execute()
@@ -44,7 +44,7 @@ class AircraftService:
         self.cache[icao24] = (typecode, model)
         return self.cache[icao24]
     
-    def get_aircraft_name(self, typecode: str | None, model: str | None) -> None:
+    def get_aircraft_name(self, typecode: str | None, model: str | None) -> str | None:
         if model:
             return model
         return aircraft_from_typecode(typecode)

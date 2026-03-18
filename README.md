@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Moving some logic from enrich_aircraft.py into aircraft_service.py
+- Fix typing in aircraft_service
 
 ---
 
