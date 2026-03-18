@@ -4,3 +4,8 @@ from supabase import client
 from opensky.api import fetch_aircraft_type
 from opensky.aircraft.aircraft import aircraft_from_typecode
 
+class AircraftService:
+    def __init__(self, supabase: Client, token: str):
+        self.supabase = supabase
+        self.token = token
+        self.cache: dict[str, tuple[str | None, str | None]] = {}
