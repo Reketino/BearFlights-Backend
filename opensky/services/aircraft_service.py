@@ -26,3 +26,8 @@ class AircraftService:
         
         typecode = None
         model = None
+        
+        if registry.data:
+            row = cast(dict[str, Any], registry.data[0])
+            typecode = row.get("typecode")
+            model = row.get("model")
