@@ -23,3 +23,6 @@ class AircraftService:
             .limit(1)
             .execute()
         )
+        
+        typecode = None
+        model = None
