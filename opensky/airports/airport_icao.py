@@ -7,7 +7,7 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Bulgaria",
         "iata": "",
    },
-    
+
     # Denmark
     "EKBI": {
         "name": "Billund Lufthavn",
@@ -139,6 +139,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Norway",
         "iata": "SDN",
    },
+    "ENTO": {
+        "name": "Sandefjord Airport, Torp",
+        "country": "Norway",
+        "iata": "TRF",
+   },
     "ENSG": {
         "name": "Sogndal Airport",
         "country": "Norway",
@@ -154,12 +159,12 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Norway",
         "iata": "SOJ",
    },
-    "ENVA": {
-        "name": "Trondheim, Vaernes Airport",
-        "country": "Norway",
-        "iata": "TRD",
-   },
     "ENTC": {
+        "name": "Tromsø Airport",
+        "country": "Norway",
+        "iata": "TOS",
+   },
+    "ENVA": {
         "name": "Trondheim, Vaernes Airport",
         "country": "Norway",
         "iata": "TRD",

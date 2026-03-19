@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Fix typing in aircraft_service
+- Adding new airport to script
 
 ---
 
