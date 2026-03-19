@@ -164,6 +164,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Norway",
         "iata": "TRD",
    },
+       "ENTO": {
+        "name": "Sandefjord Airport, Torp",
+        "country": "Norway",
+        "iata": "TRF",
+   },
 
     # Spain
     "LEBB": {
