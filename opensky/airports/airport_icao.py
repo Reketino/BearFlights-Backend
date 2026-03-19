@@ -165,9 +165,9 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "TRD",
    },
     "ENTC": {
-        "name": "Trondheim, Vaernes Airport",
+        "name": "Tromsø Airport",
         "country": "Norway",
-        "iata": "TRD",
+        "iata": "TOS",
    },
 
     # Spain
