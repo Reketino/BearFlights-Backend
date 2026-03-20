@@ -6,6 +6,7 @@ from supabase import create_client
 from opensky.auth import get_opensky_token
 from opensky.api import fetch_aircraft_type
 from opensky.aircraft.aircraft import aircraft_from_typecode
+from opensky.services.aircraft_service import AircraftService
 
 load_dotenv()
 
