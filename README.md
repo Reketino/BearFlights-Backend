@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- refactor enrich_aircraft_types.py
+- RRefactor enrich_aircraft_types.py
 
 ---
 
