@@ -53,6 +53,8 @@ def enrich_aircraft_types(limit: int = 100) -> None:
     
     token = get_opensky_token()
     
+    service = AircraftService(supabase, token)
+    
     cache: dict[str, tuple[str | None, str | None]] = {}
     
     for raw in flights:
