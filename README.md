@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Adding new airport to script
+- RRefactor enrich_aircraft_types.py
 
 ---
 
