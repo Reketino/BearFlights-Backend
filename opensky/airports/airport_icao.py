@@ -171,6 +171,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
    },
 
     # Spain
+    "LEAL": {
+        "name": "Alicante Elche Miguel Hernández Airport",
+        "country": "Spain",
+        "iata": " ALC",
+   },
     "LEBB": {
         "name": "Bilbao Airport",
         "country": "Spain",
@@ -181,13 +186,6 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Spain",
         "iata": "FUE",
    },
-    
-       "LEAL": {
-        "name": "Alicante Elche Miguel Hernández Airport",
-        "country": "Spain",
-        "iata": " ALC",
-   },
-
 
     # Sweden
     "ESSA": {
