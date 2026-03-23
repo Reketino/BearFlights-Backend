@@ -4,6 +4,7 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
      "Nordic": {
         "FIN": "Finnair",
         "ICE": "Icelandair",
+        "NSZ": "NORWEGIAN AIR SWEDEN",
         "NOZ": "Norwegian Air Shuttle",
         "SAS": "Scandinavian Airlines",
         "VKG": "Sunclass Airlines",
