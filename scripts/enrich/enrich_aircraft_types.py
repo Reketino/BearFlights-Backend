@@ -55,8 +55,6 @@ def enrich_aircraft_types(limit: int = 100) -> None:
     
     service = AircraftService(supabase, token)
     
-    cache: dict[str, tuple[str | None, str | None]] = {}
-    
     for raw in flights:
         flight = cast(dict[str, Any], raw)
         
@@ -66,23 +64,7 @@ def enrich_aircraft_types(limit: int = 100) -> None:
         if not isinstance(icao24, str) or not date:
             continue
         
-        if icao24 not in cache:
-            registry = (
-                supabase
-                .table("aircraft_registry")
-                .select("typecode, model")
-                .eq("icao24", icao24)
-                .limit(1)
-                .execute()
-            )
-            
-            typecode = None
-            model = None
-  
-            if registry.data:
-                row = cast(dict[str, Any], registry.data[0])
-                typecode = row.get("typecode")
-                model = row.get("model")
+        aircraft_type, model = service.get_or_fetch_aircraft(icao24)
                 
             if not typecode:
                 typecode = fetch_aircraft_type(icao24, token)
