@@ -65,6 +65,11 @@ def enrich_aircraft_types(limit: int = 100) -> None:
             continue
         
         aircraft_type, model = service.get_or_fetch_aircraft(icao24)
+        
+        existing_type = flight.get("aircraft_type")
+        
+        if aircraft_type is None and isinstance(existing_type, str):
+            aircraft_type = existing_type
                 
         if aircraft_type is None:
             continue
