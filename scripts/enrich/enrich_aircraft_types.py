@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 from supabase import create_client
 
 from opensky.auth import get_opensky_token
-from opensky.api import fetch_aircraft_type
 from opensky.aircraft.aircraft import aircraft_from_typecode
 from opensky.services.aircraft_service import AircraftService
 
@@ -55,8 +54,6 @@ def enrich_aircraft_types(limit: int = 100) -> None:
     
     service = AircraftService(supabase, token)
     
-    cache: dict[str, tuple[str | None, str | None]] = {}
-    
     for raw in flights:
         flight = cast(dict[str, Any], raw)
         
@@ -66,41 +63,17 @@ def enrich_aircraft_types(limit: int = 100) -> None:
         if not isinstance(icao24, str) or not date:
             continue
         
-        if icao24 not in cache:
-            registry = (
-                supabase
-                .table("aircraft_registry")
-                .select("typecode, model")
-                .eq("icao24", icao24)
-                .limit(1)
-                .execute()
-            )
-            
-            typecode = None
-            model = None
-  
-            if registry.data:
-                row = cast(dict[str, Any], registry.data[0])
-                typecode = row.get("typecode")
-                model = row.get("model")
-                
-            if not typecode:
-                typecode = fetch_aircraft_type(icao24, token)
-                
-                if typecode:
-                    supabase.table("aircraft_registry").upsert({
-                        "icao24": icao24,
-                        "typecode": typecode,
-                    }).execute()
-                    
-            cache[icao24] = (typecode, model)
-              
-        aircraft_type, model = cache[icao24]
+        aircraft_type, model = service.get_or_fetch_aircraft(icao24)
         
+        existing_type = flight.get("aircraft_type")
+        
+        if aircraft_type is None and isinstance(existing_type, str):
+            aircraft_type = existing_type
+                
         if aircraft_type is None:
             continue
         
-        aircraft_name = model or aircraft_from_typecode(aircraft_type)
+        aircraft_name = service.get_aircraft_name(aircraft_type, model)
         
         update_data = {"aircraft_type": aircraft_type}
         if aircraft_name:
@@ -117,6 +90,8 @@ def enrich_aircraft_types(limit: int = 100) -> None:
         
         print(f"{icao24} -> {aircraft_type} ({aircraft_name})")
         
+        
+# Run script w/ python -m scripts.enrich.enrich_aircraft_types
 if __name__ == "__main__":
     enrich_aircraft_types()
         
