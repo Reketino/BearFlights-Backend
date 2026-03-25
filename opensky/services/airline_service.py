@@ -7,4 +7,6 @@ class AirlineService:
         if not callsign:
             return None
         
+        return airline_from_callsign(callsign)
+        
     
