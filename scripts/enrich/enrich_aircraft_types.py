@@ -66,19 +66,6 @@ def enrich_aircraft_types(limit: int = 100) -> None:
         
         aircraft_type, model = service.get_or_fetch_aircraft(icao24)
                 
-            if not typecode:
-                typecode = fetch_aircraft_type(icao24, token)
-                
-                if typecode:
-                    supabase.table("aircraft_registry").upsert({
-                        "icao24": icao24,
-                        "typecode": typecode,
-                    }).execute()
-                    
-            cache[icao24] = (typecode, model)
-              
-        aircraft_type, model = cache[icao24]
-        
         if aircraft_type is None:
             continue
         
