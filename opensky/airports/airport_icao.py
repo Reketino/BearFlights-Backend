@@ -7,11 +7,6 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Bulgaria",
         "iata": "",
    },
-    "EGNV": {
-        "name": "Teesside International Airport",
-        "country": "England",
-        "iata": "MME",
-   },
 
     # Denmark
     "EKBI": {
@@ -23,6 +18,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "name": "Copenhagen Airport",
         "country": "Denmark",
         "iata": "CPH",
+   },
+
+    # England
+    "EGNV": {
+        "name": "Teesside International Airport",
+        "country": "England",
+        "iata": "MME",
    },
 
     # Finland
