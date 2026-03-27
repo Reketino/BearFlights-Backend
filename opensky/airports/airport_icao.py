@@ -237,6 +237,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "United Kingdom",
         "iata": "BZZ",
    },
+    "EGNV": {
+        "name": "Teesside International Airport",
+        "country": "United Kingdom",
+        "iata": "MME",
+   },
 
     # United States of America
     "KCLT": {
