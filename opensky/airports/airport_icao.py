@@ -179,6 +179,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Norway",
         "iata": "TRD",
    },
+    "ENBM": {
+        "name": "Voss Airport",
+        "country": "Norway",
+        "iata": "",
+   },
 
     # Spain
     "LEAL": {
@@ -241,11 +246,6 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "name": "Teesside International Airport",
         "country": "United Kingdom",
         "iata": "MME",
-   },
-        "ENBM": {
-        "name": "Voss Airport",
-        "country": "Norway",
-        "iata": "",
    },
 
     # United States of America
