@@ -242,6 +242,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "United Kingdom",
         "iata": "MME",
    },
+        "ENBM": {
+        "name": "Voss Airport",
+        "country": "Norway",
+        "iata": "",
+   },
 
     # United States of America
     "KCLT": {
