@@ -179,6 +179,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Norway",
         "iata": "TRD",
    },
+    "ENBM": {
+        "name": "Voss Airport",
+        "country": "Norway",
+        "iata": "",
+   },
 
     # Spain
     "LEAL": {
