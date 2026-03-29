@@ -40,9 +40,8 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
     },
 
     "Bombardier": {
-        "GL7T": "Bombardier Global 7500",
         "CRJ9": "Bombardier CRJ900",
-        
+        "GL7T": "Bombardier Global 7500",
     },
 
     "Cessna": {
