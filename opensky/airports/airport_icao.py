@@ -96,6 +96,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "RIX",
    },
 
+    # Lithuania
+    "EYVI": {
+        "name": "Vilnius Čiurlionis International Airport ",
+        "country": "Lithuania",
+        "iata": "VNO",
+   },
+
     # Netherlands
     "EHAM": {
         "name": "Amsterdam Airport Schiphol",
