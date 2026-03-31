@@ -7,11 +7,6 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Bulgaria",
         "iata": "",
    },
-      "LSZH": {
-        "name": "Zurich Airport",
-        "country": "Switzerland",
-        "iata": "ZRH",
-   },
 
     # Denmark
     "EKBI": {
@@ -219,6 +214,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "name": "Stockholm Arlanda Airport",
         "country": "Sweden",
         "iata": "ARN",
+   },
+
+    # Switzerland
+    "LSZH": {
+        "name": "Zurich Airport",
+        "country": "Switzerland",
+        "iata": "ZRH",
    },
 
     # Turkey
