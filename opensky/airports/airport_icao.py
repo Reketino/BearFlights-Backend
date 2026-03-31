@@ -216,6 +216,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "ARN",
    },
 
+    # Switzerland
+    "LSZH": {
+        "name": "Zurich Airport",
+        "country": "Switzerland",
+        "iata": "ZRH",
+   },
+
     # Turkey
     "LTFM": {
         "name": "Istanbul Airport",
