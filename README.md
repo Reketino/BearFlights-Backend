@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Adding new airline company
+- Refactor enrich_airlines.py
 
 ---
 
