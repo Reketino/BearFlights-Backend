@@ -63,6 +63,10 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
         "E55P": "Embraer Phenom 300",
     },
 
+    "Learjet": {
+        "LJ45": "Learjet 45",
+    },
+
     "Lockheed Martin": {
         "C30J": "Lockheed Martin C-130J Super Hercules",
     },

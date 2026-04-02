@@ -12,6 +12,7 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
     },
 
      "Europe": {
+        "BNJ": "ASL Group",
         "EIN": "Aer Lingus",
         "AFR": "Air France",
         "AAN": "Atmospherica Aviation",
