@@ -2,6 +2,11 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
     "Aeroprakt": {
         "AP32": "Aeroprakt A-32",
     },
+    
+       "Learjet": {
+        "LJ45": "Learjet 45",
+    },
+
 
     "Airbus": {
         "BCS3": "Airbus A220-300",
