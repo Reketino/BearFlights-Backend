@@ -43,7 +43,6 @@ def enrich_airlines(limit: int = 100) -> None: # Wanna enrich more or less fligh
         if not isinstance(callsign, str):
             continue
         
-        
         result = service.get_airlines(callsign)
         if not result:
             continue
