@@ -6,6 +6,7 @@ load_dotenv()
 import os
 from supabase import create_client
 from opensky.airline.airline import airline_from_callsign
+from opensky.services.airline_service import AirlineService
 
 supabase = create_client(
     os.environ["SUPABASE_URL"],
@@ -32,6 +33,8 @@ def enrich_airlines(limit: int = 100) -> None: # Wanna enrich more or less fligh
     
     print(f"enriching {len(flights)} flights (airlines)")
     
+    service = AirlineService()
+    
     for raw in flights:
         flight = cast(dict[str, Any], raw)
         callsign = flight.get("callsign")
@@ -40,8 +43,7 @@ def enrich_airlines(limit: int = 100) -> None: # Wanna enrich more or less fligh
         if not isinstance(callsign, str):
             continue
         
-        
-        result = airline_from_callsign(callsign)
+        result = service.get_airlines(callsign)
         if not result:
             continue
         
