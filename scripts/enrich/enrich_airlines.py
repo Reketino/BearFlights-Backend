@@ -33,6 +33,8 @@ def enrich_airlines(limit: int = 100) -> None: # Wanna enrich more or less fligh
     
     print(f"enriching {len(flights)} flights (airlines)")
     
+    service = AirlineService()
+    
     for raw in flights:
         flight = cast(dict[str, Any], raw)
         callsign = flight.get("callsign")
