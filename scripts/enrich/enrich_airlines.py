@@ -44,7 +44,7 @@ def enrich_airlines(limit: int = 100) -> None: # Wanna enrich more or less fligh
             continue
         
         
-        result = airline_from_callsign(callsign)
+        result = service.get_airlines(callsign)
         if not result:
             continue
         
