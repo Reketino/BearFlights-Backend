@@ -19,6 +19,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Denmark",
         "iata": "CPH",
    },
+        "ENZV": {
+        "name": "Stavanger Airport",
+        "country": "Norway",
+        "iata": "SVG",
+   },
 
     # Finland
     "EFHK": {
