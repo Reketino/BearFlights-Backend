@@ -166,6 +166,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Norway",
         "iata": "SOG",
    },
+    "ENZV": {
+        "name": "Stavanger Airport",
+        "country": "Norway",
+        "iata": "SVG",
+   },
     "ENSU": {
         "name": "Sunndalsora, Vinnu Airport",
         "country": "Norway",
