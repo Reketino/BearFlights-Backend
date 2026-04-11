@@ -197,6 +197,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "",
    },
 
+    # Poland
+    "EPCE": {
+        "name": "Cewice Naval Air Base",
+        "country": "Poland",
+        "iata": "",
+   },
+
     # Spain
     "LEAL": {
         "name": "Alicante Elche Miguel Hernández Airport",
