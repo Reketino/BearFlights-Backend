@@ -97,12 +97,7 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
    },
 
     # Lithuania
-    "EPCE": {
-        "name": "Cewice Naval Air Base",
-        "country": "Poland",
-        "iata": "",
-   },
-      "EYVI": {
+    "EYVI": {
         "name": "Vilnius Čiurlionis International Airport ",
         "country": "Lithuania",
         "iata": "VNO",
@@ -199,6 +194,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
     "ENBM": {
         "name": "Voss Airport",
         "country": "Norway",
+        "iata": "",
+   },
+
+    # Poland
+    "EPCE": {
+        "name": "Cewice Naval Air Base",
+        "country": "Poland",
         "iata": "",
    },
 
