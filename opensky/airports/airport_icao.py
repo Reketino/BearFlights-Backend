@@ -102,18 +102,17 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Lithuania",
         "iata": "VNO",
    },
-       "EHEH": {
-        "name": "Eindhoven Airport",
-        "country": "Netherlands",
-        "iata": "EIN",
-   },
-
 
     # Netherlands
     "EHAM": {
         "name": "Amsterdam Airport Schiphol",
         "country": "Netherlands",
         "iata": "AMS",
+   },
+    "EHEH": {
+        "name": "Eindhoven Airport",
+        "country": "Netherlands",
+        "iata": "EIN",
    },
 
     # Norway
