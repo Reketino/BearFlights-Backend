@@ -114,12 +114,6 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Netherlands",
         "iata": "EIN",
    },
-       "EPGD": {
-        "name": "Gdańsk Lech Wałęsa Airport",
-        "country": "Poland",
-        "iata": "GDN",
-   },
-
 
     # Norway
     "ENAL": {
@@ -213,6 +207,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "name": "Cewice Naval Air Base",
         "country": "Poland",
         "iata": "",
+   },
+    "EPGD": {
+        "name": "Gdańsk Lech Wałęsa Airport",
+        "country": "Poland",
+        "iata": "GDN",
    },
 
     # Spain
