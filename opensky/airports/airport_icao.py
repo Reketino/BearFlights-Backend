@@ -305,6 +305,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "United States of America",
         "iata": "MIA",
    },
+    "KORD": {
+        "name": "O'Hare International Airport",
+        "country": "United States of America",
+        "iata": "ORD",
+   },
     "KRIC": {
         "name": "Richmond International Airport",
         "country": "United States of America",
