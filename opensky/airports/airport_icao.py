@@ -7,6 +7,12 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Bulgaria",
         "iata": "",
    },
+     "KORD": {
+        "name": "O'Hare International Airport",
+        "country": "United States of America",
+        "iata": "ORD",
+   },
+
 
     # Denmark
     "EKBI": {
