@@ -64,6 +64,10 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
         "E55P": "Embraer Phenom 300",
     },
 
+    "Gulfstream": {
+        "GLF4": " Gulfstream G450",
+    },
+
     "Learjet": {
         "LJ45": "Learjet 45",
     },
