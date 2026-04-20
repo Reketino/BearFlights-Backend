@@ -2,10 +2,6 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
     "Aeroprakt": {
         "AP32": "Aeroprakt A-32",
     },
-    
-     "Gulfstream": {
-        "GLF4": " Gulfstream G450",
-    },
 
     "Airbus": {
         "BCS3": "Airbus A220-300",
@@ -66,6 +62,10 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
         "E75L": "Embraer E175",
         "E290": "Embraer E190-E2",
         "E55P": "Embraer Phenom 300",
+    },
+
+    "Gulfstream": {
+        "GLF4": " Gulfstream G450",
     },
 
     "Learjet": {
