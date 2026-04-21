@@ -44,6 +44,7 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
         "MFX": "My Freighter Airlines",
         "QTR": "Qatar Airways",
         "RJA": "Royal Jordanian",
+        "PIA": "Pakistan International Airlines",
     },
 
      "Military / State": {
