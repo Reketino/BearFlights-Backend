@@ -50,6 +50,7 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
      "Military / State": {
         "RRR": "UK Royal Air Force",
         "RCH": "United States Air Force Air Mobility Command",
+        "SVF": "Swedish Armed Forces",
     },
 
 }
