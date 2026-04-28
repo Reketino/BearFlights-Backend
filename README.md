@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Refactor enrich_airlines.py
+- Refactor auth w/ 3 attempts to connect to openskys
 
 ---
 
