@@ -1,3 +1,4 @@
+import time
 import requests
 from .config import OPENSKY_CLIENT_ID, OPENSKY_CLIENT_SECRET
 
