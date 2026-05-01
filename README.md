@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Refactor auth w/ 3 attempts to connect to openskys
+- Adding logging to authentication and API requests in the backend
 
 ---
 
