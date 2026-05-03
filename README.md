@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Adding logging to authentication and API requests in the backend
+- Adding Airport & Airplane
 
 ---
 
