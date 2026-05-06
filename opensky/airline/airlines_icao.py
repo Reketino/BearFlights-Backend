@@ -51,6 +51,10 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
         "UAL": "United Airlines",
     },
 
+     "Canada": {
+        "CJT": "Cargojet Airways",
+    },
+
      "Military / State": {
         "SVF": "Swedish Armed Forces",
         "RRR": "UK Royal Air Force",
