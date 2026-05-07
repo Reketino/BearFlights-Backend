@@ -7,13 +7,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Bulgaria",
         "iata": "",
    },
-    
-       "CYMX": {
+
+    # Canada
+    "CYMX": {
         "name": "Montréal–Mirabel International Airport",
         "country": "Canada",
         "iata": "YMX",
    },
-    
 
     # Denmark
     "EKBI": {
