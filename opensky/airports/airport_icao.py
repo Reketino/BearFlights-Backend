@@ -7,12 +7,6 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Bulgaria",
         "iata": "",
    },
-    
-      "EDDF": {
-        "name": "Frankfurt Airport",
-        "country": "Germany",
-        "iata": "FRA",
-        },
 
     # Denmark
     "EKBI": {
@@ -46,6 +40,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "name": "Tampere-Pirkkala Airport",
         "country": "Finland",
         "iata": "TMP",
+   },
+
+    # Germany
+    "EDDF": {
+        "name": "Frankfurt Airport",
+        "country": "Germany",
+        "iata": "FRA",
    },
 
     # Honduras
