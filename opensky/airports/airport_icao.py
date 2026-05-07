@@ -8,6 +8,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "",
    },
 
+    # Canada
+    "CYMX": {
+        "name": "Montréal–Mirabel International Airport",
+        "country": "Canada",
+        "iata": "YMX",
+   },
+
     # Denmark
     "EKBI": {
         "name": "Billund Lufthavn",
@@ -40,6 +47,18 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "name": "Tampere-Pirkkala Airport",
         "country": "Finland",
         "iata": "TMP",
+   },
+
+    # Germany
+    "EDDF": {
+        "name": "Frankfurt Airport",
+        "country": "Germany",
+        "iata": "FRA",
+   },
+    "EDDM": {
+        "name": "Munich Airport",
+        "country": "Germany",
+        "iata": " MUC",
    },
 
     # Honduras
