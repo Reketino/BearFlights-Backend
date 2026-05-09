@@ -60,13 +60,6 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Germany",
         "iata": " MUC",
    },
-    
-      "ENKB": {
-        "name": "Kristiansund Airport",
-        "country": "Norway",
-        "iata": "KSU",
-   },
-
 
     # Honduras
     "MHLP": {
@@ -166,6 +159,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "name": "Kristiansand Airport",
         "country": "Norway",
         "iata": "KRS",
+   },
+    "ENKB": {
+        "name": "Kristiansund Airport",
+        "country": "Norway",
+        "iata": "KSU",
    },
     "ENML": {
         "name": "Molde Airport",
