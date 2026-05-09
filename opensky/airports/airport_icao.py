@@ -160,6 +160,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Norway",
         "iata": "KRS",
    },
+    "ENKB": {
+        "name": "Kristiansund Airport",
+        "country": "Norway",
+        "iata": "KSU",
+   },
     "ENML": {
         "name": "Molde Airport",
         "country": "Norway",
