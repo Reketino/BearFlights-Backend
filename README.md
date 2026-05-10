@@ -169,7 +169,7 @@ Through this project I gained:
 
 ## 🟢 Working on now: 
 
-- Adding Airport & Airplane
+- Refactor airports utils w/ using locale aware sorting
 
 ---
 
