@@ -16,7 +16,10 @@ def sorted_airports() -> None:
     
     sorted_airports = sorted(
         AIRPORTS_BY_ICAO.items(),
-        key=lambda item: (item[1]["country"], item[1]["name"]),
+        key=lambda item: (
+            item[1]["country"].strip().casefold(), 
+            item[1]["name"].strip().casefold(),
+        ),
     )
        
     lines: list[str] = []
