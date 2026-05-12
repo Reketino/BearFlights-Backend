@@ -27,6 +27,7 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
     "Boeing": {
         "B38M": "Boeing 737 MAX 8",
         "B39M": "Boeing 737 MAX 9",
+        "B733": "Boeing 737-300",
         "B738": "Boeing 737-800",
         "B748": "Boeing 747-8",
         "B752": "Boeing 757-200",
@@ -38,7 +39,6 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
         "B788": "Boeing 787-8 Dreamliner",
         "B789": "Boeing 787-9 Dreamliner",
         "C17": "Boeing C-17 Globemaster",
-        "B733": "Boeing 737-300",
     },
 
     "Bombardier": {
