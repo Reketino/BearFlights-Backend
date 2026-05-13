@@ -36,10 +36,10 @@ def sorted_airports() -> None:
             current_country = country
             
         lines.append(
-            f'    "{icao}": {{\n'
-            f'        "name": "{airport["name"]}",\n'
-            f'        "country": "{airport["country"]}",\n'
-            f'        "iata": "{airport["iata"]}",\n'
+            f'    "{icao.strip()}": {{\n'
+            f'        "name": "{airport["name"].strip()}",\n'
+            f'        "country": "{airport["country"].strip()}",\n'
+            f'        "iata": "{airport["iata"].strip()}",\n'
             f"   }},\n"
         )
         
