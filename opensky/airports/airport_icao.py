@@ -58,12 +58,12 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
     "EDDM": {
         "name": "Munich Airport",
         "country": "Germany",
-        "iata": " MUC",
+        "iata": "MUC",
    },
 
     # Honduras
     "MHLP": {
-        "name": " Mapulaca Airport",
+        "name": "Mapulaca Airport",
         "country": "Honduras",
         "iata": "",
    },
@@ -102,7 +102,7 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
    },
 
     # Kosovo
-    " BKPR": {
+    "BKPR": {
         "name": "Pristina International Airport",
         "country": "Kosovo",
         "iata": "PRN",
@@ -206,7 +206,7 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "",
    },
     "ENSR": {
-        "name": "Sørkjosen Airport ",
+        "name": "Sørkjosen Airport",
         "country": "Norway",
         "iata": "SOJ",
    },
@@ -242,7 +242,7 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
     "LEAL": {
         "name": "Alicante Elche Miguel Hernández Airport",
         "country": "Spain",
-        "iata": " ALC",
+        "iata": "ALC",
    },
     "LEBB": {
         "name": "Bilbao Airport",
