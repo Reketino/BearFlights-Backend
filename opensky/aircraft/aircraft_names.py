@@ -10,7 +10,7 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
         "A20N": "Airbus A320neo",
         "A321": "Airbus A321",
         "A21N": "Airbus A321neo",
-        "A333": "Airbus A330",
+        "A333": "Airbus A330-300",
         "A332": "Airbus A330-200",
         "A342": "Airbus A340-200",
         "A340": "Airbus A340-300",
