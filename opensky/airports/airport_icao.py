@@ -55,6 +55,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Germany",
         "iata": "FRA",
    },
+    "EDDH": {
+        "name": "Hamburg Airport",
+        "country": "Germany",
+        "iata": "HAM",
+   },
     "EDDM": {
         "name": "Munich Airport",
         "country": "Germany",
