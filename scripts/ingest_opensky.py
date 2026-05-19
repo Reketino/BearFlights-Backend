@@ -39,9 +39,9 @@ def main() -> None:
             print("Processing complete")
          
     except Exception as e:
+        print("🦘Ingest took a Skippy:", e)
         if DEBUG:
             print("🛬 Ingest has failed its mission:", e)
-            raise
               
 if __name__ == "__main__":
     main()
