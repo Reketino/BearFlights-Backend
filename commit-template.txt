@@ -1,0 +1,26 @@
+# <type>: <short summary>
+#
+# Types:
+# feat: new feature
+# fix: bug fix
+# refactor: code change that improves structure
+# style: formatting, no logic changes
+# chore: tooling, deps, cleanup
+# docs: documentation only
+# test: tests
+# perf: performance improvement
+# ci: CI/CD changes
+# build: build system changes
+#
+# Example:
+# feat: add sleep screen fade animation
+#
+# --- Optional body ---
+# What changed?
+# - 
+#
+# Why?
+# - 
+#
+# Notes:
+# -
