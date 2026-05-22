@@ -41,7 +41,7 @@ class AircraftService:
             self.supabase.table("aircraft_registry").upsert({
                 "icao24": icao24,
                 "typecode": typecode,
-                "model": aircraft_from_typecode(typecode),
+                "model": model,
             }).execute()
             
         self.cache[icao24] = (typecode, model)
