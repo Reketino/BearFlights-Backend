@@ -18,6 +18,7 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
         "A359": "Airbus A350-900",
         "A388": "Airbus A380-800",
         "A400": "Airbus A400M",
+        "A339": "Airbus A330-900neo",
     },
 
     "Beechcraft": {
