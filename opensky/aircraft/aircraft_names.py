@@ -12,13 +12,13 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
         "A21N": "Airbus A321neo",
         "A332": "Airbus A330-200",
         "A333": "Airbus A330-300",
+        "A339": "Airbus A330-900neo",
         "A342": "Airbus A340-200",
         "A340": "Airbus A340-300",
         "A35K": "Airbus A350-1000",
         "A359": "Airbus A350-900",
         "A388": "Airbus A380-800",
         "A400": "Airbus A400M",
-        "A339": "Airbus A330-900neo",
     },
 
     "Beechcraft": {
@@ -43,9 +43,9 @@ AIRCRAFT_TYPES_BY_MANUFACTURER: dict[str, dict[str, str]] = {
     },
 
     "Bombardier": {
+        "CRJX": "Bombardier CRJ-1000",
         "CRJ9": "Bombardier CRJ900",
         "GL7T": "Bombardier Global 7500",
-        "CRJX": "Bombardier CRJ-1000",
     },
 
     "Cessna": {
