@@ -19,6 +19,7 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
         "BNO": "Babcock Scandinavian Airambulance",
         "BBB": "Blackbird Air Charter",
         "BAW": "British Airways",
+        "CFG": "Condor Flugdienst",
         "EJU": "Easyjet Europe",
         "ENT": "Enter Air",
         "KLM": "KLM Royal Dutch Airlines",
@@ -33,7 +34,6 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
         "WUK": "Wizz Air UK",
         "BTI": "airBaltic",
         "EZY": "easyJet",
-        "CFG": "Condor Flugdienst",
     },
 
      "Middle East": {
