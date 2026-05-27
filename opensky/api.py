@@ -39,7 +39,11 @@ def fetch_aircraft_type(icao24: str, token: str) -> str | None:
     
     data = res.json()
     typecode = data.get("typecode")
-    return typecode if isinstance(typecode, str) else None
+    
+    if isinstance(typecode, str):
+        typecode = typecode.strip()
+        
+    return typecode or None
 
 # Collecting Dep airport 
 def fetch_flight_airport(
