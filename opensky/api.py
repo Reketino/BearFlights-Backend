@@ -1,6 +1,6 @@
 import requests
 from dotenv import load_dotenv
-from typing import Any, List,  cast
+from typing import Any, List, cast, TypedDict
 
 load_dotenv()
 
