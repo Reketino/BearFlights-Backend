@@ -7,6 +7,9 @@ load_dotenv()
 # States defined as "any"
 State = List[Any]
 
+class AircraftMetadata(TypedDict):
+    typecode: str | None
+
 # URL for data collection
 STATES_URL = "https://opensky-network.org/api/states/all"
 FLIGHTS_BY_AIRCRAFT_URL = "https://opensky-network.org/api/flights/aircraft"
