@@ -10,6 +10,7 @@ State = List[Any]
 class AircraftMetadata(TypedDict):
     typecode: str | None
     model: str | None
+    manufacturer: str | None
 
 # URL for data collection
 STATES_URL = "https://opensky-network.org/api/states/all"
