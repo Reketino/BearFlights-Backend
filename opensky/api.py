@@ -30,7 +30,10 @@ def fetch_states(token: str) -> list[State]:
     return cast(list[State], res.json().get("states", []))
 
 # COLLECTING AIRCRAFT TYPES
-def fetch_aircraft_type(icao24: str, token: str) -> str | None:
+def fetch_aircraft_type(
+    icao24: str, 
+    token: str
+    ) -> str | None:
     res = requests.get(
         f"{AIRCRAFT_META_URL}/{icao24}",
         headers={
