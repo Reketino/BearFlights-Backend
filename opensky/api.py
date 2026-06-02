@@ -30,10 +30,10 @@ def fetch_states(token: str) -> list[State]:
     return cast(list[State], res.json().get("states", []))
 
 # COLLECTING AIRCRAFT TYPES
-def fetch_aircraft_type(
+def fetch_aircraft_metadata(
     icao24: str, 
     token: str
-    ) -> str | None:
+    ) -> AircraftMetadata:
     res = requests.get(
         f"{AIRCRAFT_META_URL}/{icao24}",
         headers={
@@ -43,15 +43,32 @@ def fetch_aircraft_type(
     )
     
     if res.status_code!= 200:
-        return None
+        return {
+            "typecode": None,
+            "model": None,
+            "manufacturer": None,
+        }
     
     data = res.json()
+    
     typecode = data.get("typecode")
+    model = data.get("model")
+    manufacturer = data.get("manufacturerName")
     
     if isinstance(typecode, str):
         typecode = typecode.strip()
         
-    return typecode or None
+    if isinstance(model, str):
+        model = model.strip()
+        
+    if isinstance(manufacturer, str):
+        manufacturer = manufacturer.strip()
+              
+    return {
+        "typecode": typecode or None,
+        "model": model or None,
+        "manufacturer": manufacturer or None,
+    }
 
 # Collecting Dep airport 
 def fetch_flight_airport(
