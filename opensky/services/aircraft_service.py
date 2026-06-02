@@ -1,7 +1,7 @@
 from typing import Any, cast
 from supabase import Client
 
-from opensky.api import fetch_aircraft_type
+from opensky.api import fetch_aircraft_metadata
 from opensky.aircraft.aircraft import aircraft_from_typecode
 
 class AircraftService:
@@ -33,11 +33,20 @@ class AircraftService:
             model = row.get("model")
             
         if not typecode:
-            typecode = fetch_aircraft_type(icao24, self.token)
+            metadata = fetch_aircraft_metadata(
+                icao24,
+                self.token,
+            )
             
-        if typecode:
+            typecode = metadata["typecode"]
+            
+            if not model:
+                model = metadata["model"]
+            
+        if typecode and not model:
             model = aircraft_from_typecode(typecode)
             
+        if typecode or model:
             self.supabase.table("aircraft_registry").upsert({
                 "icao24": icao24,
                 "typecode": typecode,
