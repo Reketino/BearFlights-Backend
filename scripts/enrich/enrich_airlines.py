@@ -23,7 +23,6 @@ def enrich_airlines(limit: int = 100) -> None: # Wanna enrich more or less fligh
         .execute()
     )
     
-    # Flights defined as default value
     flights = res.data or []
     
     if not flights:
