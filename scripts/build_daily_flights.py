@@ -34,13 +34,6 @@ supabase = create_client(
 
 today = datetime.now(timezone.utc).date().isoformat()
 
-existing = supabase.table("daily_flights") \
-    .select("date") \
-    .eq("date", today) \
-    .limit(1) \
-    .execute()
-
-
 res = supabase.table("flights") \
     .select("icao24, callsign, distance_over_area, observations") \
     .eq("date", today) \
