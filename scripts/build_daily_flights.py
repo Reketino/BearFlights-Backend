@@ -15,7 +15,7 @@ class FlightRow(TypedDict):
     observations: int
     
     
-class DailyFlightPayLoad(TypedDict):
+class DailyFlightPayload(TypedDict):
     date: str
     total_flights: int
     closest_icao24: str
@@ -60,7 +60,7 @@ def main() -> None:
     closest = min(rows, key=lambda r: r["distance_over_area"])
     longest = max(rows, key=lambda r: r["distance_over_area"])
 
-    payload: DailyFlightPayLoad = {
+    payload: DailyFlightPayload = {
         "date": today,
         "total_flights":total_flights,
         "closest_icao24": closest["icao24"],
