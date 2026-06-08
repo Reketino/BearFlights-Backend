@@ -59,6 +59,8 @@ def main() -> None:
 
     closest = min(rows, key=lambda r: r["distance_over_area"])
     longest = max(rows, key=lambda r: r["distance_over_area"])
+    
+    closest_name = closest["callsign"] or closest["icao24"]
 
     payload: DailyFlightPayload = {
         "date": today,
