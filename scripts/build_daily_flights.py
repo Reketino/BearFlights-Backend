@@ -72,7 +72,7 @@ def main() -> None:
         "longest_callsign": longest["callsign"],
         "longest_distance_km": longest["distance_over_area"],
         "observations": sum(r["observations"] for r in rows),
-        "fun_fact": f"{closest['callsign']} buzzed closest today🐝",
+        "fun_fact": f"{closest_name} buzzed closest today🐝",
     }
     (
         supabase
