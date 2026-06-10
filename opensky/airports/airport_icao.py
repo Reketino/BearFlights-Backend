@@ -7,6 +7,12 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Bulgaria",
         "iata": "",
    },
+    
+        "EYPA": {
+        "name": "Palanga International Airport",
+        "country": "Lithuanian",
+        "iata": "PLQ",
+   },
 
     # Canada
     "CYMX": {
