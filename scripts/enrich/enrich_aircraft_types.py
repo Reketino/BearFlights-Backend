@@ -87,8 +87,8 @@ def enrich_aircraft_types(limit: int = 100) -> None:
             .eq("date", date)
             .execute()
         )
-        if aircraft_type:
-            print(f"{icao24} -> {aircraft_type} ({aircraft_name})")
+       
+        print(f"{icao24} -> {aircraft_type} ({aircraft_name})")
         
         
 # Run script w/ python -m scripts.enrich.enrich_aircraft_types
