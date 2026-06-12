@@ -2,7 +2,7 @@ from scripts.enrich.enrich_aircraft_types import enrich_aircraft_types
 from scripts.enrich.enrich_airlines import enrich_airlines
 from scripts.enrich.enrich_airports import enrich_airports
 
-def main():
+def main() -> None:
     try:
         enrich_airlines(limit=100)
     except Exception as e:
