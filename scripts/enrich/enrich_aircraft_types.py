@@ -57,7 +57,9 @@ def enrich_aircraft_types(limit: int = 100) -> None:
         
         aircraft_name = service.get_aircraft_name(aircraft_type, model)
         
-        update_data = {"aircraft_type": aircraft_type}
+        update_data: dict[str, str] = {
+            "aircraft_type": aircraft_type,
+        }
         if aircraft_name:
             update_data["aircraft_name"] = aircraft_name 
         
