@@ -36,8 +36,8 @@ def enrich_aircraft_types(limit: int = 100) -> None:
     
     service = AircraftService(supabase, token)
     
-    for raw in flights:
-        flight = cast(dict[str, Any], raw)
+    for flight_data in flights:
+        flight = cast(dict[str, Any], flight_data)
         
         icao24 = flight.get("icao24")
         date = flight.get("date")
