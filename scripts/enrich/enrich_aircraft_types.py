@@ -75,8 +75,10 @@ def enrich_aircraft_types(limit: int = 100) -> None:
         print(f"{icao24} -> {aircraft_type} ({aircraft_name})")
         
         
-# Run script w/ python -m scripts.enrich.enrich_aircraft_types
+def main() -> None:
+    enrich_aircraft_types(limit=100)
+
 if __name__ == "__main__":
-    enrich_aircraft_types()
+    main()
         
         
