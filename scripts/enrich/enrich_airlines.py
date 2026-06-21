@@ -60,7 +60,7 @@ def enrich_airlines(limit: int = 100) -> None: # Wanna enrich more or less fligh
             .execute()
         )
         
-        print(f"{callsign}-> {airline}")
+        print(f"{callsign}-> {airline} ({airline_icao})")
         
 if __name__ == "__main__":
     enrich_airlines()
