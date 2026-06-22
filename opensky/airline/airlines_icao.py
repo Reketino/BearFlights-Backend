@@ -24,6 +24,7 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
         "ENT": "Enter Air",
         "KLM": "KLM Royal Dutch Airlines",
         "DLH": "Lufthansa",
+        "NJE": "NetJets Europe",
         "RYR": "Ryanair",
         "SRN": "Sprint Air",
         "SWR": "Swiss International Air Lines",
