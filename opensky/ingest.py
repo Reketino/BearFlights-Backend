@@ -67,6 +67,19 @@ def process_states(states: list[list[Any]], token: str) -> None:
     if DEBUG:
         valid_states = sum(1 for s in states if is_valid_state(s))
         print(f"[CHECK] valid state rows: {valid_states}/{len(states)}")
+        
+    if DEBUG:
+        test_inside, test_distance = is_inside_radius(
+            62.47,
+            6.15,
+        )
+        
+        print(
+            "TEST:",
+            test_inside,
+            test_distance,
+        )
+        
 
     # States defined
     for state in states:
@@ -78,6 +91,15 @@ def process_states(states: list[list[Any]], token: str) -> None:
         lat = float(state[6])
         
         inside, distance_km = is_inside_radius(lat, lon)
+        
+        # if DEBUG and inside_radius < 10:
+            # print(
+                # f"icao24={icao24} "
+                # f"lat={lat} "
+                # f"lon={lon} "
+                # f"distance={distance_km} "
+                # f"inside={inside}"
+            # )
         if not inside:
             continue
         
