@@ -34,13 +34,20 @@ def fetch_aircraft_metadata(
     icao24: str, 
     token: str
     ) -> AircraftMetadata:
-    res = requests.get(
-        f"{AIRCRAFT_META_URL}/{icao24}",
-        headers={
-            "Authorization": f"Bearer {token}",
-        },
-        timeout=10,
-    )
+    try:
+        res = requests.get(
+            f"{AIRCRAFT_META_URL}/{icao24}",
+            headers={
+                "Authorization": f"Bearer {token}",
+            },
+            timeout=10,
+        )
+    except requests.exceptions.RequestException:
+        return {
+            "typecode": None,
+            "model": None,
+            "manufacturer": None,
+        }
     
     if res.status_code!= 200:
         return {
