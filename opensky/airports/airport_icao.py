@@ -299,6 +299,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "United Kingdom",
         "iata": "BRS",
    },
+    "EGLF": {
+        "name": "Farnborough Airport",
+        "country": "United Kingdom",
+        "iata": "FAB",
+   },
     "EGKK": {
         "name": "London Gatwick Airport",
         "country": "United Kingdom",
