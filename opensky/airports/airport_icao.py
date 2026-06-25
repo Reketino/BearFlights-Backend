@@ -7,11 +7,6 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Bulgaria",
         "iata": "",
    },
-        "EGLF": {
-        "name": "Farnborough Airport",
-        "country": "United Kingdom",
-        "iata": "FAB",
-   },
 
     # Canada
     "CYMX": {
@@ -303,6 +298,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "name": "Bristol Airport",
         "country": "United Kingdom",
         "iata": "BRS",
+   },
+    "EGLF": {
+        "name": "Farnborough Airport",
+        "country": "United Kingdom",
+        "iata": "FAB",
    },
     "EGKK": {
         "name": "London Gatwick Airport",
