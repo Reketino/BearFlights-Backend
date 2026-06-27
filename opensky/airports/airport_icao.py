@@ -152,6 +152,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Norway",
         "iata": "AES",
    },
+    "ENDU": {
+        "name": "Bardufoss Airport",
+        "country": "Norway",
+        "iata": "BDU",
+   },
     "ENBR": {
         "name": "Bergen Flesland Airport",
         "country": "Norway",
