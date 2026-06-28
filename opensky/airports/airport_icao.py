@@ -152,6 +152,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Norway",
         "iata": "AES",
    },
+    "ENAT": {
+        "name": "Alta Airport",
+        "country": "Norway",
+        "iata": "ALF",
+   },
     "ENDU": {
         "name": "Bardufoss Airport",
         "country": "Norway",
