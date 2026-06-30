@@ -8,6 +8,7 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
         "NSZ": "NORWEGIAN AIR SWEDEN",
         "NOZ": "Norwegian Air Shuttle",
         "SAS": "Scandinavian Airlines",
+        "ABF": "Scanwings",
         "VKG": "Sunclass Airlines",
         "WIF": "Widerøe",
     },
