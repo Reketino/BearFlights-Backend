@@ -58,6 +58,7 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
     },
 
      "Canada": {
+        "CGS": "Air-JPL",
         "CJT": "Cargojet Airways",
     },
 
