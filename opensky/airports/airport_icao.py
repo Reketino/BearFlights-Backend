@@ -27,6 +27,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "CPH",
    },
 
+    # Estonia
+    "EETN": {
+        "name": "Tallinn Airport",
+        "country": "Estonia",
+        "iata": "TLL",
+   },
+
     # Finland
     "EFHK": {
         "name": "Helsinik Airport",
