@@ -7,11 +7,6 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Bulgaria",
         "iata": "",
    },
-        "EETN": {
-        "name": "Tallinn Airport",
-        "country": "Estonia",
-        "iata": "TLL",
-   },
 
     # Canada
     "CYMX": {
@@ -30,6 +25,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "name": "Copenhagen Airport",
         "country": "Denmark",
         "iata": "CPH",
+   },
+
+    # Estonia
+    "EETN": {
+        "name": "Tallinn Airport",
+        "country": "Estonia",
+        "iata": "TLL",
    },
 
     # Finland
