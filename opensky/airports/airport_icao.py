@@ -179,6 +179,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Norway",
         "iata": "BOO",
    },
+    "ENFL": {
+        "name": "Florø Airport",
+        "country": "Norway",
+        "iata": "FRO",
+   },
     "ENBL": {
         "name": "Førde Airport",
         "country": "Norway",
