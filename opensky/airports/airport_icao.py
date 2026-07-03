@@ -7,6 +7,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Bulgaria",
         "iata": "",
    },
+       "ENFL": {
+        "name": "Florø Airport",
+        "country": "Norway",
+        "iata": "FRO",
+   },
 
     # Canada
     "CYMX": {
