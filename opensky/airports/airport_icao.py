@@ -73,6 +73,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "MUC",
    },
 
+    # Greece
+    "LGRP": {
+        "name": "Rhodes International Airport",
+        "country": "Greece",
+        "iata": "RHO",
+   },
+
     # Honduras
     "MHLP": {
         "name": "Mapulaca Airport",
