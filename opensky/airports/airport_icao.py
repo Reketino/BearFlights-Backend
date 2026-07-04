@@ -7,11 +7,6 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Bulgaria",
         "iata": "",
    },
-    "LGRP": {
-        "name": "Rhodes International Airport",
-        "country": "Greece",
-        "iata": "RHO",
-   },
 
     # Canada
     "CYMX": {
@@ -76,6 +71,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "name": "Munich Airport",
         "country": "Germany",
         "iata": "MUC",
+   },
+
+    # Greece
+    "LGRP": {
+        "name": "Rhodes International Airport",
+        "country": "Greece",
+        "iata": "RHO",
    },
 
     # Honduras
