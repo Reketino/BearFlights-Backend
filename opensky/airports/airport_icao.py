@@ -7,12 +7,6 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Bulgaria",
         "iata": "",
    },
-    
-        "OMDB": {
-        "name": "Dubai International Airport",
-        "country": "United Arab Emirates",
-        "iata": "DXB",
-   },
 
     # Canada
     "CYMX": {
@@ -326,6 +320,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "name": "Istanbul Airport",
         "country": "Turkey",
         "iata": "IST",
+   },
+
+    # United Arab Emirates
+    "OMDB": {
+        "name": "Dubai International Airport",
+        "country": "United Arab Emirates",
+        "iata": "DXB",
    },
 
     # United Kingdom
