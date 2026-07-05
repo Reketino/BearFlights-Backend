@@ -322,6 +322,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "IST",
    },
 
+    # United Arab Emirates
+    "OMDB": {
+        "name": "Dubai International Airport",
+        "country": "United Arab Emirates",
+        "iata": "DXB",
+   },
+
     # United Kingdom
     "EGGD": {
         "name": "Bristol Airport",
