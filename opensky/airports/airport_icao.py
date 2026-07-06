@@ -7,6 +7,12 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Bulgaria",
         "iata": "",
    },
+    
+        "EGPH": {
+        "name": "Edinburgh Airport",
+        "country": "United Kingdom",
+        "iata": "EDI",
+   },
 
     # Canada
     "CYMX": {
