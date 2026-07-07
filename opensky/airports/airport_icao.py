@@ -284,6 +284,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "GDN",
    },
 
+    # Qatar
+    "OTHH": {
+        "name": "Hamad International Airport",
+        "country": "Qatar",
+        "iata": "DOH",
+   },
+
     # Spain
     "LEAL": {
         "name": "Alicante Elche Miguel Hernández Airport",
