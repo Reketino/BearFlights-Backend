@@ -7,11 +7,6 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Bulgaria",
         "iata": "",
    },
-      "OTHH": {
-        "name": "Hamad International Airport",
-        "country": "Qatar",
-        "iata": "DOH",
-   },
 
     # Canada
     "CYMX": {
@@ -287,6 +282,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "name": "Gdańsk Lech Wałęsa Airport",
         "country": "Poland",
         "iata": "GDN",
+   },
+
+    # Qatar
+    "OTHH": {
+        "name": "Hamad International Airport",
+        "country": "Qatar",
+        "iata": "DOH",
    },
 
     # Spain
