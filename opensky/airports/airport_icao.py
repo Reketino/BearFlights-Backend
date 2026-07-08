@@ -74,6 +74,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
    },
 
     # Greece
+    "LGSA": {
+        "name": "Chania International Airport",
+        "country": "Greece",
+        "iata": "CHQ",
+   },
     "LGRP": {
         "name": "Rhodes International Airport",
         "country": "Greece",
