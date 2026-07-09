@@ -54,8 +54,8 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
 
      "The United States of America": {
         "DAL": "Delta Air Lines, Inc",
-        "UAL": "United Airlines",
         "FJO": "FlexJet",
+        "UAL": "United Airlines",
     },
 
      "Canada": {
