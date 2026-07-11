@@ -7,6 +7,12 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Bulgaria",
         "iata": "",
    },
+        "LTBA": {
+        "name": "Atatürk Airport",
+        "country": "Turkey",
+        "iata": "ISL",
+   },
+
 
     # Canada
     "CYMX": {
