@@ -328,6 +328,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
    },
 
     # Turkey
+    "LTBA": {
+        "name": "Atatürk Airport",
+        "country": "Turkey",
+        "iata": "ISL",
+   },
     "LTFM": {
         "name": "Istanbul Airport",
         "country": "Turkey",
