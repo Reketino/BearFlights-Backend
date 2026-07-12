@@ -24,6 +24,7 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
         "CFG": "Condor Flugdienst",
         "EJU": "Easyjet Europe",
         "ENT": "Enter Air",
+        "TCI": "IC Holding",
         "KLM": "KLM Royal Dutch Airlines",
         "DLH": "Lufthansa",
         "NJE": "NetJets Europe",
