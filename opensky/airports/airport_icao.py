@@ -7,13 +7,6 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Bulgaria",
         "iata": "",
    },
-    
-        "KLAX": {
-        "name": "Los Angeles International Airport",
-        "country": "United States of America",
-        "iata": "LAX",
-   },
-
 
     # Canada
     "CYMX": {
@@ -410,6 +403,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "name": "John F. Kennedy International Airport",
         "country": "United States of America",
         "iata": "JFK",
+   },
+    "KLAX": {
+        "name": "Los Angeles International Airport",
+        "country": "United States of America",
+        "iata": "LAX",
    },
     "KMIA": {
         "name": "Miami International Airport",
