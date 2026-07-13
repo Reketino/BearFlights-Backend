@@ -7,6 +7,13 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Bulgaria",
         "iata": "",
    },
+    
+        "KLAX": {
+        "name": "Los Angeles International Airport",
+        "country": "United States of America",
+        "iata": "LAX",
+   },
+
 
     # Canada
     "CYMX": {
