@@ -231,6 +231,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Norway",
         "iata": "OSL",
    },
+    "ENRK": {
+        "name": "Rakkestad Airport",
+        "country": "Norway",
+        "iata": "",
+   },
     "ENSD": {
         "name": "Sandane, Anda Airport",
         "country": "Norway",
