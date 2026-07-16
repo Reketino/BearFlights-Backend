@@ -11,6 +11,7 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
         "ABF": "Scanwings",
         "VKG": "Sunclass Airlines",
         "WIF": "Widerøe",
+        "LED": "Blom Geomatics"
     },
 
      "Europe": {
