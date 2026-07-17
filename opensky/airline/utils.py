@@ -8,7 +8,8 @@ def sorted_airlines() -> None:
     lines.append("#Callsign of airline companies defined\n")
     lines.append("AIRLINES_BY_REGION: dict[str, dict[str, str]] = {\n\n")
     
-    for region, airlines in AIRLINES_BY_REGION.items():
+    for region in sorted (AIRLINES_BY_REGION):
+        airlines = AIRLINES_BY_REGION[region]
         lines.append(f'     "{region}": {{\n')
         
         for code, name in sorted(airlines.items(), key=lambda x: x[1]):
