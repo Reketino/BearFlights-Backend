@@ -12,7 +12,10 @@ def sorted_airlines() -> None:
         airlines = AIRLINES_BY_REGION[region]
         lines.append(f'     "{region}": {{\n')
         
-        for code, name in sorted(airlines.items(), key=lambda x: x[1]):
+        for code, name in sorted(
+            airlines.items(), 
+            key=lambda x: x[1]
+        ):
             lines.append(f'        "{code}": "{name}",\n')
             
         lines.append("    },\n\n")
