@@ -14,7 +14,7 @@ def sorted_airlines() -> None:
         
         for code, name in sorted(
             airlines.items(), 
-            key=lambda x: x[1]
+            key=lambda item: item[1].casefold(),
         ):
             lines.append(f'        "{code}": "{name}",\n')
             
