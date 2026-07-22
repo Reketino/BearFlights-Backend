@@ -1,7 +1,7 @@
 from pathlib import Path
 from opensky.airline.airlines_icao import AIRLINES_BY_REGION
 
-def sorted_airlines() -> None:
+def sort_airlines() -> None:
     path = Path(__file__).parent / "airlines_icao.py"
     
     lines: list[str] = []
@@ -35,4 +35,4 @@ def sorted_airlines() -> None:
     # Run script w/: python -m opensky.airline.utils
         
 if __name__ == "__main__":
-    sorted_airlines()
+    sort_airlines()
