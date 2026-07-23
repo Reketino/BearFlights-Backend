@@ -16,6 +16,9 @@ def sort_airlines() -> None:
             airlines.items(), 
             key=lambda item: item[1].casefold(),
         ):
+            if len(code) != 3 or not code.isalnum():
+                raise ValueError(f"Invalid airlined ICAO code: {code!r}")
+            
             lines.append(f'       "{code}": "{name}",\n')
             
         lines.append("    },\n\n")
