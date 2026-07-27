@@ -17,7 +17,10 @@ def sort_airlines() -> None:
             key=lambda item: item[1].casefold(),
         ):
             if code != code.strip():
-                raise ValueError(f"Whitespace in airline ICAO code:")  
+                raise ValueError(f"Whitespace in airline ICAO code: {code!r}")  
+            
+            if code != code.upper():
+                raise ValueError(f"Airline ICAO code must be uppercase: {code!r}")
             
             if len(code) != 3 or not code.isalnum():
                 raise ValueError(f"Invalid airlined ICAO code: {code!r}")
