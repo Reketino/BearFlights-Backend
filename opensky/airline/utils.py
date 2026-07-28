@@ -22,10 +22,13 @@ def sort_airlines() -> None:
             if code != code.upper():
                 raise ValueError(f"Airline ICAO code must be uppercase: {code!r}")
             
-            if len(code) != 3 or not code.isalnum():
-                raise ValueError(f"Invalid airlined ICAO code: {code!r}")
+            if name != name.strip():
+                raise ValueError(f"Whitespacee in airline name: {name!r}")
             
-            lines.append(f'       "{code}": "{name}",\n')
+            if len(code) != 3 or not code.isalnum():
+                raise ValueError(f"Invalid airline ICAO code: {code!r}")
+            
+            lines.append(f'        "{code}": "{name}",\n')
             
         lines.append("    },\n\n")
         
