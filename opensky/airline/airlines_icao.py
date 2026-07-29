@@ -1,29 +1,24 @@
 #Callsign of airline companies defined
 AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
 
-     "Nordic": {
-        "LED": "Blom Geomatics",
-        "CFL": "Bromma Air Maintenance",
-        "FIN": "Finnair",
-        "ICE": "Icelandair",
-        "NSZ": "NORWEGIAN AIR SWEDEN",
-        "NOZ": "Norwegian Air Shuttle",
-        "SAS": "Scandinavian Airlines",
-        "ABF": "Scanwings",
-        "VKG": "Sunclass Airlines",
-        "WIF": "Widerøe",
+     "Canada": {
+        "ACA": "Air Canada",
+        "CGS": "Air-JPL",
+        "CJT": "Cargojet Airways",
     },
 
      "Europe": {
-        "BNJ": "ASL Group",
         "EIN": "Aer Lingus",
         "AFR": "Air France",
+        "BTI": "airBaltic",
+        "BNJ": "ASL Group",
         "AAN": "Atmospherica Aviation",
         "BNO": "Babcock Scandinavian Airambulance",
         "BBB": "Blackbird Air Charter",
         "BAW": "British Airways",
         "CFG": "Condor Flugdienst",
-        "EJU": "Easyjet Europe",
+        "EZY": "easyJet",
+        "EJU": "easyjet Europe",
         "ENT": "Enter Air",
         "SVW": "Global Jet Luxembourg",
         "TCI": "IC Holding",
@@ -39,13 +34,11 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
         "QGA": "Windrose Air Jetcharter",
         "WZZ": "Wizz Air",
         "WUK": "Wizz Air UK",
-        "BTI": "airBaltic",
-        "EZY": "easyJet",
     },
 
      "Middle East": {
         "AIC": "Air India",
-        "HZ": "Alpha Star",
+        "STT": "Alpha Star",
         "ELY": "El Al Israel Airlines",
         "UAE": "Emirates",
         "ETD": "Etihad Airways",
@@ -55,22 +48,29 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
         "RJA": "Royal Jordanian",
     },
 
-     "The United States of America": {
-        "DAL": "Delta Air Lines, Inc",
-        "FJO": "FlexJet",
-        "UAL": "United Airlines",
-    },
-
-     "Canada": {
-        "ACA": "Air Canada",
-        "CGS": "Air-JPL",
-        "CJT": "Cargojet Airways",
-    },
-
      "Military / State": {
         "SVF": "Swedish Armed Forces",
         "RRR": "UK Royal Air Force",
         "RCH": "United States Air Force Air Mobility Command",
+    },
+
+     "Nordic": {
+        "LED": "Blom Geomatics",
+        "CFL": "Bromma Air Maintenance",
+        "FIN": "Finnair",
+        "ICE": "Icelandair",
+        "NOZ": "Norwegian Air Shuttle",
+        "NSZ": "Norwegian Air Sweden",
+        "SAS": "Scandinavian Airlines",
+        "ABF": "Scanwings",
+        "VKG": "Sunclass Airlines",
+        "WIF": "Widerøe",
+    },
+
+     "The United States of America": {
+        "DAL": "Delta Air Lines, Inc",
+        "FJO": "FlexJet",
+        "UAL": "United Airlines",
     },
 
 }
