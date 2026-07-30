@@ -34,6 +34,7 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
         "QGA": "Windrose Air Jetcharter",
         "WZZ": "Wizz Air",
         "WUK": "Wizz Air UK",
+        "VJT": "VistaJet",
     },
 
      "Middle East": {
