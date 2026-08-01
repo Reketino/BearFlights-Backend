@@ -7,6 +7,12 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Bulgaria",
         "iata": "",
    },
+    
+    "LSTS": {
+        "name": "St. Stephan Airfield",
+        "country": "Switzerland",
+        "iata": "QYN",
+   },
 
     # Canada
     "CYMX": {
