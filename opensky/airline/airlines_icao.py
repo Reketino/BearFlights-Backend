@@ -73,6 +73,10 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
         "FJO": "FlexJet",
         "UAL": "United Airlines",
     },
+     
+     "Australia": {
+        "ASY": "Royal Australian Air Force"
+     }
 
 }
 
