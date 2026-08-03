@@ -1,6 +1,10 @@
 #Callsign of airline companies defined
 AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
 
+     "Australia": {
+        "ASY": "Royal Australian Air Force",
+    },
+
      "Canada": {
         "ACA": "Air Canada",
         "CGS": "Air-JPL",
@@ -73,10 +77,6 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
         "FJO": "FlexJet",
         "UAL": "United Airlines",
     },
-     
-     "Australia": {
-        "ASY": "Royal Australian Air Force"
-     }
 
 }
 
