@@ -7,18 +7,6 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Bulgaria",
         "iata": "",
    },
-    
-        "LEPA": {
-        "name": "Palma de Mallorca Airport",
-        "country": "Spain",
-        "iata": "PMI",
-   },
-    
-    "LSTS": {
-        "name": "St. Stephan Airfield",
-        "country": "Switzerland",
-        "iata": "QYN",
-   },
 
     # Canada
     "CYMX": {
@@ -329,6 +317,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "country": "Spain",
         "iata": "FUE",
    },
+    "LEPA": {
+        "name": "Palma de Mallorca Airport",
+        "country": "Spain",
+        "iata": "PMI",
+   },
 
     # Sweden
     "ESSA": {
@@ -338,6 +331,11 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
    },
 
     # Switzerland
+    "LSTS": {
+        "name": "St. Stephan Airfield",
+        "country": "Switzerland",
+        "iata": "QYN",
+   },
     "LSZH": {
         "name": "Zurich Airport",
         "country": "Switzerland",
