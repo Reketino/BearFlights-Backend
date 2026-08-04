@@ -8,6 +8,12 @@ AIRPORTS_BY_ICAO: dict[str, dict[str, str]] = {
         "iata": "",
    },
     
+        "LEPA": {
+        "name": "Palma de Mallorca Airport",
+        "country": "Spain",
+        "iata": "PMI",
+   },
+    
     "LSTS": {
         "name": "St. Stephan Airfield",
         "country": "Switzerland",
