@@ -63,6 +63,7 @@ AIRLINES_BY_REGION: dict[str, dict[str, str]] = {
         "LED": "Blom Geomatics",
         "CFL": "Bromma Air Maintenance",
         "FIN": "Finnair",
+        "FNA": "Flugfelag Nordurlands",
         "ICE": "Icelandair",
         "NOZ": "Norwegian Air Shuttle",
         "NSZ": "Norwegian Air Sweden",
