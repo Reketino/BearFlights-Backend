@@ -39,6 +39,7 @@ class AircraftService:
             )
             
             typecode = metadata["typecode"]
+            manufacturer = metadata["manufacturer"]
             
             if not model:
                 model = metadata["model"]
