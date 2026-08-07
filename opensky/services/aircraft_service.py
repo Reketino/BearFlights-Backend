@@ -18,7 +18,7 @@ class AircraftService:
         registry = (
             self.supabase
             .table("aircraft_registry")
-            .select("typecode, model")
+            .select("typecode, model, manufacturer")
             .eq("icao24", icao24)
             .limit(1)
             .execute()
@@ -26,11 +26,13 @@ class AircraftService:
         
         typecode = None
         model = None
+        manufacturer = None
         
         if registry.data:
             row = cast(dict[str, Any], registry.data[0])
             typecode = row.get("typecode")
             model = row.get("model")
+            manufacturer = row.get("manufacturer")
             
         if not typecode:
             metadata = fetch_aircraft_metadata(
@@ -52,6 +54,7 @@ class AircraftService:
                 "icao24": icao24,
                 "typecode": typecode,
                 "model": model,
+                "manufacturer": manufacturer,
             }).execute()
             
         self.cache[icao24] = (typecode, model)
