@@ -22,3 +22,5 @@ def main() -> None:
         .select("typecode, manufacturer, model")
         .execute()
     )
+    
+    rows = cast(list[dict[str, Any]], res.data or [])
