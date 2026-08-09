@@ -47,4 +47,11 @@ def main() -> None:
             manufacturer if isinstance(manufacturer, str) else None,
             model if isinstance(model, str) else None,
         )
+        
+        if not unknown:
+            print("Zero unknown aircraft types.")
+            
+        
+        print("\nUnkown airrcraft types\n")
+        print("-" * 80)
     
