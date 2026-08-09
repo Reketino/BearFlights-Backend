@@ -34,4 +34,6 @@ def main() -> None:
         
         if not isinstance(typecode, str):
             continue
+        
+        typecode = typecode.strip()
     
