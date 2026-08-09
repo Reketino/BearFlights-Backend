@@ -31,3 +31,7 @@ def main() -> None:
         typecode = row.get("typecode")
         manufacturer = row.get("manufacturer")
         model = row.get("model")
+        
+        if not isinstance(typecode, str):
+            continue
+    
