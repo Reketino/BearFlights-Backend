@@ -24,3 +24,5 @@ def main() -> None:
     )
     
     rows = cast(list[dict[str, Any]], res.data or [])
+    
+    unknown: dict[str, tuple[str | None, str |None]] = {}
