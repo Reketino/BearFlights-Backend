@@ -55,7 +55,7 @@ def main() -> None:
         print("\nUnkown airrcraft types\n")
         print("-" * 80)
         
-        for typcode in sorted(unknown):
+        for typecode in sorted(unknown):
             manufacturer, model = unknown[typecode]
             
             print(
