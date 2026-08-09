@@ -63,4 +63,7 @@ def main() -> None:
                 f"{manufacturer or '-':<25}"
                 f"{model or '-'}"
             )
+            
+        print("-" * 80)
+        print(f"Total: {len(unknown)}")
     
