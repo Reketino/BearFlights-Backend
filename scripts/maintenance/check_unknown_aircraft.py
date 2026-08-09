@@ -26,3 +26,8 @@ def main() -> None:
     rows = cast(list[dict[str, Any]], res.data or [])
     
     unknown: dict[str, tuple[str | None, str |None]] = {}
+    
+    for row in rows:
+        typecode = row.get("typecode")
+        manufacturer = row.get("manufacturer")
+        model = row.get("model")
