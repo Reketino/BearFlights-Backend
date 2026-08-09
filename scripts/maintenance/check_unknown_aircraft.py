@@ -39,4 +39,7 @@ def main() -> None:
         
         if not typecode:
             continue
+        
+        if typecode in AIRCRAFT_TYPES:
+            continue
     
