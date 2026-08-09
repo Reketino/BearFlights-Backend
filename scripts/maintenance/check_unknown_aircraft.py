@@ -60,5 +60,7 @@ def main() -> None:
             
             print(
                 f"{typecode:<8}"
+                f"{manufacturer or '-':<25}"
+                f"{model or '-'}"
             )
     
