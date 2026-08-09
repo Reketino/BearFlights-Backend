@@ -36,4 +36,7 @@ def main() -> None:
             continue
         
         typecode = typecode.strip()
+        
+        if not typecode:
+            continue
     
