@@ -42,4 +42,9 @@ def main() -> None:
         
         if typecode in AIRCRAFT_TYPES:
             continue
+        
+        unknown[typecode] = (
+            manufacturer if isinstance(manufacturer, str) else None,
+            model if isinstance(model, str) else None,
+        )
     
