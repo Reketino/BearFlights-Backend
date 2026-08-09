@@ -74,6 +74,5 @@ def main() -> None:
     print("-" * 80)
     print(f"Total: {len(unknown)}")
 
-
 if __name__ == "__main__":
     main()
