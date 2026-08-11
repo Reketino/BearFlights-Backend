@@ -38,6 +38,8 @@ def enrich_aircraft_types(limit: int = 100) -> None:
     
     service = AircraftService(supabase, token)
     
+    print("AircraftService created")
+    
     for flight_data in flights:
         flight = cast(dict[str, Any], flight_data)
         
