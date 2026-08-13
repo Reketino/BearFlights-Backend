@@ -54,6 +54,10 @@ def fetch_aircraft_metadata(
         }
     
         if res.status_code!= 200:
+            print (
+                f"Metadata request returned HHTP {res.status_code}"
+                f"for {icao24}"
+            )
             return {
                 "typecode": None,
                 "model": None,
