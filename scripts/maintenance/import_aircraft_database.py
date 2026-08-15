@@ -57,3 +57,10 @@ def read_aircraft_database(
             raise RuntimeError(
                 "Could not find aircraftDatabase.csv in ZIP archive what a shame."
             )
+            
+        with archive.open(csv_name) as file:
+            text_file = io.TextIOWrapper(
+                file,
+                encoding="utf-8",
+                errors="replace",
+            )
