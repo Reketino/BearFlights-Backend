@@ -22,6 +22,9 @@ supabase = create_client(
     os.environ["SUPABASE_SERVICE_ROLE_KEY"],
 )
 
+def download_aircraft_database() -> bytes:
+    print("Downloading Opensky aircraft database...")
+
 response = requests.get(
     AIRCRAFT_DATABASE_URL,
     timeout=60,
