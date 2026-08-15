@@ -52,3 +52,8 @@ def read_aircraft_database(
             ),
             None,
         )
+        
+        if csv_name is None:
+            raise RuntimeError(
+                "Could not find aircraftDatabase.csv in ZIP archive what a shame."
+            )
