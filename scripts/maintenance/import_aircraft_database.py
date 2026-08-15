@@ -25,9 +25,15 @@ supabase = create_client(
 def download_aircraft_database() -> bytes:
     print("Downloading Opensky aircraft database...")
 
-response = requests.get(
-    AIRCRAFT_DATABASE_URL,
-    timeout=60,
-)
+    response = requests.get(
+        AIRCRAFT_DATABASE_URL,
+        timeout=60,
+    )
 
-response.raise_for_status()
+    response.raise_for_status()
+
+    print(
+        f"Downloaded {len(response.content) / 1024 / 1024:.1f} MB"
+    )
+
+    return response.content
