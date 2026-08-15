@@ -44,3 +44,11 @@ def read_aircraft_database(
     print("Reading aircraftDatabase.csv...")
     
     with zipfile.ZipFile(io.BytesIO(content)) as archive:
+        csv_name = next(
+            (
+                name
+                for name in archive.namelist()
+                if name.endswith("aircraftDatabase.csv")
+            ),
+            None,
+        )
