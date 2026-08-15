@@ -69,3 +69,5 @@ def read_aircraft_database(
             text_file,
             delimiter=",",
         )
+        
+        rows: list[dict[str, str | None]] = []
