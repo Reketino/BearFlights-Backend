@@ -37,3 +37,10 @@ def download_aircraft_database() -> bytes:
     )
 
     return response.content
+
+def read_aircraft_database(
+    content: bytes,
+) -> list[dict[str, str | None]]:
+    print("Reading aircraftDatabase.csv...")
+    
+    with zipfile.ZipFile(io.BytesIO(content)) as archive:
