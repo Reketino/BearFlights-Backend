@@ -71,3 +71,14 @@ def read_aircraft_database(
         )
         
         rows: list[dict[str, str | None]] = []
+        
+        for raw_row in reader:
+            row = {
+                key: (
+                    value.strip()
+                    if isinstance(value, str) and value.strip()
+                    else None
+                )
+                for key, value in raw_row.items()
+            }
+            rows.append(row)
