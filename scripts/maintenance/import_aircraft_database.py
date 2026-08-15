@@ -64,3 +64,8 @@ def read_aircraft_database(
                 encoding="utf-8",
                 errors="replace",
             )
+            
+        reader = csv.DictReader(
+            text_file,
+            delimiter=",",
+        )
