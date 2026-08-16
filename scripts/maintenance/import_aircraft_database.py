@@ -108,3 +108,4 @@ def build_registry_rows(
                 "owner": row.get("owner"),
             }
         )
+    return registry_rows
