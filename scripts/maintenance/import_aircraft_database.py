@@ -97,3 +97,11 @@ def build_registry_rows(
         
         if not icao24:
             continue
+        
+        registry_rows.append(
+            {
+                "icao24": icao24.lower(),
+                "registration": row.get("registration"),
+                "typecode": row.get("manufacturerName")
+            }
+        )
