@@ -102,6 +102,9 @@ def build_registry_rows(
             {
                 "icao24": icao24.lower(),
                 "registration": row.get("registration"),
-                "typecode": row.get("manufacturerName")
+                "typecode": row.get("typecode"),
+                "manufacturer": row.get("manufacturerName"),
+                "model": row.get("model"),
+                "owner": row.get("owner"),
             }
         )
