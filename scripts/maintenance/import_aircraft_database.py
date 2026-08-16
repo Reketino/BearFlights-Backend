@@ -94,3 +94,6 @@ def build_registry_rows(
     
     for row in rows:
         icao24 = row.get("icao24")
+        
+        if not icao24:
+            continue
