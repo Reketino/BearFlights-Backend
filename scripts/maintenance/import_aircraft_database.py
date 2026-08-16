@@ -82,3 +82,15 @@ def read_aircraft_database(
                 for key, value in raw_row.items()
             }
             rows.append(row)
+            
+    print(f"CSV rows read: {len(rows)}")
+    
+    return rows
+
+def build_registry_rows(
+    rows: list[dict[str, str | None]] = []
+) -> list[dict[str, str | None]]:
+    registry_rows: list[dict[str, str | None]] = []
+    
+    for row in rows:
+        icao24 = row.get("icao24")
