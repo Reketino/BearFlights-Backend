@@ -94,3 +94,18 @@ def build_registry_rows(
     
     for row in rows:
         icao24 = row.get("icao24")
+        
+        if not icao24:
+            continue
+        
+        registry_rows.append(
+            {
+                "icao24": icao24.lower(),
+                "registration": row.get("registration"),
+                "typecode": row.get("typecode"),
+                "manufacturer": row.get("manufacturerName"),
+                "model": row.get("model"),
+                "owner": row.get("owner"),
+            }
+        )
+    return registry_rows
