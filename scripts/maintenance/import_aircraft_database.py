@@ -92,4 +92,5 @@ def build_registry_rows(
 ) -> list[dict[str, str | None]]:
     registry_rows: list[dict[str, str | None]] = []
     
-    
+    for row in rows:
+        icao24 = row.get("icao24")
