@@ -86,3 +86,8 @@ def read_aircraft_database(
     print(f"CSV rows read: {len(rows)}")
     
     return rows
+
+def build_registry_rows(
+    rows: list[dict[str, str | None]] = []
+) -> list[dict[str, str | None]]:
+    
