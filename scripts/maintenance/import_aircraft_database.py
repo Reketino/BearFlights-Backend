@@ -82,3 +82,5 @@ def read_aircraft_database(
                 for key, value in raw_row.items()
             }
             rows.append(row)
+            
+    print(f"CSV rows read: {len(rows)}")
