@@ -115,3 +115,6 @@ def upsert_registry(
     rows: list[dict[str, str | None]],
     batch_size: int = 500,
 ) -> None:
+    total = len(rows)
+    
+    print(f"Preparing to upsert {total} aircraft...")
