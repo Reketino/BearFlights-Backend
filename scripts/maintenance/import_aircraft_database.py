@@ -118,3 +118,16 @@ def upsert_registry(
     total = len(rows)
     
     print(f"Preparing to upsert {total} aircraft...")
+    
+    for start in range(0, total, batch_size):
+        batch = rows[start:start + batch_size]
+        
+        (
+            supabase
+            .table("aircraft_registry")
+            .upsert(
+                cast(Any, batch),
+                on_conflict="icao24"
+            )
+            .execute()
+        )
