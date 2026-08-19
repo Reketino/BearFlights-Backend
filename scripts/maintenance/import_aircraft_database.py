@@ -131,3 +131,5 @@ def upsert_registry(
             )
             .execute()
         )
+        
+        end = min(start + batch_size, total)
