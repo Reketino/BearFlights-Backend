@@ -133,3 +133,7 @@ def upsert_registry(
         )
         
         end = min(start + batch_size, total)
+        
+        print(
+            f"Upserted {end}/{total}"
+        )
