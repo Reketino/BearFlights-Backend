@@ -137,3 +137,8 @@ def upsert_registry(
         print(
             f"Upserted {end}/{total}"
         )
+        
+def main() -> None:
+    content = download_aircraft_database()
+    
+    
