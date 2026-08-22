@@ -141,4 +141,8 @@ def upsert_registry(
 def main() -> None:
     content = download_aircraft_database()
     
+    rows = read_aircraft_database(content)
+    
+    registry_rows = build_registry_rows(rows)
+    
     
