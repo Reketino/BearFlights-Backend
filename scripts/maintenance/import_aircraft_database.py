@@ -145,4 +145,7 @@ def main() -> None:
     
     registry_rows = build_registry_rows(rows)
     
+    if not registry_rows:
+        print("No aircraft rows found.")
+    
     
