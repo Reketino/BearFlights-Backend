@@ -147,5 +147,8 @@ def main() -> None:
     
     if not registry_rows:
         print("No aircraft rows found.")
+        return
+    
+    
     
     
