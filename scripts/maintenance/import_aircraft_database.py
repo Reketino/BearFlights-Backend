@@ -149,6 +149,11 @@ def main() -> None:
         print("No aircraft rows found.")
         return
     
+    print(
+        f"Vvalid aircraft rows:{len(registry_rows)}"
+    )
     
+    upsert_registry(registry_rows)
     
+    print("Aircraft database import completed")
     
