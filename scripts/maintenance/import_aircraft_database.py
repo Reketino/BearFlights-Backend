@@ -140,20 +140,18 @@ def upsert_registry(
         
 def main() -> None:
     content = download_aircraft_database()
-    
+
     rows = read_aircraft_database(content)
-    
-    registry_rows = build_registry_rows(rows)
-    
-    if not registry_rows:
-        print("No aircraft rows found.")
-        return
-    
-    print(
-        f"Vvalid aircraft rows:{len(registry_rows)}"
-    )
-    
-    upsert_registry(registry_rows)
-    
-    print("Aircraft database import completed")
+
+    print("\nFirst aircraft row:")
+    print(rows[0] if rows else "No rows")
+
+    print("\nColumns:")
+    if rows:
+        print(list(rows[0].keys()))
+
+    return
+
+if __name__ == "__main__":
+    main()
     
