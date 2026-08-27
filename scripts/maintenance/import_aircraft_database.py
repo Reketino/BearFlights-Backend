@@ -65,27 +65,25 @@ def read_aircraft_database(
                 errors="replace",
             )
             
-        reader = csv.DictReader(
-            text_file,
-            delimiter=",",
-        )
+            reader = csv.DictReader(text_file)
         
-        rows: list[dict[str, str | None]] = []
+            rows: list[dict[str, str | None]] = []
         
-        for raw_row in reader:
-            row = {
-                key: (
-                    value.strip()
-                    if isinstance(value, str) and value.strip()
-                    else None
-                )
-                for key, value in raw_row.items()
-            }
-            rows.append(row)
+            for raw_row in reader:
+                row = {
+                    key: (
+                        value.strip()
+                        if isinstance(value, str) and value.strip()
+                        else None
+                    )
+                    for key, value in raw_row.items()
+                }
             
-    print(f"CSV rows read: {len(rows)}")
+                rows.append(row)
+            
+            print(f"CSV rows read: {len(rows)}")
     
-    return rows
+            return rows
 
 def build_registry_rows(
     rows: list[dict[str, str | None]] = []
