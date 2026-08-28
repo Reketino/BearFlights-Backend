@@ -86,7 +86,7 @@ def read_aircraft_database(
             return rows
 
 def build_registry_rows(
-    rows: list[dict[str, str | None]] = []
+    rows: list[dict[str, str | None]],
 ) -> list[dict[str, str | None]]:
     registry_rows: list[dict[str, str | None]] = []
     
