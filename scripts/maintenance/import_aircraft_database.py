@@ -140,15 +140,10 @@ def main() -> None:
     content = download_aircraft_database()
 
     rows = read_aircraft_database(content)
-
-    print("\nFirst aircraft row:")
-    print(rows[0] if rows else "No rows")
-
-    print("\nColumns:")
-    if rows:
-        print(list(rows[0].keys()))
-
-    return
+    
+    print(f"\nTotal rows: {len(rows)}")
+    
+    valid_icao24 = 0
 
 if __name__ == "__main__":
     main()
