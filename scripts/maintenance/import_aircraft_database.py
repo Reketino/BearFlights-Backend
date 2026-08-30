@@ -101,7 +101,7 @@ def build_registry_rows(
                 "icao24": icao24.lower(),
                 "registration": row.get("registration"),
                 "typecode": row.get("typecode"),
-                "manufacturer": row.get("manufacturerName"),
+                "manufacturer": row.get("manufacturername"),
                 "model": row.get("model"),
                 "owner": row.get("owner"),
             }
@@ -144,6 +144,9 @@ def main() -> None:
     print(f"\nTotal rows: {len(rows)}")
     
     valid_icao24 = 0
+    with_typecode = 0
+    with_model = 0
+    with_manufacturer = 0 
 
 if __name__ == "__main__":
     main()
