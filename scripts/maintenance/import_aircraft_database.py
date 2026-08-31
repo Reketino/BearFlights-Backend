@@ -146,7 +146,13 @@ def main() -> None:
     valid_icao24 = 0
     with_typecode = 0
     with_model = 0
-    with_manufacturer = 0 
+    with_manufacturer = 0
+    
+    for row in rows:
+        icao24 = row.get("icao24")
+        typecode = row.get("typecode")
+        model = row.get("model")
+        manufacturer = row.get("manufacturer") 
 
 if __name__ == "__main__":
     main()
