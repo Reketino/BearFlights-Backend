@@ -153,6 +153,13 @@ def main() -> None:
         typecode = row.get("typecode")
         model = row.get("model")
         manufacturer = row.get("manufacturer") 
+        
+        if icao24:
+            valid_icao24 += 1
+            
+        if typecode:
+            with_typecode += 1
+            
 
 if __name__ == "__main__":
     main()
