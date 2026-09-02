@@ -160,6 +160,9 @@ def main() -> None:
         if typecode:
             with_typecode += 1
             
+        if model:
+            with_model += 1
+            
 
 if __name__ == "__main__":
     main()
