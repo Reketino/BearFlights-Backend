@@ -163,6 +163,9 @@ def main() -> None:
         if model:
             with_model += 1
             
+        if manufacturer:
+            with_manufacturer += 1
+            
 
 if __name__ == "__main__":
     main()
