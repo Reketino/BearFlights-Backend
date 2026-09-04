@@ -166,6 +166,9 @@ def main() -> None:
         if manufacturer:
             with_manufacturer += 1
             
+        print(f"Valid ICAO24: {valid_icao24}")
+        print(f"With typecode: {with_typecode}")
+            
 
 if __name__ == "__main__":
     main()
