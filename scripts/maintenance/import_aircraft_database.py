@@ -168,6 +168,7 @@ def main() -> None:
             
         print(f"Valid ICAO24: {valid_icao24}")
         print(f"With typecode: {with_typecode}")
+        print(f"With model: {with_model}")
             
 
 if __name__ == "__main__":
