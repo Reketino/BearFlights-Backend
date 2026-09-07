@@ -152,7 +152,7 @@ def main() -> None:
         icao24 = row.get("icao24")
         typecode = row.get("typecode")
         model = row.get("model")
-        manufacturer = row.get("manufacturer") 
+        manufacturer = row.get("manufacturername") 
         
         if icao24:
             valid_icao24 += 1
@@ -166,12 +166,11 @@ def main() -> None:
         if manufacturer:
             with_manufacturer += 1
             
-        print(f"Valid ICAO24: {valid_icao24}")
-        print(f"With typecode: {with_typecode}")
-        print(f"With model: {with_model}")
-        print(f"With manufacturer: {with_manufacturer}")
+    print(f"Valid ICAO24: {valid_icao24}")
+    print(f"With typecode: {with_typecode}")
+    print(f"With model: {with_model}")
+    print(f"With manufacturer: {with_manufacturer}")
             
-
 if __name__ == "__main__":
     main()
     
