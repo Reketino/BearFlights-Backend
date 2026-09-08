@@ -170,6 +170,12 @@ def main() -> None:
     print(f"With typecode: {with_typecode}")
     print(f"With model: {with_model}")
     print(f"With manufacturer: {with_manufacturer}")
+    
+    for row in rows: 
+        if row.get("typecode") and row.get("model") and row.get("manufacturername"):
+            print("\nExample aircraft:")
+            print(row)
+            break
             
 if __name__ == "__main__":
     main()
