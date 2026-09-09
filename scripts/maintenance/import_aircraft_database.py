@@ -108,6 +108,11 @@ def build_registry_rows(
         )
     return registry_rows
 
+def import_aircraft_database(
+    registry_rows: list[dict[str, str | None]],
+) -> None:
+    print("Loading existing aircraft registry...")
+
 
 def upsert_registry(
     rows: list[dict[str, str | None]],
