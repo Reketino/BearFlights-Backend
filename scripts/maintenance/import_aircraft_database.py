@@ -112,6 +112,13 @@ def import_aircraft_database(
     registry_rows: list[dict[str, str | None]],
 ) -> None:
     print("Loading existing aircraft registry...")
+    
+    res = (
+        supabase
+        .table("aircraft_registry")
+        .select("icao24, registration, typecode, manufacturer, model, owner")
+        .execute()
+    )
 
 
 def upsert_registry(
