@@ -119,6 +119,12 @@ def import_aircraft_database(
         .select("icao24, registration, typecode, manufacturer, model, owner")
         .execute()
     )
+    
+    existing_rows = cast(
+        list[dict[str, Any]],
+        res.data or [],
+    )
+    print(f"Existing registry rows: {len(existing_rows)}")
 
 
 def upsert_registry(
