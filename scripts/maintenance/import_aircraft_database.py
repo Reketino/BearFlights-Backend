@@ -130,7 +130,10 @@ def import_aircraft_database(
         row["icap24"].lower(): row
         for row in existing_rows
         if isinstance(row.get("icao24"), str)
-        }
+    }
+    
+    updates: list[dict[str, str | None]] = []
+    
 
 
 def upsert_registry(
