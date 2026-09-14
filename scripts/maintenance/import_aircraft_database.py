@@ -134,6 +134,12 @@ def import_aircraft_database(
     
     updates: list[dict[str, str | None]] = []
     
+    for row in registry_rows:
+        icao24 = row["icao24"]
+        
+        if not icao24:
+            continue
+    
 
 
 def upsert_registry(
