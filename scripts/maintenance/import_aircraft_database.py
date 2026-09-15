@@ -139,7 +139,11 @@ def import_aircraft_database(
         
         if not icao24:
             continue
-    
+        
+        existing = existing_by_icao24.get(icao24)
+        
+        if not existing:
+            continue
 
 
 def upsert_registry(
