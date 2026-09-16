@@ -144,7 +144,12 @@ def import_aircraft_database(
         
         if not existing:
             continue
-
+        
+        update: dict[str, str | None] = {
+            "icao24": icao24,
+        }
+        
+        changed = False
 
 def upsert_registry(
     rows: list[dict[str, str | None]],
