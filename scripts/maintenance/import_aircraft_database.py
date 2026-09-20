@@ -150,6 +150,17 @@ def import_aircraft_database(
         }
         
         changed = False
+        
+        for field in (
+            "registration",
+            "typecode",
+            "manufacturer",
+            "model",
+            "owner",
+        ):
+            
+            new_value = row.get(field)
+            old_value = existing.get(field)
 
 def upsert_registry(
     rows: list[dict[str, str | None]],
