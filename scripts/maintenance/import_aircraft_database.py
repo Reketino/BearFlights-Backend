@@ -161,6 +161,10 @@ def import_aircraft_database(
             
             new_value = row.get(field)
             old_value = existing.get(field)
+            
+            if new_value is not None and old_value is None:
+                update[field] = new_value
+                changed = True
 
 def upsert_registry(
     rows: list[dict[str, str | None]],
