@@ -166,9 +166,14 @@ def import_aircraft_database(
                 update[field] = new_value
                 changed = True
                 
-        
         if changed:
             updates.append(update)
+            
+    print(f"Aircraft needing metadata update: {len(updates)}")
+    
+    if not updates:
+        print("No aircraft need updating.")
+        return
 
 def upsert_registry(
     rows: list[dict[str, str | None]],
