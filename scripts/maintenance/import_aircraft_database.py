@@ -174,6 +174,11 @@ def import_aircraft_database(
     if not updates:
         print("No aircraft need updating.")
         return
+    
+    batch_size = 500
+    
+    for start in range(0, len(updates), batch_size):
+        batch = updates[start:start + batch_size]
 
 def upsert_registry(
     rows: list[dict[str, str | None]],
