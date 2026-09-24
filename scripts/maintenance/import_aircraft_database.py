@@ -179,6 +179,16 @@ def import_aircraft_database(
     
     for start in range(0, len(updates), batch_size):
         batch = updates[start:start + batch_size]
+        
+        (
+            supabase
+            .table("aircraft_registry")
+            .upsert(
+                batch,
+                on_conflict="icao24",
+            )
+            .execute()
+        )
 
 def upsert_registry(
     rows: list[dict[str, str | None]],
