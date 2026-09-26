@@ -195,6 +195,8 @@ def import_aircraft_database(
             f"{start + 1}-{start + len(batch)} "
             f"of {len(updates)}"
         )
+        
+        print("Aircraft database import completed.")
 
 def upsert_registry(
     rows: list[dict[str, str | None]],
