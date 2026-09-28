@@ -261,6 +261,7 @@ def main() -> None:
     print(f"With manufacturer: {with_manufacturer}")
     
     registry_rows = build_registry_rows(rows)
+    print(f"\nRegistry rows built: {len(registry_rows)}")
             
 if __name__ == "__main__":
     main()
