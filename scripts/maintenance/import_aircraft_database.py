@@ -198,32 +198,6 @@ def import_aircraft_database(
         
         print("Aircraft database import completed.")
 
-def upsert_registry(
-    rows: list[dict[str, str | None]],
-    batch_size: int = 500,
-) -> None:
-    total = len(rows)
-    
-    print(f"Preparing to upsert {total} aircraft...")
-    
-    for start in range(0, total, batch_size):
-        batch = rows[start:start + batch_size]
-        
-        (
-            supabase
-            .table("aircraft_registry")
-            .upsert(
-                cast(Any, batch),
-                on_conflict="icao24"
-            )
-            .execute()
-        )
-        
-        end = min(start + batch_size, total)
-        
-        print(
-            f"Upserted {end}/{total}"
-        )
         
 def main() -> None:
     content = download_aircraft_database()
