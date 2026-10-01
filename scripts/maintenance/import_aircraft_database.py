@@ -127,7 +127,7 @@ def import_aircraft_database(
     print(f"Existing registry rows: {len(existing_rows)}")
     
     existing_by_icao24 = {
-        row["icap24"].lower(): row
+        row["icao24"].lower(): row
         for row in existing_rows
         if isinstance(row.get("icao24"), str)
     }
