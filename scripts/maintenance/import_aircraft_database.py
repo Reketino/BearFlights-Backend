@@ -196,7 +196,7 @@ def import_aircraft_database(
             f"of {len(updates)}"
         )
         
-        print("Aircraft database import completed.")
+    print("Aircraft database import completed.")
 
         
 def main() -> None:
