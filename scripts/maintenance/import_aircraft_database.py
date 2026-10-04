@@ -216,7 +216,7 @@ def main() -> None:
         typecode = row.get("typecode")
         model = row.get("model")
         manufacturer = row.get("manufacturername") 
-        
+         
         if icao24:
             valid_icao24 += 1
             
