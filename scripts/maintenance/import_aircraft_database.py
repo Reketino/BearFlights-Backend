@@ -111,7 +111,10 @@ def build_registry_rows(
 def import_aircraft_database(
     registry_rows: list[dict[str, str | None]],
 ) -> None:
-    print("Loading existing aircraft registry...")
+    print( 
+          f"Imporing {len(registry_rows)} aircraft into "
+          "aircraft_registry..."
+          )
     
     res = (
         supabase
