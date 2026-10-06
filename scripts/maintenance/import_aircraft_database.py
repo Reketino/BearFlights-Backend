@@ -4,7 +4,6 @@ import csv
 import io
 import os
 import zipfile
-from typing import Any, cast
 
 import requests
 from dotenv import load_dotenv
@@ -114,7 +113,10 @@ def import_aircraft_database(
     print( 
           f"Imporing {len(registry_rows)} aircraft into "
           "aircraft_registry..."
-          )
+    )
+    
+    batch_size = 500
+    
     
     res = (
         supabase
