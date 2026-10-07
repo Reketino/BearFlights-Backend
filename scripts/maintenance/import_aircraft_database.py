@@ -111,76 +111,18 @@ def import_aircraft_database(
     registry_rows: list[dict[str, str | None]],
 ) -> None:
     print( 
-          f"Imporing {len(registry_rows)} aircraft into "
-          "aircraft_registry..."
+        f"Imporing {len(registry_rows)} aircraft into "
+        "aircraft_registry..."
     )
-    
+     
     batch_size = 500
     
+    total_batches = (
+        len(registry_rows) + batch_size - 1
+    ) // batch_size
     
-    res = (
-        supabase
-        .table("aircraft_registry")
-        .select("icao24, registration, typecode, manufacturer, model, owner")
-        .execute()
-    )
+    imported = 0
     
-    existing_rows = cast(
-        list[dict[str, Any]],
-        res.data or [],
-    )
-    print(f"Existing registry rows: {len(existing_rows)}")
-    
-    existing_by_icao24 = {
-        row["icao24"].lower(): row
-        for row in existing_rows
-        if isinstance(row.get("icao24"), str)
-    }
-    
-    updates: list[dict[str, str | None]] = []
-    
-    for row in registry_rows:
-        icao24 = row["icao24"]
-        
-        if not icao24:
-            continue
-        
-        existing = existing_by_icao24.get(icao24)
-        
-        if not existing:
-            continue
-        
-        update: dict[str, str | None] = {
-            "icao24": icao24,
-        }
-        
-        changed = False
-        
-        for field in (
-            "registration",
-            "typecode",
-            "manufacturer",
-            "model",
-            "owner",
-        ):
-            
-            new_value = row.get(field)
-            old_value = existing.get(field)
-            
-            if new_value is not None and old_value is None:
-                update[field] = new_value
-                changed = True
-                
-        if changed:
-            updates.append(update)
-            
-    print(f"Aircraft needing metadata update: {len(updates)}")
-    
-    if not updates:
-        print("No aircraft need updating.")
-        return
-    
-    batch_size = 500
     
     for start in range(0, len(updates), batch_size):
         batch = updates[start:start + batch_size]
