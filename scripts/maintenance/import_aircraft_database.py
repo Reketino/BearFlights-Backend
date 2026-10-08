@@ -123,9 +123,10 @@ def import_aircraft_database(
     
     imported = 0
     
-    
-    for start in range(0, len(updates), batch_size):
-        batch = updates[start:start + batch_size]
+    for batch_number, start in enumerate(
+        range(0, len(registry_rows), batch_size),
+        start=1,
+    ):
         
         (
             supabase
