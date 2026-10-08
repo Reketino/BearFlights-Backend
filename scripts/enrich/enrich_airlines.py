@@ -19,6 +19,9 @@ def enrich_airlines(limit: int = 100) -> None: # Wanna enrich more or less fligh
         .table("flights")
         .select("icao24, callsign, date")
         .is_("airline", None)
+        .not_.is_("callsign", None)
+        .neq("callsign", "")
+        .order("date", desc=True)
         .limit(limit)
         .execute()
     )
@@ -30,6 +33,13 @@ def enrich_airlines(limit: int = 100) -> None: # Wanna enrich more or less fligh
         return
     
     print(f"enriching {len(flights)} flights (airlines)")
+    
+    for flight_data in flights:
+        flight = cast(dict[str, Any], flight_data)
+        print(
+            f"ICAO24: {flight.get('icao24')} "
+            f"CALLSIGN: {flight.get('callsign')!r}"
+    )
     
     service = AirlineService()
     
