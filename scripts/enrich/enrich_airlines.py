@@ -13,12 +13,15 @@ supabase = create_client(
 )
 
 # Enrichment script w/ limit of enriching 100 flights
-def enrich_airlines(limit: int = 100) -> None: # Wanna enrich more or less flights?, adjust int number. 
+def enrich_airlines(limit: int = 500) -> None: # Wanna enrich more or less flights?, adjust int number. 
     res = (
         supabase
         .table("flights")
         .select("icao24, callsign, date")
         .is_("airline", None)
+        .not_.is_("callsign", None)
+        .neq("callsign", "")
+        .order("date", desc=True)
         .limit(limit)
         .execute()
     )
@@ -30,7 +33,7 @@ def enrich_airlines(limit: int = 100) -> None: # Wanna enrich more or less fligh
         return
     
     print(f"enriching {len(flights)} flights (airlines)")
-    
+        
     service = AirlineService()
     
     for flight_data in flights:
