@@ -111,7 +111,7 @@ def import_aircraft_database(
     registry_rows: list[dict[str, str | None]],
 ) -> None:
     print( 
-        f"Imporing {len(registry_rows)} aircraft into "
+        f"Importing {len(registry_rows)} aircraft into "
         "aircraft_registry..."
     )
      
@@ -127,6 +127,9 @@ def import_aircraft_database(
         range(0, len(registry_rows), batch_size),
         start=1,
     ):
+        batch = registry_rows[
+            start:start + batch_size
+        ]
         
         (
             supabase
@@ -138,13 +141,17 @@ def import_aircraft_database(
             .execute()
         )
         
+        imported += len(batch)
         print(
             f"Imported batch "
-            f"{start + 1}-{start + len(batch)} "
-            f"of {len(updates)}"
+            f"{batch_number}/{total_batches} "
+            f"| {imported}/{len(registry_rows)}"
         )
         
-    print("Aircraft database import completed.")
+    print(
+        f"Aircraft database import completed. "
+        f"Rows processed: {imported}"
+        )
 
         
 def main() -> None:
