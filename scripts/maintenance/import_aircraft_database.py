@@ -152,7 +152,6 @@ def import_aircraft_database(
         f"Aircraft database import completed. "
         f"Rows processed: {imported}"
         )
-
         
 def main() -> None:
     content = download_aircraft_database()
