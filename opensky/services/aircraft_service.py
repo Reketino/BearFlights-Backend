@@ -11,7 +11,10 @@ class AircraftService:
         self.cache: dict[str, tuple[str | None, str | None]] = {}
     
         
-    def get_or_fetch_aircraft(self, icao24: str) -> tuple[str | None, str | None]:
+    def get_or_fetch_aircraft(
+        self, 
+        icao24: str,
+        ) -> tuple[str | None, str | None]:
         if icao24 in self.cache:
             return self.cache[icao24]
         
