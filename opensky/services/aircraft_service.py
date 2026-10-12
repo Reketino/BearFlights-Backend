@@ -29,14 +29,13 @@ class AircraftService:
         
         typecode = None
         model = None
-        manufacturer = None
+        
         
         if registry.data:
             row = cast(dict[str, Any], registry.data[0])
             typecode = row.get("typecode")
             model = row.get("model")
-            manufacturer = row.get("manufacturer")
-            
+                
         if not typecode:
             metadata = fetch_aircraft_metadata(
                 icao24,
