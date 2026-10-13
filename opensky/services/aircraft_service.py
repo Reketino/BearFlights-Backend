@@ -30,36 +30,16 @@ class AircraftService:
         typecode = None
         model = None
         
-        
         if registry.data:
             row = cast(dict[str, Any], registry.data[0])
             typecode = row.get("typecode")
             model = row.get("model")
                 
-        if not typecode:
-            metadata = fetch_aircraft_metadata(
-                icao24,
-                self.token,
-            )
-            
-            typecode = metadata["typecode"]
-            manufacturer = metadata["manufacturer"]
-            
-            if not model:
-                model = metadata["model"]
-            
         if typecode and not model:
             model = aircraft_from_typecode(typecode)
             
-        if typecode or model:
-            self.supabase.table("aircraft_registry").upsert({
-                "icao24": icao24,
-                "typecode": typecode,
-                "model": model,
-                "manufacturer": manufacturer,
-            }).execute()
-            
         self.cache[icao24] = (typecode, model)
+        
         return self.cache[icao24]
     
     def get_aircraft_name(self, typecode: str | None, model: str | None) -> str | None:
