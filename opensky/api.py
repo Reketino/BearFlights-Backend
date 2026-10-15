@@ -1,21 +1,15 @@
 import requests
 from dotenv import load_dotenv
-from typing import Any, List, cast, TypedDict
+from typing import Any, cast
 
 load_dotenv()
 
 # States defined as "any"
-State = List[Any]
-
-class AircraftMetadata(TypedDict):
-    typecode: str | None
-    model: str | None
-    manufacturer: str | None
+State = list[Any]
 
 # URL for data collection
 STATES_URL = "https://opensky-network.org/api/states/all"
 FLIGHTS_BY_AIRCRAFT_URL = "https://opensky-network.org/api/flights/aircraft"
-AIRCRAFT_META_URL = "https://opensky-network.org/api/metadata/aircraft/icao"
 
 # Collecting States
 def fetch_states(token: str) -> list[State]:
@@ -28,62 +22,6 @@ def fetch_states(token: str) -> list[State]:
     )
     res.raise_for_status()
     return cast(list[State], res.json().get("states", []))
-
-# COLLECTING AIRCRAFT TYPES
-def fetch_aircraft_metadata(
-    icao24: str, 
-    token: str
-    ) -> AircraftMetadata:
-        print(f"Fetching aircraft metadata: {icao24}")
-        
-        try:
-            res = requests.get(
-                f"{AIRCRAFT_META_URL}/{icao24}",
-                headers={
-                    "Authorization": f"Bearer {token}",
-                },
-                timeout=10,
-            )
-        except requests.exceptions.RequestException as e:
-            print(f"Metadata request failed for {icao24}: {e}")
-        
-            return {
-                "typecode": None,
-                "model": None,
-                "manufacturer": None,
-        }
-    
-        if res.status_code!= 200:
-            print (
-                f"Metadata request returned HHTP {res.status_code}"
-                f"for {icao24}"
-            )
-            return {
-                "typecode": None,
-                "model": None,
-                "manufacturer": None,
-            }
-    
-        data = res.json()
-    
-        typecode = data.get("typecode")
-        model = data.get("model")
-        manufacturer = data.get("manufacturerName")
-        
-        if isinstance(typecode, str):
-            typecode = typecode.strip()
-            
-        if isinstance(model, str):
-            model = model.strip()
-            
-        if isinstance(manufacturer, str):
-            manufacturer = manufacturer.strip()
-                
-        return {
-            "typecode": typecode or None,
-            "model": model or None,
-            "manufacturer": manufacturer or None,
-        }
 
 # Collecting Dep airport 
 def fetch_flight_airport(
