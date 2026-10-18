@@ -30,11 +30,7 @@ def enrich_aircraft_types(limit: int = 100) -> None:
         return
     
     print(f"enriching {len(flights)}")
-    
-    print("Getting Opensky token")
-    
-    token = get_opensky_token()
-    
+
     service = AircraftService(supabase, token)
     
     print("AircraftService created")
