@@ -2,7 +2,6 @@ from typing import Any, cast
 import os
 from dotenv import load_dotenv
 from supabase import create_client
-from opensky.auth import get_opensky_token
 from opensky.services.aircraft_service import AircraftService
 
 load_dotenv()
