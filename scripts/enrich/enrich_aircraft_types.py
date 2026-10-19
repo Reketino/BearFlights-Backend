@@ -31,7 +31,7 @@ def enrich_aircraft_types(limit: int = 100) -> None:
     
     print(f"enriching {len(flights)}")
 
-    service = AircraftService(supabase, token)
+    service = AircraftService(supabase)
     
     print("AircraftService created")
     
