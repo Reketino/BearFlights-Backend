@@ -73,7 +73,6 @@ def enrich_aircraft_types(limit: int = 100) -> None:
        
         print(f"{icao24} -> {aircraft_type} ({aircraft_name})")
         
-        
 def main() -> None:
     enrich_aircraft_types(limit=100)
 
