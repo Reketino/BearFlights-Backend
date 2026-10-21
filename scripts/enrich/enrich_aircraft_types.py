@@ -22,7 +22,7 @@ def enrich_aircraft_types(limit: int = 100) -> None:
         .execute()
     )
     
-    print(f"Found {len(res.data or [])} Flight has gone missing, can't seem to find him")
+    print(f"Found {len(res.data or [])} flights to enrich")
     
     flights = res.data or []
     if not flights:
