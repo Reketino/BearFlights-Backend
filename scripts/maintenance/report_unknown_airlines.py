@@ -21,3 +21,6 @@ def report_unknown_airlines() -> None:
     
     response = (supabase .table("flights") .select("callsign, airline") .execute())
     
+    flights = response.data or []
+    
+    
