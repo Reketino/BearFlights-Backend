@@ -1,4 +1,4 @@
-ruff
-black
-mypy
-pytest
+ruff==0.14.14
+black==26.10.1
+mypy==1.19.1
+pytest==9.1.1
