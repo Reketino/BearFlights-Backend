@@ -23,4 +23,6 @@ def report_unknown_airlines() -> None:
     
     flights = response.data or []
     unknown_prefixes: Counter[str] = Counter()
+    empty_callsigns = 0
+    missing_airline = 0
     
