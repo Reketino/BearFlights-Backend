@@ -26,3 +26,6 @@ def report_unknown_airlines() -> None:
     empty_callsigns = 0
     missing_airline = 0
     
+    for flight_data in flights:
+        flights = cast(dict[str, Any], flight_data)
+    
