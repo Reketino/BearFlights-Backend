@@ -28,4 +28,9 @@ def report_unknown_airlines() -> None:
     
     for flight_data in flights:
         flights = cast(dict[str, Any], flight_data)
+        
+        airline = flight.get("airline")
+        if isinstance(airline, str) and airline.strip():
+            continue
+        
     
