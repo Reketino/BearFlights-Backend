@@ -27,10 +27,12 @@ def report_unknown_airlines() -> None:
     missing_airline = 0
     
     for flight_data in flights:
-        flights = cast(dict[str, Any], flight_data)
+        flight = cast(dict[str, Any], flight_data)
         
         airline = flight.get("airline")
         if isinstance(airline, str) and airline.strip():
             continue
         
+        missing_airline += 1
+        callsign = flight.get("callsign")
     
