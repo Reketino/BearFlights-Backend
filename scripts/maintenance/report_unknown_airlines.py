@@ -35,4 +35,8 @@ def report_unknown_airlines() -> None:
         
         missing_airline += 1
         callsign = flight.get("callsign")
+        
+        if not isinstance(callsign, str) or not callsign.strip():
+            empty_callsigns += 1
+            continue
     
