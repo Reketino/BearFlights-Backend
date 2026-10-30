@@ -39,4 +39,10 @@ def report_unknown_airlines() -> None:
         if not isinstance(callsign, str) or not callsign.strip():
             empty_callsigns += 1
             continue
+        
+        if len(callsign) < 3:
+            unknown_prefixes[callsign] += 1
+            continue
+        
+        
     
