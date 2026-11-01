@@ -46,5 +46,10 @@ def report_unknown_airlines() -> None:
         
         prefix = callsign[:3]
         
+        if prefix not in ICAO_AIRLINES:
+            unknown_prefixes[prefix] += 1
+            
+        
+        
         
     
