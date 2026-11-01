@@ -44,5 +44,7 @@ def report_unknown_airlines() -> None:
             unknown_prefixes[callsign] += 1
             continue
         
+        prefix = callsign[:3]
+        
         
     
