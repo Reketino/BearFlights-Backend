@@ -48,6 +48,8 @@ def report_unknown_airlines() -> None:
         
         if prefix not in ICAO_AIRLINES:
             unknown_prefixes[prefix] += 1
+    
+    print("\n=== Unknown Airline Report ===")
             
         
         
