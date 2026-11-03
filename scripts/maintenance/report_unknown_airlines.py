@@ -50,6 +50,9 @@ def report_unknown_airlines() -> None:
             unknown_prefixes[prefix] += 1
     
     print("\n=== Unknown Airline Report ===")
+    print(f"Total flights checked: {len(flights)}")
+    print(f"Flights missing airline: {missing_airline}")
+    print(f"Flights with empty callsign: {empty_callsigns}")
             
         
         
