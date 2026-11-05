@@ -54,6 +54,10 @@ def report_unknown_airlines() -> None:
     print(f"Flights missing airline: {missing_airline}")
     print(f"Flights with empty callsign: {empty_callsigns}")
     print("\nUnknown callsign prefixes:")
+    
+    if not unknown_prefixes:
+        print("No unknown prefixes found.")
+        return
             
         
         
