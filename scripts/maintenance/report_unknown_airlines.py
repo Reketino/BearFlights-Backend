@@ -59,6 +59,8 @@ def report_unknown_airlines() -> None:
         print("No unknown prefixes found.")
         return
             
+    for prefix, count in unknown_prefixes.most_common():
+        
         
         
         
