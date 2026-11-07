@@ -60,7 +60,10 @@ def report_unknown_airlines() -> None:
         return
             
     for prefix, count in unknown_prefixes.most_common():
+        print (f" {prefix}: {count} flights")
         
+if __name__ == "__main__":
+    report_unknown_airlines()
         
         
         
