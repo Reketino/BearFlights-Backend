@@ -16,6 +16,13 @@ supabase = create_client(
     os.environ["SUPABASE_SERVICE_ROLE_KEY"],
 ) 
 
+PAGE_SIZE = 1000
+
+def fetch_flights() -> list[dict[str,Any]]:
+    """Fetch all flights using pagination."""
+    
+    flights: list[dict[str, Any]] = []
+
 def report_unknown_airlines() -> None:
     """Report flights with missing or unknown airline mappings."""
     
