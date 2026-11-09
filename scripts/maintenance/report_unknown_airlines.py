@@ -22,6 +22,7 @@ def fetch_flights() -> list[dict[str,Any]]:
     """Fetch all flights using pagination."""
     
     flights: list[dict[str, Any]] = []
+    start = 0
 
 def report_unknown_airlines() -> None:
     """Report flights with missing or unknown airline mappings."""
