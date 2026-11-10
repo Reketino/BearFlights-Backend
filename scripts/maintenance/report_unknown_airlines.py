@@ -23,6 +23,15 @@ def fetch_flights() -> list[dict[str,Any]]:
     
     flights: list[dict[str, Any]] = []
     start = 0
+    
+    while True:
+        response = (
+            supabase
+            .table("flights")
+            .select("callsign, airline")
+            .range(start, start + PAGE_SIZE - 1)
+            .execute()
+        )
 
 def report_unknown_airlines() -> None:
     """Report flights with missing or unknown airline mappings."""
