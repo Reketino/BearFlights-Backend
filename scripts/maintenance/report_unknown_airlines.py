@@ -32,6 +32,9 @@ def fetch_flights() -> list[dict[str,Any]]:
             .range(start, start + PAGE_SIZE - 1)
             .execute()
         )
+        
+        batch = response.data or []
+        
 
 def report_unknown_airlines() -> None:
     """Report flights with missing or unknown airline mappings."""
