@@ -35,6 +35,11 @@ def fetch_flights() -> list[dict[str,Any]]:
         
         batch = response.data or []
         
+        flights.extend(
+            cast(list[dict[str,Any]], batch)
+        )
+        
+        
 
 def report_unknown_airlines() -> None:
     """Report flights with missing or unknown airline mappings."""
