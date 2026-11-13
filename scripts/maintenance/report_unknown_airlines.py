@@ -39,6 +39,9 @@ def fetch_flights() -> list[dict[str,Any]]:
             cast(list[dict[str,Any]], batch)
         )
         
+        if len(batch) < PAGE_SIZE:
+            break
+        
         
 
 def report_unknown_airlines() -> None:
