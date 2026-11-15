@@ -43,6 +43,8 @@ def fetch_flights() -> list[dict[str,Any]]:
             break
         
         start += PAGE_SIZE
+    
+    return flights
         
         
         
