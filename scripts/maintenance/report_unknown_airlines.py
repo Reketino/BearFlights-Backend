@@ -45,10 +45,11 @@ def fetch_flights() -> list[dict[str,Any]]:
         start += PAGE_SIZE
     
     return flights
-        
-        
-        
 
+def is_registration_callsign(callsign: str) -> bool:
+    """Identify common registration-based callsigns."""
+    
+    
 def report_unknown_airlines() -> None:
     """Report flights with missing or unknown airline mappings."""
     
