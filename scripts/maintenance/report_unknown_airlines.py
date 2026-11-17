@@ -48,6 +48,10 @@ def fetch_flights() -> list[dict[str,Any]]:
 
 def is_registration_callsign(callsign: str) -> bool:
     """Identify common registration-based callsigns."""
+    return(
+        callsign.startswith("LN")
+        
+    )
     
     
 def report_unknown_airlines() -> None:
