@@ -50,7 +50,9 @@ def is_registration_callsign(callsign: str) -> bool:
     """Identify common registration-based callsigns."""
     return(
         callsign.startswith("LN")
-        
+        or (
+            callsign.startswith("N")
+        )
     )
     
     
