@@ -52,7 +52,9 @@ def is_registration_callsign(callsign: str) -> bool:
         callsign.startswith("LN")
         or (
             callsign.startswith("N")
-        )
+            and len (callsign) > 1
+            )
+        
     )
     
     
