@@ -54,7 +54,7 @@ def is_registration_callsign(callsign: str) -> bool:
             callsign.startswith("N")
             and len (callsign) > 1
             )
-        
+        or callsign.isdigit()
     )
     
     
