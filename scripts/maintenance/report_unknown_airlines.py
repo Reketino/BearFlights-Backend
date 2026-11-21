@@ -61,9 +61,8 @@ def is_registration_callsign(callsign: str) -> bool:
 def report_unknown_airlines() -> None:
     """Report flights with missing or unknown airline mappings."""
     
-    response = (supabase .table("flights") .select("callsign, airline") .execute())
     
-    flights = response.data or []
+    flights = fetch_flights()
     unknown_prefixes: Counter[str] = Counter()
     empty_callsigns = 0
     missing_airline = 0
