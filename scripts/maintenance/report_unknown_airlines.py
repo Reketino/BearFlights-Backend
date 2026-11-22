@@ -61,10 +61,12 @@ def is_registration_callsign(callsign: str) -> bool:
 def report_unknown_airlines() -> None:
     """Report flights with missing or unknown airline mappings."""
     
-    
     flights = fetch_flights()
+    
     unknown_prefixes: Counter[str] = Counter()
+    
     empty_callsigns = 0
+    registration_callsigns = 0
     missing_airline = 0
     
     for flight_data in flights:
