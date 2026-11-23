@@ -83,6 +83,8 @@ def report_unknown_airlines() -> None:
             empty_callsigns += 1
             continue
         
+        callsign = callsign.strip().upper()
+        
         if len(callsign) < 3:
             unknown_prefixes[callsign] += 1
             continue
